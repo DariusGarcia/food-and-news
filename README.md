@@ -1,6 +1,12 @@
 # group-project
 
+darius
 
+```
+testing
+```
 
+Hi I'm Daniel
 
-hi everyone!
+Wow, hi guys. I'm Griffin
+hi everyone! -jap
