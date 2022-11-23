@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -15,7 +14,68 @@
 </head>
 
 <body>
+    <header>
+        <h1>Recipe Handbook</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#results">Results</a>
+        </nav>
+    </header>
 
+    <section class="hero-banner">
+        <div>
+            <h2>Find your favorite recipes!</h2>
+        </div>
+    </section>
+
+</nav class="flex" id="navbar">
+        <div class="flex">
+            <a href="index.html" class="flex">
+                <img src="./assets/images/logo.png" alt="logo" class="logo" />
+            </a>
+            <a href="index.html" class="flex">
+                <h1 class="title">Recipe Handbook</h1>
+            </a>
+        </div>
+        <div class="flex">
+            <a href="index.html" class="flex">
+                <h2 class="nav-link">Home</h2>
+            </a>
+            <a href="results.html" class="flex">
+                <h2 class="nav-link">Results</h2>
+            </a>
+        </div>
+    </nav>
+    <main class="page-wrapper">
+        <section class="page-section" id="home">
+            <h2>Home</h2>
+            <div>
+                <p>
+                    Welcome to Recipe Handbook! This web app will allow you to search for recipes and find the closest grocery store to you.
+                </p>
+                <p>
+                    To get started, enter a recipe name in the search bar and click the search button. Then, click the "Find Store" button to find the closest grocery store to you.
+                </p>
+            </div>
+        </section>
+        </main>
+        <div class="container">
+            <div class="flex">
+                <div class="flex">
+                    <h2 class="nav-link">Zip Code</h2>
+                    <input type="text" id="zip" class="flex" />
+                </div>
+                <div class="flex">
+                    <h2 class="nav-link">Recipe</h2>
+                    <input type="text" id="recipe" class="flex" />
+                </div>
+                <div class="flex">
+                    <button class="flex" id="search">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </nav>
     <script src="./assets/js/script.js" async defer></script>
 </body>
 
