@@ -43,3 +43,17 @@ function handleResults(arr) {
 buttonEl = document.querySelector('#searchBtn')
 
 buttonEl.addEventListener('click', fetchRecipe())
+
+
+function fetchYelp(){
+	var zipCode = ''//TODO: zipcode from local storage
+	var yelpURL = `https://serpapi.com/search.json?engine=yelp&find_desc=grocery+store&find_loc=${zipCode}`
+	fetch(yelpURL)
+	.then(response => response.json())
+}
+
+
+buttonEl = document.querySelector('#searchBtn')
+
+buttonEl.addEventListener('click', fetchRecipe())
+
