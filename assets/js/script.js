@@ -1,5 +1,3 @@
-var zipCode
-var yelpURL = `https://serpapi.com/search.json?engine=yelp&find_desc=grocery+store&find_loc=${zipCode}`
 var tastyURL = `https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes`
 
 const options = {
@@ -17,4 +15,10 @@ function fetchRecipe() {
 		.catch((err) => console.error(err))
 }
 
-function fetchYelp
+
+function fetchYelp(){
+	var zipCode = ''//TODO: zipcode from local storage
+	var yelpURL = `https://serpapi.com/search.json?engine=yelp&find_desc=grocery+store&find_loc=${zipCode}`
+	fetch(yelpURL)
+	.then(response => response.json())
+}
