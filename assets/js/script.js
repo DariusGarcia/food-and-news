@@ -1,5 +1,3 @@
-var zipCode
-var yelpURL = `https://serpapi.com/search.json?engine=yelp&find_desc=grocery+store&find_loc=${zipCode}`
 var tastyURL = `https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes`
 var tastyDev = './data.json'
 
@@ -25,16 +23,17 @@ function fetchRecipe() {
 		.catch((err) => console.error(err))
 }
 
-function handleResults(arr) {
-	for (var i = 0; i < arr.length; i++) {
-		console.log(arr[i].name)
-		console.log(arr[i].description)
-		console.log(arr[i].num_servings)
-		console.log(arr[i].thumbnail_url)
-		console.log(arr[i].prep_time_minutes)
-	}
+
+
+function fetchYelp(){
+	var zipCode = ''//TODO: zipcode from local storage
+	var yelpURL = `https://serpapi.com/search.json?engine=yelp&find_desc=grocery+store&find_loc=${zipCode}`
+	fetch(yelpURL)
+	.then(response => response.json())
 }
+
 
 buttonEl = document.querySelector('#searchBtn')
 
 buttonEl.addEventListener('click', fetchRecipe())
+
