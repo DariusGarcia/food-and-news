@@ -32,6 +32,16 @@ function handleResults(arr) {
 		console.log(arr[i].num_servings)
 		console.log(arr[i].thumbnail_url)
 		console.log(arr[i].prep_time_minutes)
+
+		var recipeNameEl = document.createElement('p')
+		recipeNameEl.appendChildren('class', '')
+		recipeNameEl.appendChildren('id', 'recipeName')
+		var descriptionEl = document.createElement('p')
+		descriptionEl.appendChildren('class', '')
+		descriptionEl.appendChildren('id', 'recipeName')
+		var recipeNameEl = document.createElement('p')
+		recipeNameEl.appendChildren('class', '')
+		recipeNameEl.appendChildren('id', 'recipeName')
 	}
 }
 
