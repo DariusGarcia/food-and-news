@@ -1,0 +1,795 @@
+{
+    "search_metadata": {
+      "id": "637e6823f05eb8be60321d92",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/fccf3b199a6df4af/637e6823f05eb8be60321d92.json",
+      "created_at": "2022-11-23 18:36:19 UTC",
+      "processed_at": "2022-11-23 18:36:19 UTC",
+      "yelp_url": "https://www.yelp.com/search?find_desc=grocery+store&find_loc=90638",
+      "raw_html_file": "https://serpapi.com/searches/fccf3b199a6df4af/637e6823f05eb8be60321d92.html",
+      "total_time_taken": 2.48
+    },
+    "search_parameters": {
+      "engine": "yelp",
+      "find_desc": "grocery store",
+      "find_loc": "90638"
+    },
+    "filters": {
+      "distance": [
+        {
+          "text": "Bird's-eye View",
+          "value": "g:-118.10920715332031,33.81509581951251,-117.90458679199219,33.9860717901992"
+        },
+        {
+          "text": "Driving (5 mi.)",
+          "value": "g:-118.05839538574219,33.858157050534174,-117.95608520507812,33.94364476321219"
+        },
+        {
+          "text": "Biking (2 mi.)",
+          "value": "g:-118.03281784057617,33.87953701355924,-117.98166275024414,33.92228087152904"
+        },
+        {
+          "text": "Walking (1 mi.)",
+          "value": "g:-118.02002906799316,33.8902249868679,-117.99445152282715,33.911596916056645"
+        },
+        {
+          "text": "Within 4 blocks",
+          "value": "g:-118.01043748855591,33.898222277591735,-118.0040431022644,33.90356526102092"
+        }
+      ],
+      "price": [
+        {
+          "text": "$",
+          "value": "RestaurantsPriceRange2.1"
+        },
+        {
+          "text": "$$",
+          "value": "RestaurantsPriceRange2.2"
+        },
+        {
+          "text": "$$$",
+          "value": "RestaurantsPriceRange2.3"
+        },
+        {
+          "text": "$$$$",
+          "value": "RestaurantsPriceRange2.4"
+        }
+      ],
+      "category": [
+        {
+          "text": "Fast Food",
+          "value": "hotdogs"
+        },
+        {
+          "text": "Butcher",
+          "value": "butcher"
+        },
+        {
+          "text": "Korean",
+          "value": "korean"
+        },
+        {
+          "text": "Drugstores",
+          "value": "drugstores"
+        },
+        {
+          "text": "Farmers Market",
+          "value": "farmersmarket"
+        },
+        {
+          "text": "Imported Food",
+          "value": "importedfood"
+        },
+        {
+          "text": "Grocery",
+          "value": "grocery"
+        },
+        {
+          "text": "Specialty Food",
+          "value": "gourmet"
+        },
+        {
+          "text": "Juice Bars & Smoothies",
+          "value": "juicebars"
+        },
+        {
+          "text": "Health & Medical",
+          "value": "health"
+        },
+        {
+          "text": "Herbs & Spices",
+          "value": "herbsandspices"
+        },
+        {
+          "text": "Meat Shops",
+          "value": "meats"
+        },
+        {
+          "text": "Department Stores",
+          "value": "deptstores"
+        },
+        {
+          "text": "Italian",
+          "value": "italian"
+        },
+        {
+          "text": "Sandwiches",
+          "value": "sandwiches"
+        },
+        {
+          "text": "Fashion",
+          "value": "fashion"
+        },
+        {
+          "text": "Home Decor",
+          "value": "homedecor"
+        },
+        {
+          "text": "Gas Stations",
+          "value": "servicestations"
+        },
+        {
+          "text": "Cosmetics & Beauty Supply",
+          "value": "cosmetics"
+        },
+        {
+          "text": "Beer, Wine & Spirits",
+          "value": "beer_and_wine"
+        },
+        {
+          "text": "Delis",
+          "value": "delis"
+        },
+        {
+          "text": "Furniture Stores",
+          "value": "furniture"
+        },
+        {
+          "text": "Cheese Shops",
+          "value": "cheese"
+        },
+        {
+          "text": "Shopping",
+          "value": "shopping"
+        },
+        {
+          "text": "Coffee & Tea",
+          "value": "coffee"
+        },
+        {
+          "text": "Car Wash",
+          "value": "carwash"
+        },
+        {
+          "text": "International Grocery",
+          "value": "intlgrocery"
+        },
+        {
+          "text": "Party Supplies",
+          "value": "partysupplies"
+        },
+        {
+          "text": "Candy Stores",
+          "value": "candy"
+        },
+        {
+          "text": "Restaurants",
+          "value": "restaurants"
+        },
+        {
+          "text": "Event Planning & Services",
+          "value": "eventservices"
+        },
+        {
+          "text": "Beauty & Spas",
+          "value": "beautysvc"
+        },
+        {
+          "text": "Fruits & Veggies",
+          "value": "markets"
+        },
+        {
+          "text": "Vitamins & Supplements",
+          "value": "vitaminssupplements"
+        },
+        {
+          "text": "Electronics",
+          "value": "electronics"
+        },
+        {
+          "text": "Filipino",
+          "value": "filipino"
+        },
+        {
+          "text": "American (Traditional)",
+          "value": "tradamerican"
+        },
+        {
+          "text": "Tobacco Shops",
+          "value": "tobaccoshops"
+        },
+        {
+          "text": "Convenience Stores",
+          "value": "convenience"
+        },
+        {
+          "text": "Bakeries",
+          "value": "bakeries"
+        },
+        {
+          "text": "Pharmacy",
+          "value": "pharmacy"
+        },
+        {
+          "text": "Wholesale Stores",
+          "value": "wholesale_stores"
+        },
+        {
+          "text": "Mexican",
+          "value": "mexican"
+        },
+        {
+          "text": "Health Markets",
+          "value": "healthmarkets"
+        },
+        {
+          "text": "Salad",
+          "value": "salad"
+        },
+        {
+          "text": "Food",
+          "value": "food"
+        },
+        {
+          "text": "Tires",
+          "value": "tires"
+        },
+        {
+          "text": "Automotive",
+          "value": "auto"
+        },
+        {
+          "text": "Food Delivery Services",
+          "value": "fooddeliveryservices"
+        },
+        {
+          "text": "Discount Store",
+          "value": "discountstore"
+        },
+        {
+          "text": "Organic Stores",
+          "value": "organic_stores"
+        },
+        {
+          "text": "Home & Garden",
+          "value": "homeandgarden"
+        },
+        {
+          "text": "Seafood Markets",
+          "value": "seafoodmarkets"
+        }
+      ],
+      "features": [
+        {
+          "text": "Accepts Apple Pay",
+          "value": "BusinessAcceptsApplePay"
+        },
+        {
+          "text": "Offers Takeout",
+          "value": "RestaurantsTakeOut"
+        },
+        {
+          "text": "Good for Groups",
+          "value": "RestaurantsGoodForGroups"
+        },
+        {
+          "text": "Good for Brunch",
+          "value": "GoodForMeal.brunch"
+        },
+        {
+          "text": "Hot and New",
+          "value": "NewBusiness"
+        },
+        {
+          "text": "Good for Late Night",
+          "value": "GoodForMeal.latenight"
+        },
+        {
+          "text": "Good for Kids",
+          "value": "GoodForKids"
+        },
+        {
+          "text": "Offers Delivery",
+          "value": "RestaurantsDelivery"
+        },
+        {
+          "text": "Good for Dinner",
+          "value": "GoodForMeal.dinner"
+        },
+        {
+          "text": "Accepts Credit Cards",
+          "value": "BusinessAcceptsCreditCards"
+        },
+        {
+          "text": "Full Bar",
+          "value": "Alcohol.full_bar"
+        },
+        {
+          "text": "Private Lot Parking",
+          "value": "BusinessParking.lot"
+        },
+        {
+          "text": "Street Parking",
+          "value": "BusinessParking.street"
+        },
+        {
+          "text": "Garage Parking",
+          "value": "BusinessParking.garage"
+        },
+        {
+          "text": "Open Now",
+          "value": "open_now"
+        },
+        {
+          "text": "Valet Parking",
+          "value": "BusinessParking.valet"
+        },
+        {
+          "text": "Open to All",
+          "value": "BusinessOpenToAll"
+        },
+        {
+          "text": "Validated Parking",
+          "value": "BusinessParking.validated"
+        },
+        {
+          "text": "Open At:",
+          "value": "open_time"
+        },
+        {
+          "text": "Good for Breakfast",
+          "value": "GoodForMeal.breakfast"
+        },
+        {
+          "text": "Good for Dessert",
+          "value": "GoodForMeal.dessert"
+        },
+        {
+          "text": "All staff fully vaccinated",
+          "value": "staff_fully_vaccinated"
+        },
+        {
+          "text": "Proof of vaccination required",
+          "value": "proof_of_vaccination_required"
+        },
+        {
+          "text": "Gender-neutral restrooms",
+          "value": "GenderNeutralRestrooms"
+        },
+        {
+          "text": "Good For Happy Hour",
+          "value": "HappyHour"
+        },
+        {
+          "text": "Offers Military Discount",
+          "value": "OffersMilitaryDiscount"
+        },
+        {
+          "text": "Has TV",
+          "value": "HasTV"
+        },
+        {
+          "text": "Wheelchair Accessible",
+          "value": "WheelchairAccessible"
+        },
+        {
+          "text": "Good for Lunch",
+          "value": "GoodForMeal.lunch"
+        },
+        {
+          "text": "Beer &amp; Wine Only",
+          "value": "Alcohol.beer_and_wine"
+        }
+      ]
+    },
+    "ads_results": [
+      {
+        "block_position": "top",
+        "place_ids": [
+          "t1Fv-6kpXRpD4HAKT2SV-Q",
+          "target-huntington-park"
+        ],
+        "title": "Target",
+        "link": "https://www.yelp.com/adredir?ad_business_id=t1Fv-6kpXRpD4HAKT2SV-Q&amp;campaign_id=Pxe6eqxWlbyoTY6IMVvKnA&amp;click_origin=search_results&amp;placement=above_search&amp;placement_slot=0&amp;redirect_url=https%3A%2F%2Fwww.yelp.com%2Fbiz%2Ftarget-huntington-park&amp;request_id=5aadc60da2d74be4&amp;signature=d671f069a8f8ea592e3f438ae8183a5c4534183fb833adbe6090159a21021e65&amp;slot=0",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=t1Fv-6kpXRpD4HAKT2SV-Q",
+        "categories": [
+          {
+            "title": "Beer, Wine & Spirits",
+            "link": "https://www.yelp.com/search?cflt=beer_and_wine&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Women's Clothing",
+            "link": "https://www.yelp.com/search?find_desc=Women%27s+Clothing&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Electronics",
+            "link": "https://www.yelp.com/search?cflt=electronics&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "reviews": 3,
+        "phone": "(213) 460-7085",
+        "snippet": "I was excited when I found out they were going to open a Target around this area. This location is smaller than your average Target. This location carries the essential you would…",
+        "button": {
+          "text": "Get Directions",
+          "link": "https://www.yelp.com/adredir?ad_business_id=t1Fv-6kpXRpD4HAKT2SV-Q&amp;click_origin=search_results_direction&amp;placement=above_search&amp;placement_slot=0&amp;redirect_url=https%3A%2F%2Fwww.yelp.com%2Fmap%2Ftarget-huntington-park&amp;request_id=5aadc60da2d74be4&amp;signature=3fdd1652c0dd2caec7c91fd3ba7024056e506d6f9521c748a3faca633c8b1e7c&amp;slot=0"
+        },
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/ogdyDf6l5946p6sraSGM5A/348s.jpg"
+      },
+      {
+        "block_position": "top",
+        "place_ids": [
+          "7Mw0EBgkW7eigiofMCIT_w",
+          "five-below-la-habra"
+        ],
+        "title": "Five Below",
+        "link": "https://www.yelp.com/adredir?ad_business_id=7Mw0EBgkW7eigiofMCIT_w&amp;campaign_id=DVt4RPoJmP56VBuVYTyfoA&amp;click_origin=search_results&amp;placement=above_search&amp;placement_slot=0&amp;redirect_url=https%3A%2F%2Fwww.yelp.com%2Fbiz%2Ffive-below-la-habra&amp;request_id=5aadc60da2d74be4&amp;signature=cf683b488d8c4ba4e4cf3b78dee176ab6a8c4b8d855f398e91dc6366cf933740&amp;slot=1",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=7Mw0EBgkW7eigiofMCIT_w",
+        "categories": [
+          {
+            "title": "Department Stores",
+            "link": "https://www.yelp.com/search?find_desc=Department+Stores&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Electronics",
+            "link": "https://www.yelp.com/search?cflt=electronics&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Accessories",
+            "link": "https://www.yelp.com/search?find_desc=Accessories&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "rating": 4.5,
+        "reviews": 5,
+        "phone": "(562) 418-6398",
+        "snippet": "This location is great! They have a huge tech selection and the store is roomy. The staff are friendly and I managed to talk to one of them. It's located in a shopping plaza that's…",
+        "button": {
+          "text": "Get Directions",
+          "link": "https://www.yelp.com/adredir?ad_business_id=7Mw0EBgkW7eigiofMCIT_w&amp;click_origin=search_results_direction&amp;placement=above_search&amp;placement_slot=0&amp;redirect_url=https%3A%2F%2Fwww.yelp.com%2Fmap%2Ffive-below-la-habra&amp;request_id=5aadc60da2d74be4&amp;signature=7f0e1efce118cead88908d63109eac4b0b30561d987f905de0f7cf70ab1141fc&amp;slot=1"
+        },
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/y2lhKOmjckQ7Xk4ZtepBQQ/348s.jpg"
+      },
+      {
+        "block_position": "bottom",
+        "place_ids": [
+          "NGm8PCQoP3rQQ-FC3JDM6g",
+          "cali-fit-meals-irvine"
+        ],
+        "title": "Cali Fit Meals",
+        "link": "https://www.yelp.com/adredir?ad_business_id=NGm8PCQoP3rQQ-FC3JDM6g&amp;campaign_id=ks-7zv8_zWY0N0Uiu7RXOw&amp;click_origin=search_results&amp;placement=below_search&amp;placement_slot=1&amp;redirect_url=https%3A%2F%2Fwww.yelp.com%2Fbiz%2Fcali-fit-meals-irvine&amp;request_id=5aadc60da2d74be4&amp;signature=493b25bb7b9726d8fe5f46b4a81f74de0129147acc0e4e79503918eb7e1cfa75&amp;slot=0",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=NGm8PCQoP3rQQ-FC3JDM6g",
+        "categories": [
+          {
+            "title": "Food Delivery Services",
+            "link": "https://www.yelp.com/search?cflt=fooddeliveryservices&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "rating": 5.0,
+        "reviews": 97,
+        "highlights": [
+          "8 years in business",
+          "Locally owned & operated"
+        ],
+        "phone": "(949) 432-6325",
+        "snippet": "Cali Fit Meals creates fully prepared Custom Meal Plans that are delivered directly to your front door. Meal plans include Breakfast, Lunch, Dinner, &amp; 2 Snacks daily. Your program…",
+        "service_options": {
+          "delivery": true
+        },
+        "button": {
+          "text": "View Website",
+          "link": "https://www.yelp.com/adredir?ad_business_id=NGm8PCQoP3rQQ-FC3JDM6g&amp;campaign_id=ks-7zv8_zWY0N0Uiu7RXOw&amp;click_origin=search_results_visit_website&amp;placement=below_search&amp;placement_slot=1&amp;redirect_url=https%3A%2F%2Fwww.yelp.com%2Fbiz_redir%3Fcachebuster%3D1669228581%26s%3D68abe11d2cce335bd88ea1aa8ace04636db407ee68db73a360167897ed88e6ef%26src_bizid%3DNGm8PCQoP3rQQ-FC3JDM6g%26url%3Dhttp%253A%252F%252Fwww.califitmeals.com%26website_link_type%3Dwebsite&amp;request_id=5aadc60da2d74be4&amp;signature=3e7ba6523e37bc59dd51d28defe0ba2bcba8431d588bfb887e1a7112b52a1168&amp;slot=0"
+        },
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/djNhQh2NQFJswOPAUW8EBA/348s.jpg"
+      }
+    ],
+    "organic_results": [
+      {
+        "position": 1,
+        "place_ids": [
+          "JjPFGQwGZDFt-xk2qQtUkg",
+          "albertsons-la-mirada"
+        ],
+        "title": "Albertsons",
+        "link": "https://www.yelp.com/biz/albertsons-la-mirada?osq=grocery+store",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=JjPFGQwGZDFt-xk2qQtUkg",
+        "categories": [
+          {
+            "title": "Grocery",
+            "link": "https://www.yelp.com/search?cflt=grocery&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "price": "$$",
+        "rating": 2.5,
+        "reviews": 82,
+        "phone": "(714) 521-2310",
+        "snippet": "Grocery stores should not be allowed to sell perishables after they have been stocked in stores",
+        "service_options": {
+          "delivery": true
+        },
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/rXXLcj0inLaFbE1UIp985A/348s.jpg"
+      },
+      {
+        "position": 2,
+        "place_ids": [
+          "6T30zf25jK7uIZVuRnmQtA",
+          "stater-bros-markets-la-mirada-2"
+        ],
+        "title": "Stater Bros. Markets",
+        "link": "https://www.yelp.com/biz/stater-bros-markets-la-mirada-2?osq=grocery+store",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=6T30zf25jK7uIZVuRnmQtA",
+        "categories": [
+          {
+            "title": "Grocery",
+            "link": "https://www.yelp.com/search?cflt=grocery&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Delis",
+            "link": "https://www.yelp.com/search?cflt=delis&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Beer, Wine & Spirits",
+            "link": "https://www.yelp.com/search?cflt=beer_and_wine&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "price": "$$",
+        "rating": 3.0,
+        "reviews": 98,
+        "phone": "(562) 943-3783",
+        "snippet": "I said thank you to her and looked at the one who was bagging my groceries said thank you as well",
+        "service_options": {
+          "delivery": true
+        },
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/SZFGiaqwEXGM0cythgn43A/348s.jpg"
+      },
+      {
+        "position": 3,
+        "place_ids": [
+          "7iU2deRp6txKu0vYwN9UBQ",
+          "walmart-neighborhood-market-la-mirada-2"
+        ],
+        "title": "Walmart Neighborhood Market",
+        "link": "https://www.yelp.com/biz/walmart-neighborhood-market-la-mirada-2?osq=grocery+store",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=7iU2deRp6txKu0vYwN9UBQ",
+        "categories": [
+          {
+            "title": "Grocery",
+            "link": "https://www.yelp.com/search?cflt=grocery&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Department Stores",
+            "link": "https://www.yelp.com/search?find_desc=Department+Stores&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "price": "$",
+        "rating": 3.0,
+        "reviews": 89,
+        "phone": "(562) 567-6488",
+        "snippet": "grocery shopping here because I am guaranteed to be overcharged for something. It's apparent that price",
+        "service_options": {
+          "delivery": true
+        },
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/Cb5w7XMGVEk3mIepkiSRkQ/348s.jpg"
+      },
+      {
+        "position": 4,
+        "place_ids": [
+          "wxTVcmF6mIBzv-StVa8yIg",
+          "superior-grocers-la-mirada-2"
+        ],
+        "title": "Superior Grocers",
+        "link": "https://www.yelp.com/biz/superior-grocers-la-mirada-2?osq=grocery+store",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=wxTVcmF6mIBzv-StVa8yIg",
+        "categories": [
+          {
+            "title": "Grocery",
+            "link": "https://www.yelp.com/search?cflt=grocery&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Bakeries",
+            "link": "https://www.yelp.com/search?cflt=bakeries&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Meat Shops",
+            "link": "https://www.yelp.com/search?cflt=meats&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "price": "$$",
+        "rating": 2.5,
+        "reviews": 53,
+        "phone": "(562) 802-3230",
+        "snippet": "I think it could be better place to grocery shop,if they have better management? who knows, how",
+        "service_options": {
+          "delivery": true
+        },
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/drC8a0-mdmkK8O4FL3cAag/348s.jpg"
+      },
+      {
+        "position": 5,
+        "place_ids": [
+          "UBuWnfCdoRHPtIC-gHrMVw",
+          "h-mart-buena-park-buena-park"
+        ],
+        "title": "H Mart - Buena Park",
+        "link": "https://www.yelp.com/biz/h-mart-buena-park-buena-park?osq=grocery+store",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=UBuWnfCdoRHPtIC-gHrMVw",
+        "categories": [
+          {
+            "title": "Grocery",
+            "link": "https://www.yelp.com/search?cflt=grocery&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Korean",
+            "link": "https://www.yelp.com/search?cflt=korean&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Food Court",
+            "link": "https://www.yelp.com/search?cflt=food_court&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "price": "$$",
+        "rating": 3.0,
+        "reviews": 261,
+        "phone": "(714) 249-7070",
+        "snippet": "Interesting Asian style grocery store. First time visiting after having dinner in the complex",
+        "service_options": {
+          "delivery": true
+        },
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/BNu7guYusXUlMD6nwvXluw/348s.jpg"
+      },
+      {
+        "position": 6,
+        "place_ids": [
+          "hrctid-kftgagtIMDAByCw",
+          "cvs-pharmacy-la-mirada"
+        ],
+        "title": "CVS Pharmacy",
+        "link": "https://www.yelp.com/biz/cvs-pharmacy-la-mirada?osq=grocery+store",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=hrctid-kftgagtIMDAByCw",
+        "categories": [
+          {
+            "title": "Drugstores",
+            "link": "https://www.yelp.com/search?find_desc=Drugstores&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Pharmacy",
+            "link": "https://www.yelp.com/search?cflt=pharmacy&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Convenience Stores",
+            "link": "https://www.yelp.com/search?cflt=convenience&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "price": "$$",
+        "rating": 2.5,
+        "reviews": 62,
+        "phone": "(714) 228-0204",
+        "snippet": "everything I was told plus some, I was still able to contract it. From a favorite local grocery store",
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/UJvwPm4CFknfeP4ts8pj8A/348s.jpg"
+      },
+      {
+        "position": 7,
+        "place_ids": [
+          "AWedRdlZbQEF5LNgKHJ55A",
+          "super-1-mart-hannam-chain-buena-park-2"
+        ],
+        "title": "Super 1 Mart Hannam Chain",
+        "link": "https://www.yelp.com/biz/super-1-mart-hannam-chain-buena-park-2?osq=grocery+store",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=AWedRdlZbQEF5LNgKHJ55A",
+        "categories": [
+          {
+            "title": "International Grocery",
+            "link": "https://www.yelp.com/search?cflt=intlgrocery&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Fruits & Veggies",
+            "link": "https://www.yelp.com/search?cflt=markets&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Seafood Markets",
+            "link": "https://www.yelp.com/search?cflt=seafoodmarkets&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "price": "$$",
+        "rating": 3.0,
+        "reviews": 138,
+        "phone": "(714) 736-5800",
+        "snippet": "I'm not sure why other people are leaving poor reviews - I go to many Asian grocery stores and I",
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/fKzHvqNcpGqqTcqixE40qQ/348s.jpg"
+      },
+      {
+        "position": 8,
+        "place_ids": [
+          "55Qv1M9xyWVCk58B-7OGsQ",
+          "ralphs-cerritos"
+        ],
+        "title": "Ralphs",
+        "link": "https://www.yelp.com/biz/ralphs-cerritos?osq=grocery+store",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=55Qv1M9xyWVCk58B-7OGsQ",
+        "categories": [
+          {
+            "title": "Grocery",
+            "link": "https://www.yelp.com/search?cflt=grocery&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "price": "$$",
+        "rating": 3.0,
+        "reviews": 119,
+        "phone": "(562) 860-5635",
+        "snippet": "Racist establishment, Dena called the police on 3 volunteers outside the grocery store entrance",
+        "service_options": {
+          "delivery": true
+        },
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/8v2X8SKRXaiEDNhtxsGD-w/348s.jpg"
+      },
+      {
+        "position": 9,
+        "place_ids": [
+          "G2a5wgJFMw8QFjeD6XwH_g",
+          "zion-market-buena-park"
+        ],
+        "title": "Zion Market",
+        "link": "https://www.yelp.com/biz/zion-market-buena-park?osq=grocery+store",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=G2a5wgJFMw8QFjeD6XwH_g",
+        "categories": [
+          {
+            "title": "Grocery",
+            "link": "https://www.yelp.com/search?cflt=grocery&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "International Grocery",
+            "link": "https://www.yelp.com/search?cflt=intlgrocery&amp;find_loc=La+Mirada%2C+CA"
+          },
+          {
+            "title": "Korean",
+            "link": "https://www.yelp.com/search?cflt=korean&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "price": "$",
+        "rating": 2.5,
+        "reviews": 124,
+        "phone": "(714) 367-5400",
+        "snippet": "My favorite Korean grocery store for good prices in Orange County. Great fruits for less and great packaged foods.",
+        "service_options": {
+          "outdoor_seating": false
+        },
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/s2uIo_A44vDly-Ma9dub4A/348s.jpg"
+      },
+      {
+        "position": 10,
+        "place_ids": [
+          "SlezWfL1wszTBmW804_TLQ",
+          "albertsons-fullerton-4"
+        ],
+        "title": "Albertsons",
+        "link": "https://www.yelp.com/biz/albertsons-fullerton-4?osq=grocery+store",
+        "reviews_link": "https://serpapi.com/search.json?engine=yelp_reviews&place_id=SlezWfL1wszTBmW804_TLQ",
+        "categories": [
+          {
+            "title": "Grocery",
+            "link": "https://www.yelp.com/search?cflt=grocery&amp;find_loc=La+Mirada%2C+CA"
+          }
+        ],
+        "price": "$$",
+        "rating": 3.0,
+        "reviews": 136,
+        "phone": "(714) 992-6099",
+        "snippet": "a coupon for 10% off grocery purchases up to $200 with each immunization. It doesn't expire until 12",
+        "service_options": {
+          "delivery": true
+        },
+        "thumbnail": "https://s3-media0.fl.yelpcdn.com/bphoto/uh08DoIDWwG9socPA7h2Eg/348s.jpg"
+      }
+    ],
+    "serpapi_pagination": {
+      "next": "https://serpapi.com/search.json?engine=yelp&find_desc=grocery+store&find_loc=90638&start=10"
+    }
+  }

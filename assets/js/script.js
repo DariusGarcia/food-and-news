@@ -1,4 +1,8 @@
 var tastyURL = `https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes`
+var tastyDev = './data.json'
+
+// query select elements
+var recipeContainerEl = document.querySelector('#recipeContainer')
 
 const options = {
 	method: 'GET',
@@ -11,9 +15,14 @@ const options = {
 function fetchRecipe() {
 	fetch(tastyURL, options)
 		.then((response) => response.json())
-		.then((response) => console.log(response))
+		.then((response) => {
+			console.log(response.results)
+			return response.results
+		})
+		.then((data) => handleResults(data))
 		.catch((err) => console.error(err))
 }
+
 
 
 function fetchYelp(){
@@ -22,3 +31,9 @@ function fetchYelp(){
 	fetch(yelpURL)
 	.then(response => response.json())
 }
+
+
+buttonEl = document.querySelector('#searchBtn')
+
+buttonEl.addEventListener('click', fetchRecipe())
+
