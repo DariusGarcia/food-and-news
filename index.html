@@ -12,24 +12,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-<header>
-    <h1>Recipe Handbook</h1>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#results">Results</a>
+
+<body class="bg-white">
+    <nav class="flex flex-row justify-between items-center p-2 bg-blue-400 font-semibold h-16">
+        <h1>Recipe Handbook</h1>
+        <ul class="flex flex-row justify-between gap-8">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#results">Recipes</a></li>
+            <li><a href="#results">Store Locator</a></li>
+        </ul>
     </nav>
-</header>
 
-<section class="hero-banner">
-    <div>
-        <h2>Find your favorite recipes!</h2>
-    </div>
-</section>
+    <section class="flex flex-col">
+        <div>
+            <h2>Find your favorite recipes!</h2>
+        </div>
+    </section>
 
-</nav class="flex" id="navbar">
+    </nav class="flex" id="navbar">
     <div class="flex">
         <a href="index.html" class="flex">
-            <img src="./assets/images/logo.png" alt="logo" class="logo" />
+            <!-- <img src="./assets/images/logo.png" alt="logo" class="logo" /> -->
         </a>
         <a href="index.html" class="flex">
             <h1 class="title">Recipe Handbook</h1>
@@ -43,18 +46,21 @@
             <h2 class="nav-link">Results</h2>
         </a>
     </div>
-<main class="page-wrapper">
-    <section class="page-section" id="home">
-        <h2>Home</h2>
-        <div>
-            <p>
-                Welcome to Recipe Handbook! This web app will allow you to search for recipes and find the closest grocery store to you.
-            </p>
-            <p>
-                To get started, enter a recipe name in the search bar and click the search button. Then, click the "Find Store" button to find the closest grocery store to you.
-            </p>
-        </div>
-    </section>
+    <main class="page-wrapper">
+        <section class="page-section" id="home">
+            <h2>Home</h2>
+            <div>
+                <p>
+                    Welcome to Recipe Handbook! This web app will allow you to search for recipes and find the closest
+                    grocery store to you.
+                </p>
+                <p>
+                    To get started, enter a recipe name in the search bar and click the search button. Then, click the
+                    "Find
+                    Store" button to find the closest grocery store to you.
+                </p>
+            </div>
+        </section>
     </main>
     <div class="container">
         <div class="flex">
@@ -71,18 +77,19 @@
             </div>
         </div>
     </div>
-</div>
-</nav>
-<body class="w-100 h-100 flex justify-center align-center">
-<div class="mt-24" id="recipeContainer">
-    <button class="flex justify-center bg-red-500 p-2 " id="searchBtn">Search</button>
-</div>
-<script src="./assets/js/script.js" async defer></script>
+    </div>
+    </nav>
+
+
+    <div class="mt-24" id="recipeContainer">
+        <button class="flex justify-center bg-red-500 p-2 " id="searchBtn">Search</button>
+    </div>
+    <script src="./assets/js/script.js" async defer></script>
 </body>
 
 </html>
 
-    <script src="./assets/js/script.js" async defer></script>
+<script src="./assets/js/script.js" async defer></script>
 </body>
 
 </html>
