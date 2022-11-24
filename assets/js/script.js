@@ -21,41 +21,20 @@ function fetchRecipe() {
 		})
 		.then((data) => handleResults(data))
 		.catch((err) => console.error(err))
-}
-
-function fetchYelp(){
-	var zipCode = ''//TODO: zipcode from local storage
-	var yelpURL = `https://serpapi.com/search.json?engine=yelp&find_desc=grocery+store&find_loc=${zipCode}`
-	fetch(yelpURL)
-	.then(response => response.json())
+	window.location.assign('/results.html')
 }
 
 function handleResults(arr) {
-	for (var i = 0; i < arr.length; i++) {
+	for (var i = 19; i < arr.length; i++) {
 		console.log(arr[i].name)
 		console.log(arr[i].description)
 		console.log(arr[i].num_servings)
 		console.log(arr[i].thumbnail_url)
 		console.log(arr[i].prep_time_minutes)
+		var recipeNameEl = document.createElement('')
 	}
+	return
 }
 
-buttonEl = document.querySelector('#searchBtn')
-
-buttonEl.addEventListener('click', fetchRecipe())
-
-
-
-function fetchYelp(){
-	var zipCode = ''//TODO: zipcode from local storage
-	var yelpURL = `https://serpapi.com/search.json?engine=yelp&find_desc=grocery+store&find_loc=${zipCode}`
-	fetch(yelpURL)
-	.then(response => response.json())
-
-}
-
-
-buttonEl = document.querySelector('#searchBtn')
-
-buttonEl.addEventListener('click', fetchRecipe())
-
+var buttonEl = document.querySelector('#searchBtn')
+buttonEl.addEventListener('click', () => fetchRecipe())
