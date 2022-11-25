@@ -15,73 +15,39 @@
 
 <body class="bg-white">
     <nav class="flex flex-row justify-between items-center p-2 bg-blue-400 font-semibold h-16">
-        <h1>Recipe Handbook</h1>
-        <ul class="flex flex-row justify-between gap-8">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#results">Recipes</a></li>
-            <li><a href="#results">Store Locator</a></li>
+        <h1 class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">Recipe Handbook</h1>
+        <ul class=" flex flex-row justify-between gap-8">
+            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md"><a href="#home">Home</a></li>
+            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md"><a href="#results">Recipes</a></li>
+            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md"><a href="#store">Store Locator</a></li>
         </ul>
     </nav>
-
-    <section class="flex flex-col">
-        <div>
-            <h2>Find your favorite recipes!</h2>
+    <header class="flex flex-col w-full  justify-center  items-center mt-2 gap-2">
+        <h2 class="font-bold text-3xl  text-center">Recipe Handbook</h2>
+        <div class="md:w-2/3">
+            <p class="text-center">Find your favorite recipe and nearby grocery stores!</p>
+            <p class="text-center">
+                To get started, enter a recipe name in the search bar and click the search button. Then, click the
+                "Find
+                Store" button to find the closest grocery store to you.
+            </p>
         </div>
-    </section>
-
-    </nav class="flex" id="navbar">
-    <div class="flex">
-        <a href="index.html" class="flex">
-            <!-- <img src="./assets/images/logo.png" alt="logo" class="logo" /> -->
-        </a>
-        <a href="index.html" class="flex">
-            <h1 class="title">Recipe Handbook</h1>
-        </a>
-    </div>
-    <div class="flex">
-        <a href="index.html" class="flex">
-            <h2 class="nav-link">Home</h2>
-        </a>
-        <a href="results.html" class="flex">
-            <h2 class="nav-link">Results</h2>
-        </a>
-    </div>
-    <main class="page-wrapper">
-        <section class="page-section" id="home">
-            <h2>Home</h2>
+    </header>
+    <main class="flex justify-center">
+        <section class="w-full h-48 md:w-4/5 p-2 rounded-md bg-gray-300" id="home">
             <div>
-                <p>
-                    Welcome to Recipe Handbook! This web app will allow you to search for recipes and find the closest
-                    grocery store to you.
-                </p>
-                <p>
-                    To get started, enter a recipe name in the search bar and click the search button. Then, click the
-                    "Find
-                    Store" button to find the closest grocery store to you.
-                </p>
+                <label for="recipe" class="block text-gray-700 text-sm font-medium ">Select a recipe:</label>
+                <select id="recipeDropdown" name="recipe-list"
+                    class="mt-1 block w-full  py-2 pl-3 pr-10 rounded-md border-gray-300 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                </select>
             </div>
+
         </section>
     </main>
-    <div class="container">
-        <div class="flex">
-            <div class="flex">
-                <h2 class="nav-link">Zip Code</h2>
-                <input type="text" id="zip" class="flex" />
-            </div>
-            <div class="flex">
-                <h2 class="nav-link">Recipe</h2>
-                <input type="text" id="recipe" class="flex" />
-            </div>
-            <div class="flex">
-                <button class="flex" id="search">Search</button>
-            </div>
-        </div>
-    </div>
-    </div>
-    </nav>
 
 
-    <div class="mt-24" id="recipeContainer">
+
+    <div class="mt-24 " id="recipeContainer">
         <button class="flex justify-center bg-red-500 p-2 " id="searchBtn">Search</button>
     </div>
     <script src="./assets/js/script.js" async defer></script>
