@@ -15,47 +15,55 @@
 
 <body class="bg-white">
     <nav class="flex flex-row justify-between items-center p-2 bg-blue-400 font-semibold h-16">
-        <h1 class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">Recipe Handbook</h1>
-        <ul class=" flex flex-row justify-between gap-8">
-            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md"><a href="#home">Home</a></li>
-            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md"><a href="#results">Recipes</a></li>
-            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md"><a href="#store">Store Locator</a></li>
+        <h1 class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
+            Recipe Handbook
+        </h1>
+        <ul class="flex flex-row justify-between gap-8">
+            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
+                <a href="#home">Home</a>
+            </li>
+            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
+                <a href="#results">Recipes</a>
+            </li>
+            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
+                <a href="#store">Store Locator</a>
+            </li>
         </ul>
     </nav>
-    <header class="flex flex-col w-full  justify-center  items-center mt-2 gap-2">
-        <h2 class="font-bold text-3xl  text-center">Recipe Handbook</h2>
+    <header class="flex flex-col w-full justify-center items-center mt-2 gap-2">
+        <h2 class="font-bold text-3xl text-center">Recipe Handbook</h2>
         <div class="md:w-2/3">
-            <p class="text-center">Find your favorite recipe and nearby grocery stores!</p>
             <p class="text-center">
-                To get started, enter a recipe name in the search bar and click the search button. Then, click the
-                "Find
-                Store" button to find the closest grocery store to you.
+                Find your favorite recipe and nearby grocery stores!
+            </p>
+            <p class="text-center">
+                To get started, enter a recipe name in the search bar and click the
+                search button. Then, click the "Find Store" button to find the closest
+                grocery store to you.
             </p>
         </div>
     </header>
     <main class="flex justify-center">
         <section class="w-full h-48 md:w-4/5 p-2 rounded-md bg-gray-300" id="home">
-            <div>
-                <label for="recipe" class="block text-gray-700 text-sm font-medium ">Select a recipe:</label>
+            <!------------------ recipe drop down menu -------------------->
+            <form name="recipe-dropdown-menu">
+                <label for="recipe" class="block text-gray-700 text-sm font-medium">Select a recipe:</label>
                 <select id="recipeDropdown" name="recipe-list"
-                    class="mt-1 block w-full  py-2 pl-3 pr-10 rounded-md border-gray-300 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                    class="mt-1 block w-full py-2 pl-3 pr-10 rounded-md border-gray-300 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                    <option selected>Choose a recipe</option>
                 </select>
-            </div>
-
+            </form>
+            <!-- section to display recipe details [name, description, servings, thumbnail, prep time] -->
+            <article class="" id="recipe-details-container"></article>
         </section>
     </main>
 
-
-
-    <div class="mt-24 " id="recipeContainer">
-        <button class="flex justify-center bg-red-500 p-2 " id="searchBtn">Search</button>
+    <div class="mt-24" id="recipeContainer">
+        <button class="flex justify-center bg-red-500 p-2" id="searchBtn">
+            Search
+        </button>
     </div>
     <script src="./assets/js/script.js" async defer></script>
-</body>
-
-</html>
-
-<script src="./assets/js/script.js" async defer></script>
 </body>
 
 </html>
