@@ -21,20 +21,24 @@ function fetchRecipe() {
 		})
 		.then((data) => handleResults(data))
 		.catch((err) => console.error(err))
-	window.location.assign('/results.html')
 }
 
+var recipeDropdown = document.querySelector('#recipeDropdown')
 function handleResults(arr) {
-	for (var i = 19; i < arr.length; i++) {
-		console.log(arr[i].name)
-		console.log(arr[i].description)
-		console.log(arr[i].num_servings)
-		console.log(arr[i].thumbnail_url)
-		console.log(arr[i].prep_time_minutes)
-		var recipeNameEl = document.createElement('')
+	for (var i = 0; i < arr.length; i++) {
+		var dropdownItem = document.createElement('option')
+		dropdownItem.textContent = arr[i].name
+		recipeDropdown.appendChild(dropdownItem)
 	}
-	return
+	return recipeDropdown
 }
 
 var buttonEl = document.querySelector('#searchBtn')
 buttonEl.addEventListener('click', () => fetchRecipe())
+
+// object properties that we are using to display as data
+// console.log(arr[i].name)
+// console.log(arr[i].description)
+// console.log(arr[i].num_servings)
+// console.log(arr[i].thumbnail_url)
+// console.log(arr[i].prep_time_minutes)
