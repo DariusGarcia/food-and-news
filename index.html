@@ -20,10 +20,10 @@
         </h1>
         <ul class="flex flex-row justify-between gap-8">
             <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
-                <a href="#home">Home</a>
+                <a href="./index.html">Home</a>
             </li>
             <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
-                <a href="#results">Recipes</a>
+                <a href="./results.html">Recipes</a>
             </li>
             <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
                 <a href="#store">Store Locator</a>
@@ -46,10 +46,13 @@
     <main class="flex items-center justify-center">
         <section class="w-full md:w-4/5 h-screen self-center p-2 rounded-md bg-gray-300" id="home">
             <!-- User search input for specific recipe -->
-            <form class="overflow-y-auto relative flex flex-col items-center gap-2 py-2 max-h-screen"
+            <form class="overflow-y-auto overflow-x-hidden relative flex flex-col items-center gap-2 py-2 max-h-screen"
                 id="recipe-search-form">
+                <label for="Recipe search" class="flex w-max self-start border-b-2 border-blue-400">Search
+                    for a
+                    recipe</label>
                 <input autocomplete='off' class="w-full p-2 rounded-sm mb-2 border-2 border-gray-400"
-                    id="recipe-search-input" type="text" placeholder="Search a recipe e.g. chicken" />
+                    id="recipe-search-input" type="text" placeholder="e.g. chicken plate" />
                 <button
                     class="w-48 rounded-md text-white self-center hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-blue-400 p-2"
                     id="recipe-search-btn">Search

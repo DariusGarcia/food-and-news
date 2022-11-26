@@ -31,7 +31,7 @@ function fetchEdamam(event) {
 		.then((response) => response.json())
 		.then((data) => {
 			const dataReceived = data.hits
-			console.log(`call data: ${JSON.stringify(dataReceived)}`)
+			console.log(data.hits)
 			edamamDataStore.push(JSON.stringify(dataReceived))
 			console.log(`Populated array: ${JSON.stringify(edamamDataStore[0][1])}`)
 			handleRecipeResults(dataReceived)
@@ -42,33 +42,49 @@ function fetchEdamam(event) {
 
 function handleRecipeResults(arr) {
 	for (var i = 0; i < arr.length; i++) {
-		var cardContainer = document.createElement('article')
-		cardContainer.setAttribute(
-			'class',
-			' flex flex-col gap-2 w-full bg-white p-2 rounded-md my-2 hover:bg-blue-200'
-		)
+		var cardContainerLeft = document.createElement('article')
+		var cardContainerRight = document.createElement('article')
+		var cardWrapper = document.createElement('div')
+		var cardWrapperRight = document.createElement('div')
+		var instructionsEl = document.createElement('article')
+		instructionsEl.setAttribute('id', 'instructions')
+		var ingredientListEl = document.createElement('ol')
+
+		// ingredients list
+		const ingredientsObj = arr[i].recipe.ingredientLines
+		ingredientsObj.map((item) => {
+			var ingredientItem = document.createElement('li')
+			ingredientItem.textContent = item
+			ingredientListEl.appendChild(ingredientItem)
+		})
+		instructionsEl.textContent = arr[i].recipe
+		cardWrapper.setAttribute('id', 'recipeCardWrapper')
+		cardContainerLeft.setAttribute('id', 'recipeCardContainerLeft')
+		cardContainerRight.setAttribute('id', 'recipeCardContainerRight')
 		var recipeLabelEl = document.createElement('h3')
-		recipeLabelEl.setAttribute(
-			'class',
-			'flex flex-col  p-2  rounded-md cursor-pointer '
-		)
+		recipeLabelEl.setAttribute('id', 'recipeLabel')
+
 		recipeLabelEl.textContent = arr[i].recipe.label
 		var recipeCaloriesEl = document.createElement('p')
-		recipeCaloriesEl.setAttribute(
-			'class',
-			'flex flex-col  p-2  rounded-md cursor-pointer '
-		)
-		recipeCaloriesEl.textContent = `Calories: ${arr[i].recipe.calories.toFixed(
-			2
-		)}`
+		recipeCaloriesEl.setAttribute('id', 'recipeCaloriesEl')
+		recipeCaloriesEl.textContent = `${arr[i].recipe.calories.toFixed(0)}cal`
 		var recipeImageEl = document.createElement('img')
 		recipeImageEl.setAttribute('src', arr[i].recipe.image)
 		recipeImageEl.setAttribute('id', 'recipe-image')
-		cardContainer.appendChild(recipeLabelEl)
-		cardContainer.appendChild(recipeCaloriesEl)
-		cardContainer.appendChild(recipeImageEl)
-		// recipeItem.addEventListener('click', displayRecipeData(arr, i))
-		recipeContentCardEl.appendChild(cardContainer)
+
+		var recipeCuisineType = document.createElement('p')
+		recipeCuisineType.setAttribute('id', 'cuisineType')
+		recipeCuisineType.textContent = arr[i].recipe.cuisineType
+		cardContainerRight.appendChild(recipeCaloriesEl)
+		cardContainerRight.appendChild(ingredientListEl)
+		cardContainerLeft.appendChild(recipeLabelEl)
+		cardContainerLeft.appendChild(recipeCuisineType)
+		cardContainerLeft.appendChild(recipeImageEl)
+		cardWrapper.appendChild(cardContainerLeft)
+		cardWrapper.appendChild(cardContainerRight)
+		recipeContentCardEl.setAttribute('id', 'recipeContentCardEl')
+		recipeContentCardEl.appendChild(cardWrapper)
+		recipeContentCardEl.appendChild(cardWrapperRight)
 		console.log(`description: ${edamamDataStore[0][1].label}`)
 	}
 	return recipeContentCardEl
@@ -107,28 +123,6 @@ const options = {
 // recipe.calories
 // recipe.cuisineType
 // recipe.healthLabels
-// recipe.images["REGULAR"]
-// recipe.images["THUMBNAIL"]
+// recipe.image
 // recipe.ingredientLines
 // recipe.totalTime
-
-// object properties that we are using to display as data (Tasty API)
-// arr[i].name
-// arr[i].description
-// arr[i].num_servings
-// arr[i].thumbnail_url
-// arr[i].prep_time_minutes
-
-// old fetch function for tastyURL
-// reached the max API calls for the month for this api endpoint (switched to Edamam Recipe API)
-
-// function fetchRecipe() {
-// 	fetch(tastyURL, options)
-// 		.then((response) => response.json())
-// 		.then((response) => {
-// 			console.log(response.results)
-// 			return response.results
-// 		})
-// 		.then((data) => handleResults(data))
-// 		.catch((err) => console.error(err))
-// }
