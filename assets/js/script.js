@@ -17,28 +17,38 @@ var recipeDetailsContainerEl = document.querySelector(
 	'#recipe-details-container'
 )
 
+// array to store th fetched recipe data information
 var edamamDataStore = []
+
 // fetch Edamam API endpoint to get recipe details (10,000 calls/ month limit)s
 function fetchEdamam(event) {
 	event.preventDefault()
 	// reset the data array to be empty
 	edamamDataStore.length = 0
-	var userRecipeSearchInputEl = document.querySelector('#recipe-search-input')
-	userRecipeSearchInputEl = userRecipeSearchInputEl.value
-	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInputEl}&app_id=${appID}&app_key=${appAPIKey}`
+	var userRecipeSearchInput = document.querySelector(
+		'#recipe-search-input'
+	).value
+
+	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
 	fetch(edamamURL)
 		.then((response) => response.json())
 		.then((data) => {
 			const dataReceived = data.hits
+			// push the JSON data into the edamam data store array
 			edamamDataStore.push(JSON.stringify(dataReceived))
-			handleRecipeResults(dataReceived)
+			// pass the response JSON data into the handler function to populate the recipe card with the details
+			displayRecipeDetails(dataReceived)
 		})
-	userRecipeSearchInputEl.value = ''
-	userRecipeSearchInputEl.textContent = ''
+
+	// reset the input fields and recipe list to empty after fetching searched recipe.
+	userRecipeSearchInput.value = ''
+	userRecipeSearchInput.textContent = ''
 }
 
-function handleRecipeResults(arr) {
+// data handler function to populate the recipe section list with each recipe details.
+function displayRecipeDetails(arr) {
 	recipeContentCardEl.innerHTML = ''
+	// looping through the data object and creating an <article> element for each individual recipe.
 	for (var i = 0; i < arr.length; i++) {
 		var cardContainerLeft = document.createElement('article')
 		var cardContainerRight = document.createElement('article')
@@ -52,6 +62,7 @@ function handleRecipeResults(arr) {
 		// ingredients list
 		var ingredientListEl = document.createElement('ol')
 		const ingredientsObj = arr[i].recipe.ingredientLines
+		// looping through the array of ingredient strings and putting them in their own li tag.
 		ingredientsObj.map((item) => {
 			var ingredientItem = document.createElement('li')
 			ingredientItem.textContent = item
@@ -77,6 +88,7 @@ function handleRecipeResults(arr) {
 		var dietTagsContainer = document.createElement('ul')
 		dietTagsContainer.setAttribute('id', 'dietTagsContainer')
 		var dietTagindex = arr[i].recipe.dietLabels
+		// looping through the diet labels array and creating a new <li> tag for each diet label.
 		dietTagindex.map((item) => {
 			var dietTagItem = document.createElement('li')
 			dietTagItem.setAttribute('id', 'diet-tag-item')
@@ -94,10 +106,6 @@ function handleRecipeResults(arr) {
 		instructionsEl.setAttribute('id', 'instructionsURL')
 		instructionsEl.setAttribute('href', arr[i].recipe.url)
 		instructionsEl.setAttribute('target', '__blank')
-		// instructionsEl.addEventListener(
-		// 	'click',
-		// 	(window.location.assign = arr[i].recipe.url)
-		// )
 
 		//recipe cuisine type (e.g. mexican/american)
 		var recipeCuisineType = document.createElement('p')
@@ -122,13 +130,5 @@ function handleRecipeResults(arr) {
 	return recipeContentCardEl
 }
 
+// fetch recipe searched query when user clicks 'search for recipe button'
 recipeSearchBtn.addEventListener('click', fetchEdamam)
-
-// header parameters for Tasty API
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '74e6ae4b12mshf87161aa2327b81p1e302ajsnfd1c233f30e7',
-		'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
-	},
-}

@@ -111,6 +111,7 @@ li {
 #cuisineType {
     background-color: #4ade80;
     padding: 0.5rem;
+    margin-top: .5rem;
     text-transform: capitalize;
     border-radius: 4px;
     width: max-content;
