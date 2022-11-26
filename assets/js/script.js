@@ -122,24 +122,6 @@ function handleRecipeResults(arr) {
 	return recipeContentCardEl
 }
 
-// function displayRecipeData(arr, i) {
-// 	var selectedRecipe = arr[i].recipe.label
-// 	var detailsURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${selectedRecipe}&app_id=${appID}&app_key=${appAPIKey}`
-// 	fetch(detailsURL)
-// 		.then((response) => response.json())
-// 		.then((data) => {
-// 			var dataReceived = data.hits
-// 			return dataReceived
-// 		})
-
-// 	for (var i = 0; i < dataReceived.length; i++) {
-// 		var recipeDescriptionItem = document.createElement('p')
-// 		recipeDescriptionItem.textContent = dataReceived[i].recipe.label
-// 		recipeDescriptionContainerEl.appendChild(recipeDescriptionItem)
-// 	}
-// 	return recipeDescriptionContainerEl
-// }
-
 recipeSearchBtn.addEventListener('click', fetchEdamam)
 
 // header parameters for Tasty API
@@ -150,11 +132,3 @@ const options = {
 		'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
 	},
 }
-
-// recipe.dietLabels
-// recipe.calories
-// recipe.cuisineType
-// recipe.healthLabels
-// recipe.image
-// recipe.ingredientLines
-// recipe.totalTime
