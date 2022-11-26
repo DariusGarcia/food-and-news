@@ -44,6 +44,8 @@ function handleRecipeResults(arr) {
 		var cardContainerRight = document.createElement('article')
 		var cardWrapper = document.createElement('div')
 		var cardWrapperRight = document.createElement('div')
+
+		// instructions and ingredients elements
 		var instructionsEl = document.createElement('article')
 		instructionsEl.setAttribute('id', 'instructions')
 		var ingredientListEl = document.createElement('ol')
@@ -59,21 +61,41 @@ function handleRecipeResults(arr) {
 		cardWrapper.setAttribute('id', 'recipeCardWrapper')
 		cardContainerLeft.setAttribute('id', 'recipeCardContainerLeft')
 		cardContainerRight.setAttribute('id', 'recipeCardContainerRight')
+
+		// name of recipe
 		var recipeLabelEl = document.createElement('h3')
 		recipeLabelEl.setAttribute('id', 'recipeLabel')
-
 		recipeLabelEl.textContent = arr[i].recipe.label
+
+		// recipe image element
+		var recipeImageEl = document.createElement('img')
+		recipeImageEl.setAttribute('src', arr[i].recipe.image)
+		recipeImageEl.setAttribute('alt', `${arr[i].recipe.label}`)
+		recipeImageEl.setAttribute('id', 'recipe-image')
+
+		// recipe diet labels tags
+		var dietTagsContainer = document.createElement('ul')
+		dietTagsContainer.setAttribute('id', 'dietTagsContainer')
+		var dietTagindex = arr[i].recipe.dietLabels
+		dietTagindex.map((item) => {
+			var dietTagItem = document.createElement('li')
+			dietTagItem.setAttribute('id', 'diet-tag-item')
+			dietTagItem.textContent = item
+			dietTagsContainer.appendChild(dietTagItem)
+		})
+
+		// recipe calories element
 		var recipeCaloriesEl = document.createElement('p')
 		recipeCaloriesEl.setAttribute('id', 'recipeCaloriesEl')
 		recipeCaloriesEl.textContent = `${arr[i].recipe.calories.toFixed(0)}cal`
-		var recipeImageEl = document.createElement('img')
-		recipeImageEl.setAttribute('src', arr[i].recipe.image)
-		recipeImageEl.setAttribute('alt', 'recipe food')
-		recipeImageEl.setAttribute('id', 'recipe-image')
 
+		//recipe cuisine type (e.g. mexican/american)
 		var recipeCuisineType = document.createElement('p')
 		recipeCuisineType.setAttribute('id', 'cuisineType')
 		recipeCuisineType.textContent = arr[i].recipe.cuisineType
+
+		// append child el to containers
+		cardContainerRight.appendChild(dietTagsContainer)
 		cardContainerRight.appendChild(recipeCaloriesEl)
 		cardContainerRight.appendChild(ingredientListEl)
 		cardContainerLeft.appendChild(recipeLabelEl)
@@ -89,23 +111,23 @@ function handleRecipeResults(arr) {
 	return recipeContentCardEl
 }
 
-function displayRecipeData(arr, i) {
-	var selectedRecipe = arr[i].recipe.label
-	var detailsURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${selectedRecipe}&app_id=${appID}&app_key=${appAPIKey}`
-	fetch(detailsURL)
-		.then((response) => response.json())
-		.then((data) => {
-			var dataReceived = data.hits
-			return dataReceived
-		})
+// function displayRecipeData(arr, i) {
+// 	var selectedRecipe = arr[i].recipe.label
+// 	var detailsURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${selectedRecipe}&app_id=${appID}&app_key=${appAPIKey}`
+// 	fetch(detailsURL)
+// 		.then((response) => response.json())
+// 		.then((data) => {
+// 			var dataReceived = data.hits
+// 			return dataReceived
+// 		})
 
-	for (var i = 0; i < dataReceived.length; i++) {
-		var recipeDescriptionItem = document.createElement('p')
-		recipeDescriptionItem.textContent = dataReceived[i].recipe.label
-		recipeDescriptionContainerEl.appendChild(recipeDescriptionItem)
-	}
-	return recipeDescriptionContainerEl
-}
+// 	for (var i = 0; i < dataReceived.length; i++) {
+// 		var recipeDescriptionItem = document.createElement('p')
+// 		recipeDescriptionItem.textContent = dataReceived[i].recipe.label
+// 		recipeDescriptionContainerEl.appendChild(recipeDescriptionItem)
+// 	}
+// 	return recipeDescriptionContainerEl
+// }
 
 recipeSearchBtn.addEventListener('click', fetchEdamam)
 
