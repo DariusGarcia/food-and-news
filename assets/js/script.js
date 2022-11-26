@@ -23,9 +23,8 @@ function fetchEdamam(event) {
 	event.preventDefault()
 	// reset the data array to be empty
 	edamamDataStore.length = 0
-	var userRecipeSearchInputEl = document.querySelector(
-		'#recipe-search-input'
-	).value
+	var userRecipeSearchInputEl = document.querySelector('#recipe-search-input')
+	userRecipeSearchInputEl = userRecipeSearchInputEl.value
 	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInputEl}&app_id=${appID}&app_key=${appAPIKey}`
 	fetch(edamamURL)
 		.then((response) => response.json())
@@ -37,10 +36,12 @@ function fetchEdamam(event) {
 			handleRecipeResults(dataReceived)
 			return data.hits
 		})
+	userRecipeSearchInputEl.value = ''
 	userRecipeSearchInputEl.textContent = ''
 }
 
 function handleRecipeResults(arr) {
+	recipeContentCardEl.innerHTML = ''
 	for (var i = 0; i < arr.length; i++) {
 		var cardContainerLeft = document.createElement('article')
 		var cardContainerRight = document.createElement('article')
