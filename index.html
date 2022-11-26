@@ -30,7 +30,7 @@
             </li>
         </ul>
     </nav>
-    <header class="flex flex-col w-full self-center  px-2 md:px-0 md:w-3/5 my-8 gap-2 ">
+    <header class="flex flex-col w-full self-center  px-2 md:px-0 md:w-4/5 my-8 gap-2 ">
         <h2 class="font-bold text-3xl">Recipe Handbook</h2>
         <div class="">
             <p class="">
@@ -44,20 +44,19 @@
         </div>
     </header>
     <main class="flex items-center justify-center">
-        <section class="w-full md:w-3/5 self-center p-2 rounded-md bg-gray-300" id="home">
+        <section class="w-full md:w-4/5 h-screen self-center p-2 rounded-md bg-gray-300" id="home">
             <!-- User search input for specific recipe -->
-            <form class="flex flex-col items-center gap-2 py-2" id="recipe-search-form">
-                <input class="w-full p-2 rounded-sm mb-2 border-2 border-gray-400" id="recipe-search-input" type="text"
-                    placeholder="Search a recipe e.g. chicken" />
+            <form class="overflow-y-auto relative flex flex-col items-center gap-2 py-2 max-h-screen"
+                id="recipe-search-form">
+                <input autocomplete='off' class="w-full p-2 rounded-sm mb-2 border-2 border-gray-400"
+                    id="recipe-search-input" type="text" placeholder="Search a recipe e.g. chicken" />
                 <button
                     class="w-48 rounded-md text-white self-center hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-blue-400 p-2"
                     id="recipe-search-btn">Search
                     for
                     recipe</button>
-
-                <section class="justify-start self-start h-96 scroll-ml-2 max-h-96 overflow-auto"
+                <section class="relative mt-4 justify-start self-start w-full  scroll-ml-2 overflow-auto max-h-full"
                     id="recipe-content-card">
-
                 </section>
             </form>
             <!------------------ recipe drop down menu -------------------->
