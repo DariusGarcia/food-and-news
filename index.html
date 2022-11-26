@@ -30,7 +30,7 @@
             </li>
         </ul>
     </nav>
-    <header class="flex flex-col w-full self-center  md:w-3/5 my-8 gap-2 ">
+    <header class="flex flex-col w-full self-center  px-2 md:px-0 md:w-3/5 my-8 gap-2 ">
         <h2 class="font-bold text-3xl">Recipe Handbook</h2>
         <div class="">
             <p class="">
@@ -44,15 +44,29 @@
         </div>
     </header>
     <main class="flex items-center justify-center">
-        <section class="w-full h-48 md:w-3/5 self-center p-2 rounded-md bg-gray-300" id="home">
+        <section class="w-full md:w-3/5 self-center p-2 rounded-md bg-gray-300" id="home">
+            <!-- User search input for specific recipe -->
+            <form class="flex flex-col items-center gap-2 py-2" id="recipe-search-form">
+                <input class="w-full p-2 rounded-sm mb-2 border-2 border-gray-400" id="recipe-search-input" type="text"
+                    placeholder="Search a recipe e.g. chicken" />
+                <button
+                    class="w-48 rounded-md text-white self-center hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-blue-400 p-2"
+                    id="recipe-search-btn">Search
+                    for
+                    recipe</button>
+
+                <article class="justify-start self-start h-96 max-h-96 overflow-auto" id="recipe-content-card">
+
+                </article>
+            </form>
             <!------------------ recipe drop down menu -------------------->
-            <form name="recipe-dropdown-menu">
+            <!-- <form name="recipe-dropdown-menu">
                 <label for="recipe" class="block text-gray-700 text-sm font-medium">Select a recipe:</label>
                 <select id="recipeDropdown" name="recipe-list"
                     class="mt-1 block w-full py-2 pl-3 pr-10 rounded-md border-gray-300 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                     <option id='defaultOption'>Choose a recipe</option>
                 </select>
-            </form>
+            </form> -->
             <!-- section to display recipe details [name, description, servings, thumbnail, prep time] -->
             <article class="" id="recipe-details-container"></article>
         </section>
