@@ -14,13 +14,19 @@ ol {
     list-style: disc;
 }
 
+nav li {
+    list-style: none;
+}
+
 li {
     margin-left: 1.5rem;
+    list-style-type: disc;
 }
 
 #recipeContentCardEl {
     display: flex;
     flex-direction: column;
+
     width: 100%;
 }
 
@@ -49,7 +55,6 @@ li {
 
 #recipe-search-btn {
     margin-top: 0.5rem;
-    width: 16rem;
 }
 
 #recipe-image {
@@ -97,6 +102,10 @@ li {
     #recipeCardWrapper {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #recipeContentCardEl {
+        padding: 0 1rem;
     }
 
     #recipeCardContainer {}

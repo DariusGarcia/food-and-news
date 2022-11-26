@@ -30,11 +30,8 @@ function fetchEdamam(event) {
 		.then((response) => response.json())
 		.then((data) => {
 			const dataReceived = data.hits
-			console.log(data.hits)
 			edamamDataStore.push(JSON.stringify(dataReceived))
-			console.log(`Populated array: ${JSON.stringify(edamamDataStore[0][1])}`)
 			handleRecipeResults(dataReceived)
-			return data.hits
 		})
 	userRecipeSearchInputEl.value = ''
 	userRecipeSearchInputEl.textContent = ''
@@ -71,6 +68,7 @@ function handleRecipeResults(arr) {
 		recipeCaloriesEl.textContent = `${arr[i].recipe.calories.toFixed(0)}cal`
 		var recipeImageEl = document.createElement('img')
 		recipeImageEl.setAttribute('src', arr[i].recipe.image)
+		recipeImageEl.setAttribute('alt', 'recipe food')
 		recipeImageEl.setAttribute('id', 'recipe-image')
 
 		var recipeCuisineType = document.createElement('p')
