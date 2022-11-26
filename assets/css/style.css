@@ -30,6 +30,7 @@ li {
     width: 100%;
 }
 
+/* container for recipe label, image, and cuisine type */
 #recipeCardContainerLeft {
     display: flex;
     flex-direction: column;
@@ -37,11 +38,10 @@ li {
     background-color: white;
     width: 100%;
     overflow-x: hidden;
-
     border-radius: 6px;
 }
 
-
+/* wrapper for left and right side of grid layout */
 #recipeCardWrapper {
     display: flex;
     flex-direction: column;
@@ -75,6 +75,23 @@ li {
     width: max-content;
     max-width: 18rem;
     padding: .5rem;
+}
+
+#dietTagsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+/* diet tags e.g. 'low-carb' */
+#diet-tag-item {
+    margin-left: 0;
+    list-style: none;
+    padding: 0 1rem;
+    background-color: #60a5fa;
+    color: white;
+    border-radius: 4px;
+
 }
 
 #recipeCaloriesEl {
@@ -117,5 +134,9 @@ li {
 
     #recipe-image {
         width: 18rem;
+    }
+
+    #diet-tag-item {
+        margin-top: .5rem;
     }
 }
