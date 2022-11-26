@@ -81,13 +81,14 @@ li {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 /* diet tags e.g. 'low-carb' */
 #diet-tag-item {
     margin-left: 0;
     list-style: none;
-    padding: 0 1rem;
+    padding: .5rem;
     background-color: #60a5fa;
     color: white;
     border-radius: 4px;
@@ -113,6 +114,21 @@ li {
     text-transform: capitalize;
     border-radius: 4px;
     width: max-content;
+}
+
+#instructionsURL {
+    padding-top: 1rem;
+}
+
+#instructionsURL:before {
+
+    content: 'Instructions';
+    color: blue;
+    border-bottom: 1px solid blue
+}
+
+#instructionsURL:hover {
+    opacity: 55%;
 }
 
 @media (min-width: 900px) {

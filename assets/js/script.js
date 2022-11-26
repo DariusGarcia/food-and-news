@@ -48,9 +48,9 @@ function handleRecipeResults(arr) {
 		// instructions and ingredients elements
 		var instructionsEl = document.createElement('article')
 		instructionsEl.setAttribute('id', 'instructions')
-		var ingredientListEl = document.createElement('ol')
 
 		// ingredients list
+		var ingredientListEl = document.createElement('ol')
 		const ingredientsObj = arr[i].recipe.ingredientLines
 		ingredientsObj.map((item) => {
 			var ingredientItem = document.createElement('li')
@@ -89,6 +89,16 @@ function handleRecipeResults(arr) {
 		recipeCaloriesEl.setAttribute('id', 'recipeCaloriesEl')
 		recipeCaloriesEl.textContent = `${arr[i].recipe.calories.toFixed(0)}cal`
 
+		// recipe instructions element
+		var instructionsEl = document.createElement('a')
+		instructionsEl.setAttribute('id', 'instructionsURL')
+		instructionsEl.setAttribute('href', arr[i].recipe.url)
+		instructionsEl.setAttribute('target', '__blank')
+		// instructionsEl.addEventListener(
+		// 	'click',
+		// 	(window.location.assign = arr[i].recipe.url)
+		// )
+
 		//recipe cuisine type (e.g. mexican/american)
 		var recipeCuisineType = document.createElement('p')
 		recipeCuisineType.setAttribute('id', 'cuisineType')
@@ -96,6 +106,7 @@ function handleRecipeResults(arr) {
 
 		// append child el to containers
 		cardContainerRight.appendChild(dietTagsContainer)
+		cardContainerRight.appendChild(instructionsEl)
 		cardContainerRight.appendChild(recipeCaloriesEl)
 		cardContainerRight.appendChild(ingredientListEl)
 		cardContainerLeft.appendChild(recipeLabelEl)
