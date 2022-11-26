@@ -50,19 +50,24 @@
                 <label for="recipe" class="block text-gray-700 text-sm font-medium">Select a recipe:</label>
                 <select id="recipeDropdown" name="recipe-list"
                     class="mt-1 block w-full py-2 pl-3 pr-10 rounded-md border-gray-300 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                    <option selected>Choose a recipe</option>
+                    <option id='defaultOption'>Choose a recipe</option>
                 </select>
             </form>
             <!-- section to display recipe details [name, description, servings, thumbnail, prep time] -->
             <article class="" id="recipe-details-container"></article>
         </section>
     </main>
-
-    <div class="mt-24" id="recipeContainer">
-        <button class="flex justify-center bg-red-500 p-2" id="searchBtn">
-            Search
-        </button>
-    </div>
+    <section class="w-full flex justify-center " id="zipcode-container">
+        <form class="mt-24 w-full md:w-3/5 flex flex-col  justify-center gap-4  bg-gray-300 h-56" id="recipeContainer">
+            <input type="text" autocomplete="off" class="w-96 self-center border-2 p-2 m-2 border-gray-500"
+                id="zipcode-input" placeholder="Enter zip code:" />
+            <button
+                class="w-48 rounded-md text-white self-center hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-red-500 p-2 "
+                id="searchBtn">
+                Search for stores
+            </button>
+        </form>
+    </section>
     <script src="./assets/js/script.js" async defer></script>
 </body>
 
