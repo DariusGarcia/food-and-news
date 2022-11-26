@@ -18,7 +18,7 @@
         <li class="list-none p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
             <a href="./index.html">Recipe Handbook</a>
         </li>
-        <ul class="flex flex-row justify-between gap-8">
+        <ul class="flex flex-row justify-between gap-2 md:gap-8">
             <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
                 <a href="./index.html">Home</a>
             </li>
@@ -30,35 +30,33 @@
             </li>
         </ul>
     </nav>
-    <header class="flex flex-col w-full self-center  px-2 md:px-0 md:w-4/5 my-8 gap-2 ">
-        <h2 class="font-bold text-3xl">Recipe Handbook</h2>
+    <header class="flex flex-col w-full self-center pl-6 lg:pl-0  lg:w-4/5 my-2 md:my-4 gap-2 ">
+        <h2 class="font-bold text-2xl md:text-3xl text-center md:text-start">Recipe Handbook</h2>
         <div class="">
-            <p class="">
+            <p class="text-center md:text-start">
                 Find your favorite recipe and nearby grocery stores!
             </p>
-            <p class="">
-                To get started, enter a recipe name in the search bar and click the
-                search button. Then, click the "Find Store" button to find the closest
-                grocery store to you.
-            </p>
+
         </div>
     </header>
     <main class="flex items-center justify-center">
-        <section class="w-full md:w-4/5 h-screen self-center p-2 rounded-md bg-gray-300" id="home">
+        <section class="w-full lg:w-4/5 mx-2  h-screen self-center px-4 rounded-md bg-gray-300" id="home">
             <!-- User search input for specific recipe -->
             <form class="overflow-y-auto overflow-x-hidden relative flex flex-col items-center gap-2 py-2 max-h-screen"
                 id="recipe-search-form">
-                <label for="Recipe search" class="flex w-max self-start border-b-2 border-blue-400">Search
+                <label for="Recipe search" class="lg:ml-4 flex w-max self-start border-b-2 border-blue-400">Search
                     for a
                     recipe</label>
-                <input autocomplete='off' class="w-full p-2 rounded-sm mb-2 border-2 border-gray-400"
+
+                <input autocomplete='off' class="w-96 mt-2 lg:ml-4 self-start p-2 rounded-md  border-2 border-gray-400"
                     id="recipe-search-input" type="text" placeholder="e.g. chicken plate" />
                 <button
-                    class="w-48 rounded-md text-white self-center hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-blue-400 p-2"
+                    class="w-96 rounded-md text-white self-start lg:ml-4 hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-blue-400 p-2"
                     id="recipe-search-btn">Search
                     for
                     recipe</button>
-                <section class="relative mt-4 justify-start self-start w-full  scroll-ml-2 overflow-auto max-h-full"
+                <section
+                    class="relative mt-4 justify-start self-start w-full  rounded-md scroll-ml-2 overflow-auto max-h-full"
                     id="recipe-content-card">
                 </section>
             </form>
