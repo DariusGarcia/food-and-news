@@ -44,16 +44,20 @@
         </div>
     </header>
     <main class="flex items-center justify-center">
-        <section class="w-full h-48 md:w-3/5 self-center p-2 rounded-md bg-gray-300" id="home">
+        <section class="w-full md:w-3/5 self-center p-2 rounded-md bg-gray-300" id="home">
             <!-- User search input for specific recipe -->
-            <form action="submit" class="flex flex-col items-center gap-2 py-2" id="recipe-search-form">
+            <form class="flex flex-col items-center gap-2 py-2" id="recipe-search-form">
                 <input class="w-full p-2 rounded-sm mb-2 border-2 border-gray-400" id="recipe-search-input" type="text"
                     placeholder="Search a recipe e.g. chicken" />
-                <button onClick="handleSubmit"
+                <button
                     class="w-48 rounded-md text-white self-center hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-blue-400 p-2"
                     id="recipe-search-btn">Search
                     for
                     recipe</button>
+
+                <article class="justify-start self-start h-96 max-h-96 overflow-auto" id="recipe-content-card">
+
+                </article>
             </form>
             <!------------------ recipe drop down menu -------------------->
             <!-- <form name="recipe-dropdown-menu">
