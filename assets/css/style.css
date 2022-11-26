@@ -34,7 +34,7 @@ li {
 #recipeCardContainerLeft {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     background-color: white;
     width: 100%;
     overflow-x: hidden;
