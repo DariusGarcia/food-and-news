@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-<body class="bg-white">
+<body class="bg-white flex flex-col  ">
     <nav class="flex flex-row justify-between items-center p-2 bg-blue-400 font-semibold h-16">
         <h1 class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
             Recipe Handbook
@@ -30,21 +30,21 @@
             </li>
         </ul>
     </nav>
-    <header class="flex flex-col w-full justify-center items-center mt-2 gap-2">
-        <h2 class="font-bold text-3xl text-center">Recipe Handbook</h2>
-        <div class="md:w-2/3">
-            <p class="text-center">
+    <header class="flex flex-col w-full self-center  md:w-3/5 my-8 gap-2 ">
+        <h2 class="font-bold text-3xl">Recipe Handbook</h2>
+        <div class="">
+            <p class="">
                 Find your favorite recipe and nearby grocery stores!
             </p>
-            <p class="text-center">
+            <p class="">
                 To get started, enter a recipe name in the search bar and click the
                 search button. Then, click the "Find Store" button to find the closest
                 grocery store to you.
             </p>
         </div>
     </header>
-    <main class="flex justify-center">
-        <section class="w-full h-48 md:w-4/5 p-2 rounded-md bg-gray-300" id="home">
+    <main class="flex items-center justify-center">
+        <section class="w-full h-48 md:w-3/5 self-center p-2 rounded-md bg-gray-300" id="home">
             <!------------------ recipe drop down menu -------------------->
             <form name="recipe-dropdown-menu">
                 <label for="recipe" class="block text-gray-700 text-sm font-medium">Select a recipe:</label>
@@ -62,7 +62,7 @@
             <input type="text" autocomplete="off" class="w-96 self-center border-2 p-2 m-2 border-gray-500"
                 id="zipcode-input" placeholder="Enter zip code:" />
             <button
-                class="w-48 rounded-md text-white self-center hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-red-500 p-2 "
+                class="w-48 rounded-md text-white self-center hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-blue-400 p-2 "
                 id="searchBtn">
                 Search for stores
             </button>
