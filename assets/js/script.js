@@ -151,8 +151,8 @@ function displayRecipeDetails(arr) {
 		// append child el to containers
 		cardContainerRight.appendChild(dietTagsContainer)
 		cardContainerRight.appendChild(instructionsEl)
-		cardContainerRight.appendChild(recipeCaloriesEl)
 		cardContainerRight.appendChild(dishTypeEl)
+		cardContainerRight.appendChild(recipeCaloriesEl)
 		cardContainerRight.appendChild(servingsAmountEl)
 		cardContainerEnd.appendChild(ingredientListEl)
 		cardContainerLeft.appendChild(recipeLabelEl)
