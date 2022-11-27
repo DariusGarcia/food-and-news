@@ -103,6 +103,16 @@ function displayRecipeDetails(arr) {
 		recipeCaloriesEl.setAttribute('id', 'recipeCaloriesEl')
 		recipeCaloriesEl.textContent = `${arr[i].recipe.calories.toFixed(0)}cal`
 
+		// recipe servings
+		var servingsAmountEl = document.createElement('p')
+		servingsAmountEl.setAttribute('id', 'servingsAmount')
+		servingsAmountEl.textContent = `${arr[i].recipe.yield}`
+
+		// recipe dish type
+		var dishTypeEl = document.createElement('p')
+		dishTypeEl.setAttribute('id', 'dishType')
+		dishTypeEl.textContent = arr[i].recipe.dishType[0]
+
 		// recipe instructions element
 		var instructionsEl = document.createElement('a')
 		instructionsEl.setAttribute('id', 'instructionsURL')
@@ -118,6 +128,8 @@ function displayRecipeDetails(arr) {
 		cardContainerRight.appendChild(dietTagsContainer)
 		cardContainerRight.appendChild(instructionsEl)
 		cardContainerRight.appendChild(recipeCaloriesEl)
+		cardContainerRight.appendChild(dishTypeEl)
+		cardContainerRight.appendChild(servingsAmountEl)
 		// cardContainerRight.appendChild(ingredientListEl)
 		cardContainerEnd.appendChild(ingredientListEl)
 		cardContainerLeft.appendChild(recipeLabelEl)
