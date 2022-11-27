@@ -34,8 +34,10 @@ function fetchEdamam(event) {
 			const dataReceived = data.hits
 			// push the JSON data into the edamam data store array
 			edamamDataStore.push(JSON.stringify(dataReceived))
+			console.log('store:' + edamamDataStore)
 			// pass the response JSON data into the handler function to populate the recipe card with the details
 			displayRecipeDetails(dataReceived)
+			localStorage.setItem('recipes', JSON.stringify(data.hits))
 		})
 
 	// reset the input fields and recipe list to empty after fetching searched recipe.
