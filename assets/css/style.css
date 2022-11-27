@@ -202,6 +202,21 @@ li {
     text-transform: capitalize;
 }
 
+#nutritionalFactsContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+#nutritionalFactsContainer li {
+    list-style: none;
+    padding: .5rem;
+    background-color: #fafaf9;
+    margin: .5rem 0;
+    border-radius: 4px;
+    width: max-content;
+    font-weight: 500;
+}
+
 @media (min-width: 850px) {
     #recipeCardWrapper {
         display: grid;
@@ -257,6 +272,15 @@ li {
         justify-content: center;
         padding: .5rem;
     }
+
+    #nutritionalFactsContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: fit-content;
+        /* justify-items: center; */
+
+    }
+
 }
 
 @media (min-width: 1180px) {

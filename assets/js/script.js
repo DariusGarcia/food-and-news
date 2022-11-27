@@ -98,26 +98,50 @@ function displayRecipeDetails(arr) {
 			dietTagsContainer.appendChild(dietTagItem)
 		})
 
+		// recipe instructions element
+		var instructionsEl = document.createElement('a')
+		instructionsEl.setAttribute('id', 'instructionsURL')
+		instructionsEl.setAttribute('href', arr[i].recipe.url)
+		instructionsEl.setAttribute('target', '__blank')
+
 		// recipe calories element
 		var recipeCaloriesEl = document.createElement('p')
 		recipeCaloriesEl.setAttribute('id', 'recipeCaloriesEl')
 		recipeCaloriesEl.textContent = `${arr[i].recipe.calories.toFixed(0)}cal`
-
-		// recipe servings
-		var servingsAmountEl = document.createElement('p')
-		servingsAmountEl.setAttribute('id', 'servingsAmount')
-		servingsAmountEl.textContent = `${arr[i].recipe.yield}`
 
 		// recipe dish type
 		var dishTypeEl = document.createElement('p')
 		dishTypeEl.setAttribute('id', 'dishType')
 		dishTypeEl.textContent = arr[i].recipe.dishType[0]
 
-		// recipe instructions element
-		var instructionsEl = document.createElement('a')
-		instructionsEl.setAttribute('id', 'instructionsURL')
-		instructionsEl.setAttribute('href', arr[i].recipe.url)
-		instructionsEl.setAttribute('target', '__blank')
+		// recipe servings
+		var servingsAmountEl = document.createElement('p')
+		servingsAmountEl.setAttribute('id', 'servingsAmount')
+		servingsAmountEl.textContent = `${arr[i].recipe.yield}`
+
+		// nutritional facts element
+		var nutritionalFactsContainer = document.createElement('ul')
+		nutritionalFactsContainer.setAttribute('id', 'nutritionalFactsContainer')
+		var fatAmount = document.createElement('li')
+		fatAmount.textContent = `${arr[i].recipe.digest[0].label}: ${arr[
+			i
+		].recipe.digest[0].total.toFixed(0)}${arr[i].recipe.digest[0].unit}`
+		var carbsAmount = document.createElement('li')
+		carbsAmount.textContent = `${arr[i].recipe.digest[1].label}: ${arr[
+			i
+		].recipe.digest[1].total.toFixed(0)}${arr[i].recipe.digest[1].unit}`
+		var proteinAmount = document.createElement('li')
+		proteinAmount.textContent = `${arr[i].recipe.digest[2].label}: ${arr[
+			i
+		].recipe.digest[2].total.toFixed(0)}${arr[i].recipe.digest[2].unit}`
+		var sodiumAmount = document.createElement('li')
+		sodiumAmount.textContent = `${arr[i].recipe.digest[4].label}: ${arr[
+			i
+		].recipe.digest[4].total.toFixed(0)}${arr[i].recipe.digest[4].unit}`
+		nutritionalFactsContainer.appendChild(fatAmount)
+		nutritionalFactsContainer.appendChild(carbsAmount)
+		nutritionalFactsContainer.appendChild(proteinAmount)
+		nutritionalFactsContainer.appendChild(sodiumAmount)
 
 		//recipe cuisine type (e.g. mexican/american)
 		var recipeCuisineType = document.createElement('p')
@@ -130,11 +154,11 @@ function displayRecipeDetails(arr) {
 		cardContainerRight.appendChild(recipeCaloriesEl)
 		cardContainerRight.appendChild(dishTypeEl)
 		cardContainerRight.appendChild(servingsAmountEl)
-		// cardContainerRight.appendChild(ingredientListEl)
 		cardContainerEnd.appendChild(ingredientListEl)
 		cardContainerLeft.appendChild(recipeLabelEl)
 		cardContainerLeft.appendChild(recipeCuisineType)
 		cardContainerLeft.appendChild(recipeImageEl)
+		cardContainerLeft.appendChild(nutritionalFactsContainer)
 		cardWrapper.appendChild(cardContainerLeft)
 		cardWrapper.appendChild(cardContainerRight)
 		cardWrapper.appendChild(cardContainerEnd)
