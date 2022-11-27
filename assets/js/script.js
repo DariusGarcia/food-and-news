@@ -1,5 +1,3 @@
-var tastyURL = `https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes`
-
 // edamam api
 // new API endpoint because the old API hit the monthly 500 limit
 var appID = '8909c56f'
@@ -17,7 +15,7 @@ var recipeDetailsContainerEl = document.querySelector(
 	'#recipe-details-container'
 )
 
-// array to store th fetched recipe data information
+// array to store the fetched recipe data information
 var edamamDataStore = []
 
 // fetch Edamam API endpoint to get recipe details (10,000 calls/ month limit)s
@@ -52,6 +50,7 @@ function displayRecipeDetails(arr) {
 	for (var i = 0; i < arr.length; i++) {
 		var cardContainerLeft = document.createElement('article')
 		var cardContainerRight = document.createElement('article')
+		var cardContainerEnd = document.createElement('article')
 		var cardWrapper = document.createElement('div')
 		var cardWrapperRight = document.createElement('div')
 
@@ -61,10 +60,12 @@ function displayRecipeDetails(arr) {
 
 		// ingredients list
 		var ingredientListEl = document.createElement('ol')
+		ingredientListEl.setAttribute('id', 'ingredientsContainer')
 		const ingredientsObj = arr[i].recipe.ingredientLines
-		// looping through the array of ingredient strings and putting them in their own li tag.
+		// looping through the array of ingredient strings and putting them in their own <li> tag.
 		ingredientsObj.map((item) => {
 			var ingredientItem = document.createElement('li')
+			ingredientItem.setAttribute('id', 'ingredientItem')
 			ingredientItem.textContent = item
 			ingredientListEl.appendChild(ingredientItem)
 		})
@@ -72,8 +73,9 @@ function displayRecipeDetails(arr) {
 		cardWrapper.setAttribute('id', 'recipeCardWrapper')
 		cardContainerLeft.setAttribute('id', 'recipeCardContainerLeft')
 		cardContainerRight.setAttribute('id', 'recipeCardContainerRight')
+		cardContainerEnd.setAttribute('id', 'recipeCardContainerEnd')
 
-		// name of recipe
+		// recipe name label element
 		var recipeLabelEl = document.createElement('h3')
 		recipeLabelEl.setAttribute('id', 'recipeLabel')
 		recipeLabelEl.textContent = arr[i].recipe.label
@@ -101,6 +103,16 @@ function displayRecipeDetails(arr) {
 		recipeCaloriesEl.setAttribute('id', 'recipeCaloriesEl')
 		recipeCaloriesEl.textContent = `${arr[i].recipe.calories.toFixed(0)}cal`
 
+		// recipe servings
+		var servingsAmountEl = document.createElement('p')
+		servingsAmountEl.setAttribute('id', 'servingsAmount')
+		servingsAmountEl.textContent = `${arr[i].recipe.yield}`
+
+		// recipe dish type
+		var dishTypeEl = document.createElement('p')
+		dishTypeEl.setAttribute('id', 'dishType')
+		dishTypeEl.textContent = arr[i].recipe.dishType[0]
+
 		// recipe instructions element
 		var instructionsEl = document.createElement('a')
 		instructionsEl.setAttribute('id', 'instructionsURL')
@@ -116,19 +128,25 @@ function displayRecipeDetails(arr) {
 		cardContainerRight.appendChild(dietTagsContainer)
 		cardContainerRight.appendChild(instructionsEl)
 		cardContainerRight.appendChild(recipeCaloriesEl)
-		cardContainerRight.appendChild(ingredientListEl)
+		cardContainerRight.appendChild(dishTypeEl)
+		cardContainerRight.appendChild(servingsAmountEl)
+		// cardContainerRight.appendChild(ingredientListEl)
+		cardContainerEnd.appendChild(ingredientListEl)
 		cardContainerLeft.appendChild(recipeLabelEl)
 		cardContainerLeft.appendChild(recipeCuisineType)
 		cardContainerLeft.appendChild(recipeImageEl)
 		cardWrapper.appendChild(cardContainerLeft)
 		cardWrapper.appendChild(cardContainerRight)
+		cardWrapper.appendChild(cardContainerEnd)
 		recipeContentCardEl.setAttribute('id', 'recipeContentCardEl')
 		recipeContentCardEl.appendChild(cardWrapper)
 		recipeContentCardEl.appendChild(cardWrapperRight)
-		console.log(`description: ${edamamDataStore[0][1].label}`)
 	}
 	return recipeContentCardEl
 }
 
 // fetch recipe searched query when user clicks 'search for recipe button'
 recipeSearchBtn.addEventListener('click', fetchEdamam)
+
+// old API endpoint
+// var tastyURL = `https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes`
