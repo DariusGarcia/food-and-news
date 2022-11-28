@@ -5,6 +5,10 @@
         Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 ::-moz-selection {
     /* Code for Firefox */
     color: white;
@@ -43,7 +47,6 @@ li {
 #recipeContentCardEl {
     display: flex;
     flex-direction: column;
-
     width: 100%;
 }
 
