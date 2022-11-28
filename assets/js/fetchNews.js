@@ -21,6 +21,7 @@ function handleNewsFetch(data){
     var newsCategoriesEl = document.createElement('p')
     newsCategoriesEl.textContent = data.data[0].categories
     var newsSnippetEl = document.createElement('p')
+
     newsSnippetEl.textContent = data.data[0].snippet
     newsContainerEl.appendChild(newsTitleEl)
     newsContainerEl.appendChild(newsDescriptionEl)
@@ -28,6 +29,13 @@ function handleNewsFetch(data){
     newsContainerEl.appendChild(newsImageEl)
     newsContainerEl.appendChild(newsCategoriesEl)
     newsContainerEl.appendChild(newsSnippetEl)
+
+    newsTitleEl.setAttribute('id', 'news-title')
+    newsDescriptionEl.setAttribute('id', 'news-description')
+    newsUrlEl.setAttribute('id', 'news-url')
+    newsImageEl.setAttribute('id', 'news-image')
+    newsCategoriesEl.setAttribute('id', 'news-categories')
+    newsSnippetEl.setAttribute('id', 'news-snippet')
   }
 
 }
