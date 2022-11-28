@@ -27,7 +27,7 @@ ol:before {
     background-color: white;
     z-index: 50;
     margin: 0;
-    padding-right: 24rem;
+    padding-right: 12rem;
     width: 100%;
 }
 
@@ -248,9 +248,15 @@ li {
 }
 
 @media (min-width: 850px) {
+
+    #recipe-content-card {
+        width: 50rem;
+    }
+
     #recipeCardWrapper {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        width: 50vw;
     }
 
     #recipeContentCardEl {
@@ -293,7 +299,7 @@ li {
     }
 
     #recipeCaloriesEl {
-        align-items: center;
+        align-items: flex-start;
     }
 
     #servingsAmount {
@@ -312,8 +318,10 @@ li {
 }
 
 @media (min-width: 1180px) {
+
     #recipeCardWrapper {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        width: 50vw;
     }
 
     #ingredientsContainer {
