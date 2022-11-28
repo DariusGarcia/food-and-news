@@ -34,7 +34,7 @@ function fetchEdamam(event) {
 			const dataReceived = data.hits
 			// push the JSON data into the edamam data store array
 			edamamDataStore.push(JSON.stringify(dataReceived))
-			console.log('store:' + edamamDataStore)
+			// console.log('store:' + edamamDataStore)
 			// pass the response JSON data into the handler function to populate the recipe card with the details
 			displayRecipeDetails(dataReceived)
 
@@ -43,12 +43,13 @@ function fetchEdamam(event) {
 			var localStorageData = JSON.parse(
 				localStorage.getItem('searched-recipes')
 			)
-			console.log(`local storage data: ${localStorageData}`)
+			// console.log(`local storage data: ${localStorageData}`)
 		})
 
 	// reset the input fields and recipe list to empty after fetching searched recipe.
 	userRecipeSearchInput.value = ''
 	userRecipeSearchInput.textContent = ''
+	historyApend();
 }
 
 // data handler function to populate the recipe section list with each recipe details.
@@ -185,8 +186,31 @@ function displayRecipeDetails(arr) {
 		recipeContentCardEl.appendChild(cardWrapper)
 		recipeContentCardEl.appendChild(cardWrapperRight)
 	}
-	return recipeContentCardEl
+	return recipeContentCardEl;
+}
+
+
+
+var historyList = document.querySelector("#history-container");
+
+function historyApend(){
+	var userRecipeSearchInput = document.querySelector('#recipe-search-input').value
+	if(!userRecipeSearchInput){
+		window.alert("please enter something!");
+		return;
+	}
+	var historyBtn = document.createElement("button");
+	historyBtn.textContent = userRecipeSearchInput;
+	historyBtn.setAttribute("value",userRecipeSearchInput);
+	historyBtn.setAttribute("class","p-2 bg-blue-200 flex items-center rounded-md");
+	historyBtn.setAttribute("id","history-btn");
+
+	historyBtn.addEventListener("click",function(){
+		fetchEdamam(historyBtn.value);
+		console.log('searchhistory,' + historyBtn.value)
+	})
+	historyList.appendChild(historyBtn)
 }
 
 // fetch recipe searched query when user clicks 'search for recipe button'
-recipeSearchBtn.addEventListener('click', fetchEdamam)
+recipeSearchBtn.addEventListener('click', fetchEdamam);
