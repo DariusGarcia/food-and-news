@@ -50,15 +50,21 @@
                 id="recipe-search-form">
                 <label for="Recipe search" class="lg:ml-4 flex w-max self-start border-b-2 border-blue-400">Search for a
                     recipe</label>
-                <input autocomplete="off" autofocus
-                    class="w-96 mt-2 lg:ml-4 self-start p-2 rounded-md border-2 border-gray-400"
-                    id="recipe-search-input" type="text" placeholder="ex. Parmesan Crusted Chicken" />
+                <div id='search-wrapper' class="w-full flex col md:row justify-start">
+                    <input autocomplete="off" autofocus
+                        class="w-96 mt-2 lg:ml-4 self-start p-2 rounded-md border-2 border-gray-400"
+                        id="recipe-search-input" type="text" placeholder="ex. Parmesan Crusted Chicken" />
+                </div>
                 <button
                     class="w-96 rounded-md text-white self-start lg:ml-4 hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-blue-400 p-2"
                     id="recipe-search-btn">
                     Search for recipe
                 </button>
-
+                <section id='history-container' class=" lg:ml-4 w-full flex row justify-start gap-2 ">
+                    <p class="p-2 bg-blue-200 flex items-center rounded-md">food 1</p>
+                    <p class="p-2 bg-blue-200 flex items-center rounded-md">food 2</p>
+                    <p class="p-2 bg-blue-200 flex items-center rounded-md">food 3</p>
+                </section>
                 <!-- this section below is where the individual recipe cards are populated with the fetched data.  -->
                 <section name="fetched-api-data"
                     class="relative mt-4 flex-end self-start w-full rounded-md scroll-ml-2 overflow-auto max-h-full"
@@ -66,7 +72,7 @@
                 </section>
             </form>
         </section>
-    </section>
+    </main>
     <footer class="flex flex-col items-center justify-center w-full h-16 bg-blue-400">
         <p class="text-white font-semibold">
             &copy; 2022 Food & News
