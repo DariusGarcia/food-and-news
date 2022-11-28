@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Recipe Handbook</title>
+    <title>Food & News</title>
     <meta name="description" content="Web app to find different recipes and store locations." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="reset" href="./assets/css/reset.css" />
@@ -19,27 +19,27 @@
 <body class="bg-white flex flex-col">
     <nav class="flex flex-row justify-between items-center p-2 bg-blue-400 font-semibold h-16">
         <li class="list-none p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
-            <a href="./index.html">Recipe Handbook</a>
+            <a href="./index.html">Food & News</a>
         </li>
         <ul class="flex flex-row justify-between gap-2 md:gap-8">
             <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
-                <a href="./index.html">Home</a>
+                <a href="./index.html">Recipes</a>
             </li>
             <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
-                <a href="./results.html">Recipes</a>
+                <a href="#history">Search History</a>
             </li>
             <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
-                <a href="#store">Store Locator</a>
+                <a href="./results.html">News</a>
             </li>
         </ul>
     </nav>
     <header class="flex flex-col w-full self-center md:pl-10 my-2 md:my-4 gap-2">
-        <h2 class="font-bold text-2xl md:text-3xl text-center md:text-start">
-            Recipe Handbook
+        <h2 class="font-bold text-2xl md:text-3xl text-center md:text-center">
+            Food & News!
         </h2>
         <div class="">
-            <p class="text-center md:text-start">
-                Find your favorite recipe and nearby grocery stores!
+            <p class="text-center md:text-center">
+                Find your favorite recipe and get your daily dose of news!
             </p>
         </div>
     </header>
@@ -52,7 +52,7 @@
                     recipe</label>
                 <input autocomplete="off" autofocus
                     class="w-96 mt-2 lg:ml-4 self-start p-2 rounded-md border-2 border-gray-400"
-                    id="recipe-search-input" type="text" placeholder="e.g. Rib-Eye steaks with Chimichurri sauce" />
+                    id="recipe-search-input" type="text" placeholder="ex. Parmesan Crusted Chicken" />
                 <button
                     class="w-96 rounded-md text-white self-start lg:ml-4 hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-blue-400 p-2"
                     id="recipe-search-btn">
@@ -61,23 +61,17 @@
 
                 <!-- this section below is where the individual recipe cards are populated with the fetched data.  -->
                 <section name="fetched-api-data"
-                    class="relative mt-4 justify-start self-start w-full rounded-md scroll-ml-2 overflow-auto max-h-full"
+                    class="relative mt-4 flex-end self-start w-full rounded-md scroll-ml-2 overflow-auto max-h-full"
                     id="recipe-content-card">
                 </section>
             </form>
         </section>
-    </main>
-    <section class="w-full flex justify-center" id="zipcode-container">
-        <form class="mt-24 w-full md:w-3/5 flex flex-col justify-center gap-4 bg-gray-100 h-56" id="recipeContainer">
-            <input type="text" autocomplete="off" class="w-96 self-center border-2 p-2 m-2 border-gray-500"
-                id="zipcode-input" placeholder="Enter zip code:" />
-            <button
-                class="w-48 rounded-md text-white self-center hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-blue-400 p-2"
-                id="searchBtn">
-                Search for stores
-            </button>
-        </form>
     </section>
+    <footer class="flex flex-col items-center justify-center w-full h-16 bg-blue-400">
+        <p class="text-white font-semibold">
+            &copy; 2022 Food & News
+        </p>
+    </footer>
     <script src="./assets/js/fetchNews.js" async defer></script>
     <script src="./assets/js/script.js" async defer></script>
 </body>
