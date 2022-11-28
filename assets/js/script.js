@@ -18,10 +18,10 @@ var recipeDetailsContainerEl = document.querySelector(
 // array to store the fetched recipe data information
 var edamamDataStore = []
 
-// fetch Edamam API endpoint to get recipe details (10,000 calls/ month limit)s
+// fetch Edamam API endpoint to get recipe details (10,000 calls/ month limit)
 function fetchEdamam(event) {
 	event.preventDefault()
-	// reset the data array to be empty
+	// reset the data array to be empty on every fetch request
 	edamamDataStore.length = 0
 	var userRecipeSearchInput = document.querySelector(
 		'#recipe-search-input'
@@ -37,7 +37,13 @@ function fetchEdamam(event) {
 			console.log('store:' + edamamDataStore)
 			// pass the response JSON data into the handler function to populate the recipe card with the details
 			displayRecipeDetails(dataReceived)
-			localStorage.setItem('recipes', JSON.stringify(data.hits))
+
+			// sets the searched recipe results to local storage
+			localStorage.setItem('searched-recipes', JSON.stringify(data.hits))
+			var localStorageData = JSON.parse(
+				localStorage.getItem('searched-recipes')
+			)
+			console.log(`local storage data: ${localStorageData}`)
 		})
 
 	// reset the input fields and recipe list to empty after fetching searched recipe.
@@ -50,9 +56,13 @@ function displayRecipeDetails(arr) {
 	recipeContentCardEl.innerHTML = ''
 	// looping through the data object and creating an <article> element for each individual recipe.
 	for (var i = 0; i < arr.length; i++) {
+		// cardContainerLeft holds recipe label, cuisineType, image, and nutritionalFactsContainer
+		// cardContainerRight holds recipe diet label tags, dish type, cals, servings, instructions and ingredients.
 		var cardContainerLeft = document.createElement('article')
 		var cardContainerRight = document.createElement('article')
+		// containerEnd holds the ingredients on large viewports widths.
 		var cardContainerEnd = document.createElement('article')
+		// card wrapper holds all three cardContainers so that a grid layout can be applied on large viewports and flex layout on mobile viewports.
 		var cardWrapper = document.createElement('div')
 		var cardWrapperRight = document.createElement('div')
 
@@ -173,6 +183,3 @@ function displayRecipeDetails(arr) {
 
 // fetch recipe searched query when user clicks 'search for recipe button'
 recipeSearchBtn.addEventListener('click', fetchEdamam)
-
-// old API endpoint
-// var tastyURL = `https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes`
