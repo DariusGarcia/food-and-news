@@ -11,6 +11,7 @@ var recipeContentCardEl = document.querySelector('#recipe-content-card')
 var recipeDescriptionContainerEl = document.querySelector(
 	'#recipe-description-container'
 )
+
 var recipeDetailsContainerEl = document.querySelector(
 	'#recipe-details-container'
 )
@@ -42,7 +43,8 @@ function fetchEdamam(event) {
 			var localStorageData = JSON.parse(
 				localStorage.getItem('searched-recipes')
 			)
-			// console.log(`local storage data: ${localStorageData}`)
+
+			console.log(`local storage data: ${localStorageData}`)
 		})
 
 	// reset the input fields and recipe list to empty after fetching searched recipe.
@@ -212,13 +214,31 @@ function historyAppend() {
 	})
 }
 
+// function to display search history
+var userSearchHistory = []
+
+function searchHistory() {
+	var userSearchInput = document.querySelector('#recipe-search-input').value
+	if (!userSearchInput) {
+		console.log('Empty search input')
+		return
+	}
+	userSearchHistory.push(userSearchInput)
+
+	// if (userSearchHistory.length > 3) {
+	// 	userSearchHistory.length = 3
+	// }
+}
+
+// search history function
 function initSearchHistory() {
-	var localHistory = localStorage.getItem('receipesSearched')
+	var localHistory = localStorage.getItem(JSON.stringify('searched-recipes'))
 	if (localHistory) {
 		searchHistory = JSON.parse(localHistory)
 	}
 	historyAppend()
 }
+
 initSearchHistory()
 
 // fetch recipe searched query when user clicks 'search for recipe button'
