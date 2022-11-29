@@ -247,6 +247,37 @@ li {
     background-color: #f5f5f4;
 }
 
+/* NEWS STYLING */
+#news-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+}
+
+#news-title {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: center;
+}
+
+#news-description {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: #60a5fa;
+}
+
+#news-description:hover {
+    color: red;
+    transition: smooth ease 0.5s;
+    text-shadow: #60a5fa 0px 0px 5px;
+}
+
 @media (min-width: 850px) {
 
     #recipe-content-card {
