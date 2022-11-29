@@ -181,13 +181,15 @@ function displayRecipeDetails(arr) {
 
 var searchHistoryArr = []
 
-var historyList = document.querySelector("#history-container");
+var historyList = document.querySelector('#history-container')
 
-function historyAppend(){
-	var userRecipeSearchInput = document.querySelector('#recipe-search-input').value
-	if(!userRecipeSearchInput){
+function historyAppend() {
+	var userRecipeSearchInput = document.querySelector(
+		'#recipe-search-input'
+	).value
+	if (!userRecipeSearchInput) {
 		// document.querySelector("alert").textContent = "Recipe NOT FOUND, PLEASE TRY AGAIN";
-		return;
+		return
 	}
 
 	if (searchHistoryArr.length > 3) {
@@ -207,21 +209,17 @@ function historyAppend(){
 	historyBtn.addEventListener('click', () => {
 		userRecipeSearchInput = historyBtn.textContent
 		fetchEdamam()
-
 	})
-
 }
 
-function initSearchHistory(){
-	var localHistory = localStorage.getItem("receipesSearched");
-	if (localHistory){
-		searchHistory = JSON.parse(localHistory);
+function initSearchHistory() {
+	var localHistory = localStorage.getItem('receipesSearched')
+	if (localHistory) {
+		searchHistory = JSON.parse(localHistory)
 	}
-	historyApend();
+	historyAppend()
 }
-initSearchHistory();
-
-
+initSearchHistory()
 
 // fetch recipe searched query when user clicks 'search for recipe button'
 recipeSearchBtn.addEventListener('click', fetchEdamam)
