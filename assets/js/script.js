@@ -26,7 +26,6 @@ function fetchEdamam(event) {
 	var userRecipeSearchInput = document.querySelector(
 		'#recipe-search-input'
 	).value
-	
 	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
 	fetch(edamamURL)
 		.then((response) => response.json())
@@ -180,20 +179,17 @@ function displayRecipeDetails(arr) {
 	return recipeContentCardEl
 }
 
-var historyList = document.querySelector('#history-container')
 var searchHistoryArr = []
 
+var historyList = document.querySelector('#history-container')
 
-
-var historyList = document.querySelector("#history-container");
-
-
-function historyAppend(){
-	var userRecipeSearchInput = document.querySelector('#recipe-search-input').value
-	if(!userRecipeSearchInput){
+function historyAppend() {
+	var userRecipeSearchInput = document.querySelector(
+		'#recipe-search-input'
+	).value
+	if (!userRecipeSearchInput) {
 		// document.querySelector("alert").textContent = "Recipe NOT FOUND, PLEASE TRY AGAIN";
-		return;
-
+		return
 	}
 
 	if (searchHistoryArr.length > 3) {
@@ -213,21 +209,17 @@ function historyAppend(){
 	historyBtn.addEventListener('click', () => {
 		userRecipeSearchInput = historyBtn.textContent
 		fetchEdamam()
-
 	})
-
 }
 
-function initSearchHistory(){
-	var localHistory = localStorage.getItem("receipesSearched");
-	if (localHistory){
-		searchHistory = JSON.parse(localHistory);
+function initSearchHistory() {
+	var localHistory = localStorage.getItem('receipesSearched')
+	if (localHistory) {
+		searchHistory = JSON.parse(localHistory)
 	}
-	historyApend();
+	historyAppend()
 }
-initSearchHistory();
-
-
+initSearchHistory()
 
 // fetch recipe searched query when user clicks 'search for recipe button'
 recipeSearchBtn.addEventListener('click', fetchEdamam)
