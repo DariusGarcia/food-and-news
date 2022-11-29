@@ -18,17 +18,17 @@
 
 <body class="bg-white flex flex-col">
     <nav class="flex flex-row justify-between items-center p-2 bg-blue-400 font-semibold h-16">
-        <li class="list-none p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
+        <li class="list-none p-1 hover:opacity-15 hover:bg-blue-300 rounded-md">
             <a href="./index.html">Food & News</a>
         </li>
         <ul class="flex flex-row justify-between gap-2 md:gap-8">
-            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
+            <li class="p-1 hover:opacity-15 hover:bg-blue-300 rounded-md">
                 <a href="./index.html">Recipes</a>
             </li>
-            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
+            <li class="p-1 hover:opacity-15 hover:bg-blue-300 rounded-md">
                 <a href="#history">Search History</a>
             </li>
-            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
+            <li class="p-1 hover:opacity-15 hover:bg-blue-300 rounded-md">
                 <a href="./results.html">News</a>
             </li>
         </ul>
@@ -44,11 +44,11 @@
         </div>
     </header>
     <main class="flex items-center justify-center">
-        <section class="w-full mx-2 h-screen self-center px-4 rounded-md bg-stone-50" id="home">
+        <section class="w-full mx-2 h-screen self-center px-4 rounded-md bg-stone-50 justify-center" id="home">
             <!-- User search input for specific recipe -->
             <form class="overflow-y-auto overflow-x-hidden relative flex flex-col items-center gap-2 py-2 max-h-screen"
                 id="recipe-search-form">
-                <label for="Recipe search" class="lg:ml-4 flex w-max self-start border-b-2 border-blue-400">Search for a
+                <label for="Recipe search" class="lg:ml-4 flex w-max self-start border-b-2 border-blue-400 justify-center">Search for a
                     recipe</label>
                 <div id='search-wrapper' class="w-full flex col md:row justify-start">
                     <input autocomplete="off" autofocus
@@ -62,7 +62,7 @@
                 </button>
                 <!-- user search history container -->
                 <section id='history-container' class=" lg:ml-4 w-full flex row justify-start gap-2 ">
-                    <!-- <p class="p-2 bg-blue-200 flex items-center rounded-md">food 1</p>
+                    <!--<p class="p-2 bg-blue-200 flex items-center rounded-md">food 1</p>
                     <p class="p-2 bg-blue-200 flex items-center rounded-md">food 2</p>
                     <p class="p-2 bg-blue-200 flex items-center rounded-md">food 3</p> -->
                 </section>
@@ -87,10 +87,19 @@
             </div>
         </section>
     </main>
-    <footer class="flex flex-col items-center justify-center w-full h-16 bg-blue-400">
-        <p class="text-white font-semibold">
+    <footer id = footer class="flex flex-col items-center justify-center w-full h-16 bg-blue-400">
+        <p class="text-black font-semibold">
             &copy; 2022 Food & News
         </p>
+        <ul class="flex flex-row justify-between gap-2 md:gap-8">
+            <li class="p-1 hover:opacity-15 hover:bg-blue-300 rounded-md">
+                <a href="./index.html">Recipes</a>
+            </li>
+            <li class="p-1 hover:opacity-15 hover:bg-blue-300 rounded-md">
+                <a href="#history">Search History</a>
+            </li>
+            <li class="p-1 hover:opacity-15 hover:bg-blue-300 rounded-md">
+                <a href="./results.html">News</a>
     </footer>
     <script src="./assets/js/fetchNews.js" async defer></script>
     <script src="./assets/js/script.js" async defer></script>
