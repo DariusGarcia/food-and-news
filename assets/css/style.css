@@ -187,6 +187,15 @@ li {
     display: none;
 }
 
+
+/* recipe section  */
+
+#home {
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+}
+
 #recipeContentCardEl {
     display: flex;
     flex-direction: column;
@@ -199,9 +208,7 @@ li {
     justify-content: start;
 }
 
-
 /* large navbar  */
-
 #large-navbar {
     display: none;
 }
@@ -401,7 +408,7 @@ li {
 #news-wrapper {
     padding-left: 1rem;
     padding-right: 1rem;
-    
+
 }
 
 #news-title {
