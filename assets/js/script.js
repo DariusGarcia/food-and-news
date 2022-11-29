@@ -236,6 +236,7 @@ function initSearchHistory() {
 	if (localHistory) {
 		searchHistory = JSON.parse(localHistory)
 	}
+
 	historyAppend()
 }
 
