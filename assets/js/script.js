@@ -49,7 +49,7 @@ function fetchEdamam(event) {
 	// reset the input fields and recipe list to empty after fetching searched recipe.
 	userRecipeSearchInput.value = ''
 	userRecipeSearchInput.textContent = ''
-	historyApend();
+	historyAppend()
 }
 
 // data handler function to populate the recipe section list with each recipe details.
@@ -161,14 +161,6 @@ function displayRecipeDetails(arr) {
 		recipeCuisineType.setAttribute('id', 'cuisineType')
 		recipeCuisineType.textContent = arr[i].recipe.cuisineType
 
-		// append child el to containers
-		// cardContainerRight.appendChild(dietTagsContainer)
-		// cardContainerRight.appendChild(instructionsEl)
-		// cardContainerRight.appendChild(dishTypeEl)
-		// cardContainerRight.appendChild(recipeCaloriesEl)
-		// cardContainerRight.appendChild(servingsAmountEl)
-		// cardContainerEnd.appendChild(ingredientListEl)
-
 		cardContainerRight.appendChild(ingredientListEl)
 		cardContainerLeft.appendChild(recipeLabelEl)
 		cardContainerLeft.appendChild(recipeCuisineType)
@@ -181,36 +173,45 @@ function displayRecipeDetails(arr) {
 		cardContainerLeft.appendChild(servingsAmountEl)
 		cardWrapper.appendChild(cardContainerLeft)
 		cardWrapper.appendChild(cardContainerRight)
-		// cardWrapper.appendChild(cardContainerEnd)
-		recipeContentCardEl.setAttribute('id', 'recipeContentCardEl')
 		recipeContentCardEl.appendChild(cardWrapper)
 		recipeContentCardEl.appendChild(cardWrapperRight)
+		recipeContentCardEl.setAttribute('id', 'recipeContentCardEl')
 	}
-	return recipeContentCardEl;
+	return recipeContentCardEl
 }
 
+var historyList = document.querySelector('#history-container')
+var searchHistoryArr = []
 
-
-var historyList = document.querySelector("#history-container");
-
-function historyApend(){
-	var userRecipeSearchInput = document.querySelector('#recipe-search-input').value
-	if(!userRecipeSearchInput){
-		window.alert("please enter something!");
-		return;
+function historyAppend() {
+	var userRecipeSearchInput = document.querySelector(
+		'#recipe-search-input'
+	).value
+	if (!userRecipeSearchInput) {
+		// tell Daniel we cant use window.alert per the Project guidelines
+		window.alert('please enter something!')
+		return
 	}
-	var historyBtn = document.createElement("button");
-	historyBtn.textContent = userRecipeSearchInput;
-	historyBtn.setAttribute("value",userRecipeSearchInput);
-	historyBtn.setAttribute("class","p-2 bg-blue-200 flex items-center rounded-md");
-	historyBtn.setAttribute("id","history-btn");
 
-	historyBtn.addEventListener("click",function(){
-		fetchEdamam(historyBtn.value);
-		console.log('searchhistory,' + historyBtn.value)
+	if (searchHistoryArr.length > 3) {
+		searchHistoryArr = 3
+	}
+	searchHistoryArr.push(userRecipeSearchInput)
+	var historyBtn = document.createElement('button')
+	historyBtn.textContent = userRecipeSearchInput
+	historyBtn.setAttribute('value', userRecipeSearchInput)
+	historyBtn.setAttribute(
+		'class',
+		'p-2 bg-blue-200 flex items-center rounded-md'
+	)
+	historyBtn.setAttribute('id', 'history-btn')
+
+	historyBtn.addEventListener('click', () => {
+		userRecipeSearchInput = historyBtn.textContent
+		fetchEdamam()
 	})
 	historyList.appendChild(historyBtn)
 }
 
 // fetch recipe searched query when user clicks 'search for recipe button'
-recipeSearchBtn.addEventListener('click', fetchEdamam);
+recipeSearchBtn.addEventListener('click', fetchEdamam)
