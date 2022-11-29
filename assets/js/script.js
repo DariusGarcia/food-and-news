@@ -17,7 +17,7 @@ var recipeDetailsContainerEl = document.querySelector(
 
 // array to store the fetched recipe data information
 var edamamDataStore = []
-
+var searchHistory = []
 // fetch Edamam API endpoint to get recipe details (10,000 calls/ month limit)
 function fetchEdamam(event) {
 	event.preventDefault()
@@ -26,12 +26,6 @@ function fetchEdamam(event) {
 	var userRecipeSearchInput = document.querySelector(
 		'#recipe-search-input'
 	).value
-	// daniel did this
-	localStorage.setItem(
-		'receipesSearched',
-		JSON.stringify(userRecipeSearchInput)
-	)
-
 	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
 	fetch(edamamURL)
 		.then((response) => response.json())
@@ -185,24 +179,21 @@ function displayRecipeDetails(arr) {
 	return recipeContentCardEl
 }
 
-var historyList = document.querySelector('#history-container')
 var searchHistoryArr = []
 
-var historyList = document.querySelector('#history-container')
+var historyList = document.querySelector("#history-container");
 
-function historyApend() {
-	var userRecipeSearchInput = document.querySelector(
-		'#recipe-search-input'
-	).value
-	if (!userRecipeSearchInput) {
-		document.querySelector('#').textContent =
-			'Recipe NOT FOUND, PLEASE TRY AGAIN'
-		return
+function historyAppend(){
+	var userRecipeSearchInput = document.querySelector('#recipe-search-input').value
+	if(!userRecipeSearchInput){
+		// document.querySelector("alert").textContent = "Recipe NOT FOUND, PLEASE TRY AGAIN";
+		return;
 	}
 
 	if (searchHistoryArr.length > 3) {
 		searchHistoryArr = 3
 	}
+
 	searchHistoryArr.push(userRecipeSearchInput)
 	var historyBtn = document.createElement('button')
 	historyBtn.textContent = userRecipeSearchInput
@@ -216,9 +207,21 @@ function historyApend() {
 	historyBtn.addEventListener('click', () => {
 		userRecipeSearchInput = historyBtn.textContent
 		fetchEdamam()
+
 	})
-	historyList.appendChild(historyBtn)
+
 }
+
+function initSearchHistory(){
+	var localHistory = localStorage.getItem("receipesSearched");
+	if (localHistory){
+		searchHistory = JSON.parse(localHistory);
+	}
+	historyApend();
+}
+initSearchHistory();
+
+
 
 // fetch recipe searched query when user clicks 'search for recipe button'
 recipeSearchBtn.addEventListener('click', fetchEdamam)
