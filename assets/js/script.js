@@ -185,25 +185,11 @@ function displayRecipeDetails(arr) {
 var historyList = document.querySelector('#history-container')
 var searchHistoryArr = []
 
-<<<<<<< HEAD
-function historyAppend() {
-	var userRecipeSearchInput = document.querySelector(
-		'#recipe-search-input'
-	).value
-	if (!userRecipeSearchInput) {
-		// tell Daniel we cant use window.alert per the Project guidelines
-		window.alert('please enter something!')
-		return
-=======
-
-var historyList = document.querySelector("#history-container");
-
 function historyApend(){
 	var userRecipeSearchInput = document.querySelector('#recipe-search-input').value
 	if(!userRecipeSearchInput){
 		document.querySelector("#").textContent = "Recipe NOT FOUND, PLEASE TRY AGAIN";
 		return;
->>>>>>> 2e9733db1746048ae14923940cd1bfa7bf91fd6b
 	}
 
 	if (searchHistoryArr.length > 3) {
