@@ -26,6 +26,8 @@ function fetchEdamam(event) {
 	var userRecipeSearchInput = document.querySelector(
 		'#recipe-search-input'
 	).value
+// daniel did this 
+	localStorage.setItem("receipesSearched",JSON.stringify(userRecipeSearchInput));
 
 	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
 	fetch(edamamURL)
@@ -196,7 +198,7 @@ var historyList = document.querySelector("#history-container");
 function historyApend(){
 	var userRecipeSearchInput = document.querySelector('#recipe-search-input').value
 	if(!userRecipeSearchInput){
-		window.alert("please enter something!");
+		document.querySelector("#").textContent = "Recipe NOT FOUND, PLEASE TRY AGAIN";
 		return;
 	}
 	var historyBtn = document.createElement("button");
