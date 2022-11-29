@@ -16,17 +16,36 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-<body class="bg-white flex flex-col">
-    <nav class="flex flex-row justify-between items-center p-2 bg-blue-400 font-semibold h-16">
+<body class=" relative bg-white flex flex-col">
+    <!-- hamburger menu for mobile devices -->
+    <nav id="hamburger-nav">
+        <div class="navbar-mobile">
+            <div class="container nav-container">
+                <input class="checkbox" type="checkbox" name="" id="" />
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+                <div class="logo">
+                    <h1>Food & News</h1>
+
+                </div>
+                <div class="menu-items">
+                    <li><a href="#recipe-search-form">Recipes</a></li>
+                    <li><a href="#news-wrapper">News</a></li>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar bar for large viewports -->
+    <nav id="large-navbar" class="flex flex-row justify-between items-center p-2 bg-blue-400 font-semibold h-16">
         <li class="list-none p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
             <a href="./index.html">Food & News</a>
         </li>
         <ul class="flex flex-row justify-between gap-2 md:gap-8">
             <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
                 <a href="./index.html">Recipes</a>
-            </li>
-            <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
-                <a href="#history">Search History</a>
             </li>
             <li class="p-1 hover:opacity-35 hover:bg-blue-300 rounded-md">
                 <a href="./results.html">News</a>
@@ -43,8 +62,9 @@
             </p>
         </div>
     </header>
-    <main class="flex items-center justify-center">
-        <section class="w-full mx-2 h-screen self-center px-4 rounded-md bg-stone-50" id="home">
+    <main class="flex flex-col lg:flex-row h-full items-center justify-center">
+        <section class="flex flex-col items-start w-full mx-2 h-full min-h-screen  px-4 rounded-md bg-stone-50"
+            id="home">
             <!-- User search input for specific recipe -->
             <form class="overflow-y-auto overflow-x-hidden relative flex flex-col items-center gap-2 py-2 max-h-screen"
                 id="recipe-search-form">
@@ -56,13 +76,16 @@
                         id="recipe-search-input" type="text" placeholder="ex. Parmesan Crusted Chicken" />
                 </div>
                 <button
-                    class="w-96 rounded-md text-white self-start lg:ml-4 hover:bg-opacity-80 delay-75 ease-in-out flex justify-center bg-blue-400 p-2"
+                    class="flex justify-center w-96 self-start p-2 lg:ml-4 rounded-md text-white hover:bg-opacity-80 delay-75 ease-in-out  bg-blue-400 "
                     id="recipe-search-btn">
                     Search for recipe
                 </button>
+
+
+                >>>>>>> 2e9733db1746048ae14923940cd1bfa7bf91fd6b
                 <!-- this section below is where the individual recipe cards are populated with the fetched data.  -->
                 <section name="fetched-api-data"
-                    class="relative mt-4 flex-end self-start w-full rounded-md scroll-ml-2 overflow-auto max-h-full"
+                    class="relative mt-4 flex-end self-start lg:min-h-screen overflow-y-auto w-full rounded-md scroll-ml-2 overflow-auto "
                     id="recipe-content-card">
                 </section>
             </form>
@@ -72,21 +95,24 @@
                 <p class="p-2 bg-blue-200 flex items-center rounded-md">food 3</p> -->
             </section>
         </section>
-        <section class="w-full mx-2 h-screen self-center px-4 rounded-md bg-stone-50" id="news-wrapper">
+
+        <!-- news section container -->
+        <section class="flex flex-col w-full mx-2 h-full min-h-screen self-center px-4 rounded-md bg-stone-50"
+            id="news-wrapper">
             <h2 class="font-bold text-2xl md:text-3xl text-center md:text-center">
                 News
             </h2>
-            <div class="">
-                <p class="text-center md:text-center">
+            <div class="w-full">
+                <p class="text-center">
                     Read the latest news here.
                 </p>
-                    <button id="news-search-btn">
-                        Search News!
-                    </button>
+                <button class='bg-blue-200 rounded-md p-3 text-center' id="news-search-btn">
+                    Search News!
+                </button>
             </div>
         </section>
     </main>
-    <footer class="flex flex-col items-center justify-center w-full h-16 bg-blue-400">
+    <footer class="absolute bottom-0 flex-col items-center justify-center w-full h-16 bg-blue-400">
         <p class="text-white font-semibold">
             &copy; 2022 Food & News
         </p>
