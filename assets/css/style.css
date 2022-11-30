@@ -568,7 +568,7 @@ li {
     }
 
     #news-wrapper {
-        width: 40%;
+        /* width: 50%; */
     }
 
     #news-wrapper img {
@@ -576,11 +576,11 @@ li {
     }
 }
 
-/* @media (min-width: 1000px) {
-    #recipeContentCardEl {
-        width: 50vw;
+@media (min-width: 1024px) {
+    #news-wrapper {
+        width: 40%;
     }
-} */
+}
 
 @media (min-width: 1180px) {
     #recipeCardWrapper {
@@ -595,4 +595,9 @@ li {
     #recipeContentCardEl {
         width: 100%;
     }
+
+    #news-wrapper {
+        /* width: 40%; */
+    }
+
 }
