@@ -40,7 +40,6 @@ li {
 
 /* mobile hamburger menu */
 .container {
-    max-width: 1150px;
     margin: auto;
     z-index: 50;
     background-color: #63b3ed;
@@ -222,13 +221,15 @@ li {
 #recipeCardWrapper {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     background-color: white;
     padding: 0.5rem 1rem;
     border-radius: 4px;
+    border: 2px solid transparent
 }
 
 #recipeCardWrapper:hover {
+    border: 2px solid #e5e7eb;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     /* transition-delay: 100ms; */
@@ -318,7 +319,7 @@ li {
 
 #ingredientsContainer {
     overflow-x: auto;
-    width: 90%;
+    /* width: 90%; */
 }
 
 #ingredientItem {
@@ -349,7 +350,7 @@ li {
     align-items: start;
     margin-top: 1rem;
     justify-content: center;
-    width: max-content;
+    width: 100%;
     border-radius: 4px;
     color: black;
     text-transform: capitalize;
@@ -371,7 +372,7 @@ li {
     display: flex;
     flex-direction: column;
     align-items: start;
-    width: max-content;
+    width: 100%;
     margin: 1rem 0;
     border-radius: 4px;
     color: black;
@@ -411,9 +412,10 @@ li {
 #news-card-article {
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 1rem;
     background-color: #f5f5f5;
-    margin: 2rem 0;
+    margin: .5rem 0;
     padding: 1rem;
     opacity: 80%;
     border-radius: 4px;
@@ -504,11 +506,12 @@ li {
     #recipeCardWrapper {
         display: grid;
         grid-template-columns: 1fr;
+
     }
 
     #recipeContentCardEl {
         padding: 0 1rem;
-        width: 50vw;
+        width: 100%;
     }
 
     #recipeCardContainerLeft {
@@ -539,7 +542,7 @@ li {
 
     #dishType {
         padding: 0.5rem;
-        align-items: center;
+        align-items: start;
     }
 
     #recipeCaloriesEl {
@@ -560,14 +563,20 @@ li {
     }
 
     #news-wrapper {
-        /* width: 40%; */
+        width: 40%;
     }
 
     #news-wrapper img {
-        width: 24rem;
+        width: 18rem;
 
     }
 }
+
+/* @media (min-width: 1000px) {
+    #recipeContentCardEl {
+        width: 50vw;
+    }
+} */
 
 @media (min-width: 1180px) {
     #recipeCardWrapper {
@@ -583,8 +592,6 @@ li {
         width: 100%;
     }
 
-    #news-wrapper {
-        width: 40%;
-    }
+
 
 }
