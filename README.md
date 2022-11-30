@@ -2,7 +2,8 @@
 
 [link to deployed app](https://dariusgarcia.github.io/food-and-news/)
 
-![Screenshot of web app](./assets/images/recipe-handbook.png)
+![Screenshot of web app](./assets/images/homepage.png)
+![Screenshot of web app](./assets/images/screenshot.png)
 
 ## Description
 
@@ -11,9 +12,9 @@ This web app lets users browse a selection of delicious recipes where they can v
 ## User Stories
 
 - [x] User can search a keyword or search for a recipe name.
-- [x] User can view different recipes.
-- [x] User can view a variety of details and instructions about each recipe.
-- [ ] User can enter their zip code to view nearby grocery stores to allow them to find the ingredients for a particular recipe.
+- [x] User can view different recipes and nutritional facts about each recipe.
+- [x] User can view a variety of details about each recipe, including the serving amount, cuisine type and dish type.
+- [x] User can browse the latest and most current news articles.
 
 ## Technologies Used
 
