@@ -163,6 +163,7 @@ function displayRecipeDetails(arr) {
 		recipeCuisineType.setAttribute('id', 'cuisineType')
 		recipeCuisineType.textContent = arr[i].recipe.cuisineType
 
+		// append children to containers
 		cardContainerRight.appendChild(ingredientListEl)
 		cardContainerLeft.appendChild(recipeLabelEl)
 		cardContainerLeft.appendChild(recipeCuisineType)
@@ -182,40 +183,20 @@ function displayRecipeDetails(arr) {
 	return recipeContentCardEl
 }
 
-var searchHistoryArr = []
-
-var historyList = document.querySelector('#history-container')
-
-function historyAppend() {
-	// 	var userRecipeSearchInput = document.querySelector(
-	// 		'#recipe-search-input'
-	// 	).value
-	// 	if (!userRecipeSearchInput) {
-	// 		// document.querySelector("alert").textContent = "Recipe NOT FOUND, PLEASE TRY AGAIN";
-	// 		return
-	// 	}
-	// 	if (searchHistoryArr.length > 3) {
-	// 		searchHistoryArr = 3
-	// 	}
-	// 	searchHistoryArr.push(userRecipeSearchInput)
-	// 	var historyBtn = document.createElement('button')
-	// 	historyBtn.textContent = userRecipeSearchInput
-	// 	historyBtn.setAttribute('value', userRecipeSearchInput)
-	// 	historyBtn.setAttribute(
-	// 		'class',
-	// 		'p-2 bg-blue-200 flex items-center rounded-md'
-	// 	)
-	// 	historyBtn.setAttribute('id', 'history-btn')
-	// 	historyBtn.addEventListener('click', () => {
-	// 		userRecipeSearchInput = historyBtn.textContent
-	// 		fetchEdamam()
-	// 	})
+// search history function
+function initSearchHistory() {
+	var localHistory = localStorage.getItem(JSON.stringify('searched-recipes'))
+	if (localHistory) {
+		var data = JSON.parse(localHistory)
+	}
+	console.log(`search history: ${data}`)
 }
 
 // function to display search history
 var userSearchHistory = []
 
 function searchHistory() {
+	let searchTagsContainer = document.createElement('article')
 	var userSearchInput = document.querySelector('#recipe-search-input').value
 	if (!userSearchInput) {
 		console.log('Empty search input')
@@ -232,22 +213,19 @@ function searchHistory() {
 	historyBtn.setAttribute('id', 'history-btn')
 	historyBtn.addEventListener('click', () => {
 		userRecipeSearchInput = historyBtn.textContent
-		fetchEdamam()
+
+		// fetchEdamam()
 	})
+	console.log(
+		'🚀 ~ file: script.js:218 ~ historyBtn.addEventListener ~ historyBtn',
+		historyBtn
+	)
 
-	// if (userSearchHistory.length > 3) {
-	// 	userSearchHistory.length = 3
-	// }
+	searchTagsContainer.appendChild(historyBtn)
+	return searchTagsContainer
 }
 
-// search history function
-function initSearchHistory() {
-	var localHistory = localStorage.getItem(JSON.stringify('searched-recipes'))
-	if (localHistory) {
-		searchHistory = JSON.parse(localHistory)
-	}
-	// historyAppend()
-}
+// searchHistory()
 
 initSearchHistory()
 
