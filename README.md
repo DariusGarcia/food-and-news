@@ -1,4 +1,4 @@
-# Recipe Handbook
+# Food and News
 
 [link to deployed app](https://dariusgarcia.github.io/food-and-news/)
 
@@ -25,7 +25,7 @@ Users are also able to view the latest top stories news articles around the glob
 - [x] HTML5
 - [x] Deployed on GitHub Pages
 - [x] Edamam Recipe API endpoint
-- [x] The News stop stories API endpoint
+- [x] The News top stories API endpoint
 
 ## Usage
 
