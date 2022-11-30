@@ -5,10 +5,6 @@
         Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 ::-moz-selection {
     /* Code for Firefox */
     color: white;
@@ -23,11 +19,9 @@ html {
 ol:before {
     content: 'Ingredients';
     font-weight: bold;
-
     background-color: white;
     z-index: 50;
     margin: 0;
-    padding-right: 12rem;
     width: 100%;
 }
 
@@ -46,7 +40,6 @@ li {
 
 /* mobile hamburger menu */
 .container {
-    max-width: 1150px;
     margin: auto;
     z-index: 50;
     background-color: #63b3ed;
@@ -167,50 +160,57 @@ li {
     height: 100%;
 }
 
-.nav-container input[type="checkbox"]:checked~.menu-items {
+.nav-container input[type='checkbox']:checked~.menu-items {
     transform: translateX(0);
 }
 
-.nav-container input[type="checkbox"]:checked~.hamburger-lines .line1 {
+.nav-container input[type='checkbox']:checked~.hamburger-lines .line1 {
     transform: rotate(45deg);
 }
 
-.nav-container input[type="checkbox"]:checked~.hamburger-lines .line2 {
+.nav-container input[type='checkbox']:checked~.hamburger-lines .line2 {
     transform: scaleY(0);
 }
 
-.nav-container input[type="checkbox"]:checked~.hamburger-lines .line3 {
+.nav-container input[type='checkbox']:checked~.hamburger-lines .line3 {
     transform: rotate(-45deg);
 }
 
-.nav-container input[type="checkbox"]:checked~.logo {
+.nav-container input[type='checkbox']:checked~.logo {
     display: none;
 }
 
+/* large navbar  */
+#large-navbar {
+    display: none;
+}
+
+/* header section */
+#header-link {
+    color: black;
+}
+
+#header-link:hover {
+    color: blue;
+    text-decoration: underline;
+}
 
 /* recipe section  */
-
 #home {
     display: flex;
     align-items: flex-start;
-    height: 100%;
 }
 
 #recipeContentCardEl {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
 }
 
 #recipeCardContainerRight {
     display: flex;
     flex-direction: column;
     justify-content: start;
-}
-
-/* large navbar  */
-#large-navbar {
-    display: none;
 }
 
 /* container for recipe label, image, and cuisine type */
@@ -232,11 +232,17 @@ li {
 #recipeCardWrapper {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     background-color: white;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);  
+}
+
+#recipeCardWrapper:hover {
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
 #recipe-search-btn {
@@ -245,7 +251,7 @@ li {
 
 #recipe-image {
     height: auto;
-    width: 18rem;
+    width: 12rem;
     border-radius: 4px;
     margin: 1rem 0;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -257,14 +263,11 @@ li {
     flex-direction: column;
     border-radius: 4px;
     margin: 0.5rem 0;
-    background-color: #f5f5f5;
     width: max-content;
     max-width: 18rem;
     padding: 0.5rem;
     font-family: 'Patrick Hand', cursive;
-    letter-spacing: 1px;
     font-weight: 600;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
 #dietTagsContainer {
@@ -326,7 +329,7 @@ li {
 
 #ingredientsContainer {
     overflow-x: auto;
-    width: 90%;
+    /* width: 90%; */
 }
 
 #ingredientItem {
@@ -334,11 +337,14 @@ li {
     border-radius: 6px;
     font-family: 'Patrick Hand', cursive;
     letter-spacing: 1px;
-    line-height: 2.5rem;
+    line-height: 2rem;
 }
 
 #ingredientItem:hover {
     background-color: #f5f5f4;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 100%;
+    transition-delay: 50ms;
 }
 
 #dishType:before {
@@ -354,7 +360,7 @@ li {
     align-items: start;
     margin-top: 1rem;
     justify-content: center;
-    width: max-content;
+    width: 100%;
     border-radius: 4px;
     color: black;
     text-transform: capitalize;
@@ -372,13 +378,12 @@ li {
 }
 
 #servingsAmount {
-    margin: 1rem 0;
+    justify-content: start;
     display: flex;
     flex-direction: column;
     align-items: start;
-    justify-content: center;
-    /* padding: .5rem; */
-    width: max-content;
+    width: 100%;
+    margin: 1rem 0;
     border-radius: 4px;
     color: black;
     text-transform: capitalize;
@@ -410,49 +415,111 @@ li {
 
 /* NEWS STYLING */
 #news-wrapper {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    width: 100%;
+    margin-top: 4rem;
+}
 
+#news-card-article {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    background-color: #f5f5f5;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    opacity: 80%;
+    border-radius: 4px;
+}
+
+#news-card-article:hover {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    opacity: 100%;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+#news-wrapper img {
+    width: 50%;
 }
 
 #news-title {
-    font-family: 'Patrick Hand', cursive;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-decoration: underline;
     font-weight: bold;
-    text-align: center;
+    text-align: start;
+    color: black;
+}
+
+#news-title:hover {
+    opacity: 75%;
 }
 
 #news-description {
-    font-family: 'Patrick Hand', cursive;
-    font-size: 1.2rem;
-    font-weight: 500;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    color: #60a5fa;
+    width: 95%;
+    font-size: 1rem;
+    color: rgb(43, 43, 43);
 }
 
 #news-description:hover {
     color: red;
     transition: smooth ease 0.5s;
-    text-shadow: #60a5fa 0px 0px 5px;
+    /* text-shadow: #60a5fa 0px 0px 5px; */
+}
+
+#img-container {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+#news-categories {
+    padding: 1rem;
+}
+
+#category-tags-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+    gap: 1rem;
+}
+
+#category-tag-item {
+    margin-left: 0;
+    list-style: none;
+    background-color: #22c55e;
+    text-transform: capitalize;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+}
+
+/* relative flex flex-col items-center justify-center w-full h-36 bg-blue-400 */
+#footer-items {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    list-style: none;
+    color: white;
 }
 
 @media (min-width: 850px) {
+    .navbar-mobile {
+        display: none;
+    }
 
-    #recipe-content-card {
-        width: 50rem;
+    #large-navbar {
+        display: flex;
     }
 
     #recipeCardWrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        width: 50vw;
+        grid-template-columns: 1fr;
     }
 
     #recipeContentCardEl {
         padding: 0 1rem;
+        width: 100%;
     }
 
     #recipeCardContainerLeft {
@@ -463,15 +530,11 @@ li {
     #recipeCardContainerRight {
         justify-content: start;
         align-items: center;
-        margin: 5rem 1rem;
-    }
-
-    #ingredientsContainer {
-        margin-top: 6rem;
+        margin: 5rem 0;
     }
 
     #recipe-image {
-        width: 18rem;
+        width: 60%;
     }
 
     #dietTagsContainer {
@@ -487,44 +550,52 @@ li {
 
     #dishType {
         padding: 0.5rem;
-        align-items: center;
+        align-items: start;
     }
 
     #recipeCaloriesEl {
         align-items: flex-start;
+        padding-left: 0.5rem;
     }
 
     #servingsAmount {
         margin: 1rem 0;
-        align-items: center;
+        align-items: start;
         justify-content: center;
         padding: 0.5rem;
     }
 
     #nutritionalFactsContainer {
         display: grid;
-        grid-template-columns: 1fr;
-        width: fit-content;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #news-wrapper {
+        width: 40%;
+    }
+
+    #news-wrapper img {
+        width: 18rem;
     }
 }
 
-@media (min-width: 1180px) {
-    .navbar-mobile {
-        display: none;
-    }
-
-    #large-navbar {
-        display: flex;
-    }
-
-
-    #recipeCardWrapper {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+/* @media (min-width: 1000px) {
+    #recipeContentCardEl {
         width: 50vw;
+    }
+} */
+
+@media (min-width: 1180px) {
+    #recipeCardWrapper {
+        grid-template-columns: 1fr 1fr;
     }
 
     #ingredientsContainer {
         overflow-x: hidden;
+        width: 100%;
+    }
+
+    #recipeContentCardEl {
         width: 100%;
     }
 }
@@ -538,4 +609,3 @@ footer {
     justify-content: center;
     margin-top: 1rem;
     text-decoration: none;
-}

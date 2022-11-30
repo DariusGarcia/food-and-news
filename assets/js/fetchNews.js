@@ -9,23 +9,42 @@ function fetchNews(event) {
 		.then((response) => response.json())
 		.then((data) => displayNewsData(data))
 }
-var newsContainerEl = document.querySelector('#news-wrapper')
+const newsContainerEl = document.querySelector('#news-wrapper')
 
 // function to populate the news container section with individual news articles
 function displayNewsData(data) {
 	for (var i = 0; i < data.data.length; i++) {
-		var newsTitleEl = document.createElement('h2')
+		let newsCardEl = document.createElement('article')
+		newsCardEl.setAttribute('id', 'news-card-article')
+		let newsImgContainer = document.createElement('div')
+		newsImgContainer.setAttribute('id', 'img-container')
+		let newsTitleEl = document.createElement('a')
 		newsTitleEl.textContent = data.data[i].title
-		var newsDescriptionEl = document.createElement('a')
+		let newsDescriptionEl = document.createElement('a')
 		newsDescriptionEl.textContent = data.data[i].description
-		var newsUrlEl = document.createElement('a')
+		let newsUrlEl = document.createElement('a')
 		newsUrlEl.textContent = data.data[i].url
-		var newsImageEl = document.createElement('img')
+		let newsImageEl = document.createElement('img')
 		newsImageEl.src = data.data[i].image
-		var newsCategoriesEl = document.createElement('p')
-		newsCategoriesEl.textContent = data.data[i].categories
+		newsImgContainer.appendChild(newsImageEl)
+		let categoryTagsContainer = document.createElement('ul')
+		categoryTagsContainer.setAttribute('id', 'category-tags-container')
+		const tagIndex = data.data[i].categories
 
+		// looping through the category tags array and creating a new <li></li> tag for each item.
+		tagIndex.map((item) => {
+			var categoryTagItem = document.createElement('li')
+			categoryTagItem.setAttribute('id', 'category-tag-item')
+			categoryTagItem.textContent = item
+			categoryTagsContainer.appendChild(categoryTagItem)
+		})
+
+		let newsCategoriesEl = document.createElement('p')
+		newsCategoriesEl.textContent = data.data[i].categories
+		console.log(newsCategoriesEl)
 		newsTitleEl.setAttribute('id', 'news-title')
+		newsTitleEl.setAttribute('href', data.data[i].url)
+		newsTitleEl.setAttribute('target', '_blank')
 		newsDescriptionEl.setAttribute('id', 'news-description')
 		newsDescriptionEl.setAttribute('href', data.data[i].url)
 		newsDescriptionEl.setAttribute('target', '_blank')
@@ -34,12 +53,13 @@ function displayNewsData(data) {
 		newsImageEl.setAttribute('src', data.data[i].image_url)
 		newsCategoriesEl.setAttribute('id', 'news-categories')
 
-		newsContainerEl.appendChild(newsTitleEl)
-		newsContainerEl.appendChild(newsDescriptionEl)
-		newsContainerEl.appendChild(newsImageEl)
-		newsContainerEl.appendChild(newsCategoriesEl)
+		newsCardEl.appendChild(newsTitleEl)
+		newsCardEl.appendChild(newsDescriptionEl)
+		newsCardEl.appendChild(newsImgContainer)
+		newsCardEl.appendChild(categoryTagsContainer)
+		newsContainerEl.appendChild(newsCardEl)
 	}
 }
 
-var newsSearchBtn = document.querySelector('#news-search-btn')
+let newsSearchBtn = document.querySelector('#news-search-btn')
 newsSearchBtn.addEventListener('click', fetchNews)
