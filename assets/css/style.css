@@ -186,8 +186,17 @@ li {
     display: none;
 }
 
-/* recipe section  */
+/* header section */
+#header-link {
+    color: black;
+}
 
+#header-link:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+/* recipe section  */
 #home {
     display: flex;
     align-items: flex-start;

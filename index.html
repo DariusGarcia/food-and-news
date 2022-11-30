@@ -52,17 +52,58 @@
             </li>
         </ul>
     </nav>
-    <header class="flex flex-col w-full self-center md:pl-10 my-2 md:my-4 gap-2">
-        <h2 class="font-bold text-2xl md:text-3xl text-center md:text-center">
-            Food & News!
-        </h2>
-        <div class="">
-            <p class="text-center md:text-center">
-                Find your favorite recipe and get your daily dose of news!
-            </p>
+    <header class="relative overflow-hidden bg-white pt-16 pb-32">
+        <div class="relative">
+            <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
+                <div class="mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0">
+                    <div>
+                        <div>
+                            <span class="flex h-12 w-full items-center justify-center rounded-xl bg-blue-400">
+                                <h1 class="font-bold text-2xl md:text-3xl text-center md:text-center">
+                                    Food & News
+                                </h1>
+                            </span>
+                        </div>
+                        <div class="mt-6">
+                            <h2 class="text-3xl font-bold tracking-tight text-gray-900">Find your favorite recipe and
+                                get your daily dose of news!
+                            </h2>
+                            <p class="mt-4 text-lg text-gray-500">Search a recipe database of over 2.3 million recipes
+                                in English where new recipes are continuously added.</p>
+                            <p class="mt-4 text-lg text-gray-500"> Most
+                                accurate automated nutrition analysis on the web powered by Edamam's Recipe API
+                                proprietary Natural
+                                Language Processing (NLP) engine. Users can get detailed nutrition breakdown of each
+                                recipe with 25+ nutrients and appropriateness for all major diets.</p>
+                            <div class="mt-6">
+                                <a href="#"
+                                    class="inline-flex rounded-lg bg-blue-400 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-200 hover:bg-blue-200 hover:ring-blue-400">Find
+                                    recipes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 border-t border-gray-200 pt-6">
+                        <blockquote>
+                            <div>
+                                <p class="text-base text-gray-500">&ldquo;Our search algorithm returns the most relevant
+                                    recipes from the most popular and best recipes sources on the web. We order recipes
+                                    by their cookability and quality, so your customer can always count on getting the
+                                    best recipes!&rdquo; - <a href="https://developer.edamam.com/edamam-recipe-api"
+                                        id="header-link">Edamam API </a></p>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="mt-12 sm:mt-16 lg:mt-0">
+                    <div class="-mr-48 pl-4 sm:pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
+                        <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+                            src="./assets/images/food.jpg" alt="Inbox user interface">
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
-
     <main class="relative flex flex-col lg:flex-row h-full items-center justify-center md:gap-8">
         <!-- recipe section -->
         <section
