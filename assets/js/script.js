@@ -19,6 +19,81 @@ var recipeDetailsContainerEl = document.querySelector(
 // array to store the fetched recipe data information
 var edamamDataStore = []
 var searchHistory = []
+
+
+// daniel from here
+
+var historyList = document.querySelector('#history-container')
+var userRecipeSearchInput = document.querySelector('#recipe-search-input').value
+var searchHistory
+var localHistory = localStorage.getItem(JSON.stringify('searched-recipes'))
+var searchHistoryArr;
+	if (localHistory !== null) {
+		searchHistoryArr = JSON.parse(localHistory);
+		pullData();
+	} else {
+		searchHistoryArr = [];
+	}
+
+document.addEventListener("submit",function(event){
+	event.preventDefault();
+	var userRecipeSearchInput = document.querySelector(
+		'#recipe-search-input'
+	).value
+
+	fetchEdamam();
+	pushData()
+	pullData()
+	document.querySelector('#recipe-search-form').reset();
+
+})
+
+// search history function
+function pushData(){
+	
+	searchHistoryArr.push(userRecipeSearchInput);
+    localStorage.setItem("searched-recipes", JSON.stringify(searchHistoryArr));
+}
+
+function pullData() {
+    historyList.innerHTML = "";
+	var userRecipeSearchInput = document.querySelector(
+		'#recipe-search-input'
+	).value
+    for (var i = 0; i < searchHistoryArr.length; i++){
+        var historyBtn = document.createElement("button");
+		historyBtn.setAttribute('value', userRecipeSearchInput)
+		historyBtn.setAttribute(
+		'class',
+		'p-2 bg-blue-200 flex items-center rounded-md'
+		)
+		historyBtn.setAttribute('id', 'history-btn')
+		historyBtn.textContent = searchHistoryArr[i];
+        historyList.append(historyBtn);
+        
+        // Added close button to recent cities
+        // var closeBtn = document.createElement("button");
+        // closeBtn.setAttribute("class", "btn-close btn-close-white");
+        // historyBtn.append(closeBtn);
+    }
+}
+// click on the history btn will run the fetch again
+historyList.addEventListener("click", function(event) {
+    if (event.target.textContent === "") {
+        var recepieIndex = searchHistoryArr.indexOf(event.target.parentElement.textContent)
+        var newArr = searchHistoryArr.splice(recepieIndex, 1);
+        localStorage.setItem("searched-recipes", JSON.stringify(searchHistoryArr));
+        event.target.parentElement.remove();
+    } else {
+        userRecipeSearchInput = event.target.textContent;
+        var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
+        fetchData();
+    }
+})
+
+// daniel to here
+
+
 // fetch Edamam API endpoint to get recipe details (10,000 calls/ month limit)
 function fetchEdamam(event) {
 	event.preventDefault()
