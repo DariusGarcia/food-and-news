@@ -20,69 +20,66 @@ var recipeDetailsContainerEl = document.querySelector(
 var edamamDataStore = []
 var searchHistory = []
 
-
 // daniel from here
-
+var searchTagsContainerEl = document.querySelector('#history-container')
 var historyList = document.querySelector('#history-container')
 var userRecipeSearchInput = document.querySelector('#recipe-search-input')
 var searchHistory
 var localHistory = localStorage.getItem(JSON.stringify('searched-recipes'))
-var searchHistoryArr;
-	if (localHistory !== null) {
-		searchHistoryArr = JSON.parse(localHistory);
-		pullData();
-	} else {
-		searchHistoryArr = [];
-	}
+var searchHistoryArr = []
+if (localHistory !== null) {
+	searchHistoryArr = JSON.parse(localHistory)
+	pullData()
+} else {
+	searchHistoryArr = []
+}
 
-document.addEventListener("submit",function(event){
-	event.preventDefault();
-	var userRecipeSearchInput = document.querySelector(
-		'#recipe-search-input'
-	).value
-
-	fetchEdamam();
+document.addEventListener('submit', (event) => {
+	event.preventDefault()
+	fetchEdamam()
 	pushData()
 	pullData()
-	document.querySelector('#recipe-search-form').reset();
-
+	document.querySelector('#recipe-search-form').reset()
 })
 
-// let historyData = userRecipeSearchInput.value
 // search history function
-function pushData(){
+function pushData() {
 	let historyData = userRecipeSearchInput.value
-	searchHistoryArr.push(historyData);
-    localStorage.setItem("searched-recipes", JSON.stringify(searchHistoryArr));
+	searchHistoryArr.push(historyData)
+	localStorage.setItem('searched-recipes1', JSON.stringify(searchHistoryArr))
 	console.log(historyData)
-	
 }
 
 function pullData() {
-    historyList.innerHTML = "";
+	historyList.innerHTML = ''
 	let historyData = userRecipeSearchInput.value
-    for (var i = 0; i < searchHistoryArr.length; i++){
-        var historyBtn = document.createElement("button");
+	searchHistoryArr.map((item) => {
+		console.log(item.recipe[1].title)
+	})
+	for (var i = 0; i < searchHistoryArr.length; i++) {
+		var historyBtn = document.createElement('button')
 		historyBtn.setAttribute('value', historyData)
 		historyBtn.setAttribute(
-		'class',
-		'p-2 bg-blue-200 flex items-center rounded-md'
+			'class',
+			'p-2 bg-blue-200 flex items-center rounded-md'
 		)
 		historyBtn.setAttribute('id', 'history-btn')
-		historyBtn.textContent = searchHistoryArr[i];
-        
+		historyBtn.textContent = searchHistoryArr[i]
 
-		historyBtn.addEventListener("click",function(){
-			fetchEdamam(historyBtn.value)
-			console.log(historyBtn.value)
+		historyBtn.addEventListener('click', () => {
+			// userRecipeSearchInput = this
+			console.log(userRecipeSearchInput)
+			// fetchEdamam()
 		})
-        
-		historyList.append(historyBtn);
-        // Added close button to recent cities
-        // var closeBtn = document.createElement("button");
-        // closeBtn.setAttribute("class", "btn-close btn-close-white");
-        // historyBtn.append(closeBtn);
-    }
+
+		historyList.appendChild(historyBtn)
+		searchTagsContainerEl.appendChild(historyList)
+
+		// Added close button to recent cities
+		// var closeBtn = document.createElement("button");
+		// closeBtn.setAttribute("class", "btn-close btn-close-white");
+		// historyBtn.append(closeBtn);
+	}
 }
 // click on the history btn will run the fetch again
 // historyList.addEventListener("click", function(event) {
@@ -100,10 +97,8 @@ function pullData() {
 
 // daniel to here
 
-
 // fetch Edamam API endpoint to get recipe details (10,000 calls/ month limit)
-function fetchEdamam(event) {
-	// event.preventDefault()
+function fetchEdamam() {
 	// reset the data array to be empty on every fetch request
 	edamamDataStore.length = 0
 	var userRecipeSearchInput = document.querySelector(
@@ -130,9 +125,8 @@ function fetchEdamam(event) {
 		})
 
 	// reset the input fields and recipe list to empty after fetching searched recipe.
-	userRecipeSearchInput.value = ''
+	userRecipeSearchInput = ''
 	userRecipeSearchInput.textContent = ''
-	// historyAppend()
 }
 
 // data handler function to populate the recipe section list with each recipe details.
@@ -245,6 +239,7 @@ function displayRecipeDetails(arr) {
 		recipeCuisineType.setAttribute('id', 'cuisineType')
 		recipeCuisineType.textContent = arr[i].recipe.cuisineType
 
+		// append children to containers
 		cardContainerRight.appendChild(ingredientListEl)
 		cardContainerLeft.appendChild(recipeLabelEl)
 		cardContainerLeft.appendChild(recipeCuisineType)
@@ -264,40 +259,11 @@ function displayRecipeDetails(arr) {
 	return recipeContentCardEl
 }
 
-var searchHistoryArr = []
-
-var historyList = document.querySelector('#history-container')
-
-function historyAppend() {
-	// 	var userRecipeSearchInput = document.querySelector(
-	// 		'#recipe-search-input'
-	// 	).value
-	// 	if (!userRecipeSearchInput) {
-	// 		// document.querySelector("alert").textContent = "Recipe NOT FOUND, PLEASE TRY AGAIN";
-	// 		return
-	// 	}
-	// 	if (searchHistoryArr.length > 3) {
-	// 		searchHistoryArr = 3
-	// 	}
-	// 	searchHistoryArr.push(userRecipeSearchInput)
-	// 	var historyBtn = document.createElement('button')
-	// 	historyBtn.textContent = userRecipeSearchInput
-	// 	historyBtn.setAttribute('value', userRecipeSearchInput)
-	// 	historyBtn.setAttribute(
-	// 		'class',
-	// 		'p-2 bg-blue-200 flex items-center rounded-md'
-	// 	)
-	// 	historyBtn.setAttribute('id', 'history-btn')
-	// 	historyBtn.addEventListener('click', () => {
-	// 		userRecipeSearchInput = historyBtn.textContent
-	// 		fetchEdamam()
-	// 	})
-}
-
 // function to display search history
 var userSearchHistory = []
 
 function searchHistory() {
+	let searchTagsContainer = document.createElement('article')
 	var userSearchInput = document.querySelector('#recipe-search-input').value
 	if (!userSearchInput) {
 		console.log('Empty search input')
@@ -314,24 +280,11 @@ function searchHistory() {
 	historyBtn.setAttribute('id', 'history-btn')
 	historyBtn.addEventListener('click', () => {
 		userRecipeSearchInput = historyBtn.textContent
-		fetchEdamam()
 	})
 
-	// if (userSearchHistory.length > 3) {
-	// 	userSearchHistory.length = 3
-	// }
+	searchTagsContainer.appendChild(historyBtn)
+	return searchTagsContainer
 }
-
-// search history function
-function initSearchHistory() {
-	var localHistory = localStorage.getItem(JSON.stringify('searched-recipes'))
-	if (localHistory) {
-		searchHistory = JSON.parse(localHistory)
-	}
-	// historyAppend()
-}
-
-initSearchHistory()
 
 // fetch recipe searched query when user clicks 'search for recipe button'
 recipeSearchBtn.addEventListener('click', fetchEdamam)
