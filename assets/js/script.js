@@ -50,7 +50,7 @@ function fetchEdamam(event) {
 	// reset the input fields and recipe list to empty after fetching searched recipe.
 	userRecipeSearchInput.value = ''
 	userRecipeSearchInput.textContent = ''
-	historyAppend()
+	// historyAppend()
 }
 
 // data handler function to populate the recipe section list with each recipe details.
@@ -186,32 +186,29 @@ var searchHistoryArr = []
 var historyList = document.querySelector('#history-container')
 
 function historyAppend() {
-	var userRecipeSearchInput = document.querySelector(
-		'#recipe-search-input'
-	).value
-	if (!userRecipeSearchInput) {
-		// document.querySelector("alert").textContent = "Recipe NOT FOUND, PLEASE TRY AGAIN";
-		return
-	}
-
-	if (searchHistoryArr.length > 3) {
-		searchHistoryArr = 3
-	}
-
-	searchHistoryArr.push(userRecipeSearchInput)
-	var historyBtn = document.createElement('button')
-	historyBtn.textContent = userRecipeSearchInput
-	historyBtn.setAttribute('value', userRecipeSearchInput)
-	historyBtn.setAttribute(
-		'class',
-		'p-2 bg-blue-200 flex items-center rounded-md'
-	)
-	historyBtn.setAttribute('id', 'history-btn')
-
-	historyBtn.addEventListener('click', () => {
-		userRecipeSearchInput = historyBtn.textContent
-		fetchEdamam()
-	})
+	// 	var userRecipeSearchInput = document.querySelector(
+	// 		'#recipe-search-input'
+	// 	).value
+	// 	if (!userRecipeSearchInput) {
+	// 		// document.querySelector("alert").textContent = "Recipe NOT FOUND, PLEASE TRY AGAIN";
+	// 		return
+	// 	}
+	// 	if (searchHistoryArr.length > 3) {
+	// 		searchHistoryArr = 3
+	// 	}
+	// 	searchHistoryArr.push(userRecipeSearchInput)
+	// 	var historyBtn = document.createElement('button')
+	// 	historyBtn.textContent = userRecipeSearchInput
+	// 	historyBtn.setAttribute('value', userRecipeSearchInput)
+	// 	historyBtn.setAttribute(
+	// 		'class',
+	// 		'p-2 bg-blue-200 flex items-center rounded-md'
+	// 	)
+	// 	historyBtn.setAttribute('id', 'history-btn')
+	// 	historyBtn.addEventListener('click', () => {
+	// 		userRecipeSearchInput = historyBtn.textContent
+	// 		fetchEdamam()
+	// 	})
 }
 
 // function to display search history
@@ -224,6 +221,18 @@ function searchHistory() {
 		return
 	}
 	userSearchHistory.push(userSearchInput)
+	var historyBtn = document.createElement('button')
+	historyBtn.textContent = userSearchInput
+	historyBtn.setAttribute('value', userRecipeSearchInput)
+	historyBtn.setAttribute(
+		'class',
+		'p-2 bg-blue-200 flex items-center rounded-md'
+	)
+	historyBtn.setAttribute('id', 'history-btn')
+	historyBtn.addEventListener('click', () => {
+		userRecipeSearchInput = historyBtn.textContent
+		fetchEdamam()
+	})
 
 	// if (userSearchHistory.length > 3) {
 	// 	userSearchHistory.length = 3
@@ -236,8 +245,7 @@ function initSearchHistory() {
 	if (localHistory) {
 		searchHistory = JSON.parse(localHistory)
 	}
-
-	historyAppend()
+	// historyAppend()
 }
 
 initSearchHistory()

@@ -1,6 +1,6 @@
 # Recipe Handbook
 
-[link to deployed app](https://dariusgarcia.github.io/group-project/)
+[link to deployed app](https://dariusgarcia.github.io/food-and-news/)
 
 ![Screenshot of web app](./assets/images/recipe-handbook.png)
 
