@@ -3,7 +3,7 @@
 [link to deployed app](https://dariusgarcia.github.io/food-and-news/)
 
 ![Screenshot of web app](./assets/images/homepage.png)
-![Screenshot of web app](./assets/images/screenshot.png)
+![Screenshot of web app](./assets/images/dashboard.png)
 
 ## Description
 
