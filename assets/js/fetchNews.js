@@ -1,7 +1,7 @@
-const newsAPIKey = 'cs7wlC4fGcduhcWkevNeksL97S7VQIgfW4W2Cynp'
-const limit = 2
-const newsURL = `https://api.thenewsapi.com/v1/news/top?api_token=${newsAPIKey}&locale=us&limit=${limit}`
-const devURL = '../newsData.json'
+const newsAPIKey = 'cs7wlC4fGcduhcWkevNeksL97S7VQIgfW4W2Cynp';
+const limit = 5;
+const newsURL = `https://api.thenewsapi.com/v1/news/all?api_token=${newsAPIKey}&language=en&limit=${limit}`;
+const devURL = '../newsData.json';
 
 function fetchNews(event) {
 	event.preventDefault()
@@ -13,6 +13,7 @@ const newsContainerEl = document.querySelector('#news-wrapper')
 
 // function to populate the news container section with individual news articles
 function displayNewsData(data) {
+	localStorage.setItem('recent-news', JSON.stringify(data.data))
 	for (var i = 0; i < data.data.length; i++) {
 		let newsCardEl = document.createElement('article')
 		newsCardEl.setAttribute('id', 'news-card-article')
