@@ -119,7 +119,8 @@
             id="home">
             <!-- User search input for specific recipe -->
 
-            <form class="sticky top-0 flex flex-col items-center gap-2 py-2 h-full" id="recipe-search-form">
+            <form action='submit' class="sticky top-0 flex flex-col items-center gap-2 py-2 h-full"
+                id="recipe-search-form">
                 <label for="Recipe search"
                     class="md:ml-4 flex w-max self-start border-b-2 border-blue-400 justify-center font-bold tracking-wide">Search
                     for a recipe</label>
@@ -154,10 +155,10 @@
                 <p class="text-center border-b-2 border-blue-400 w-max">
                     Read the latest news here.
                 </p>
-                <p class="mt-4 text-lg text-gray-500">
+                <p class="w-5/6 text-center mt-0 text-md text-gray-500">
                     Search for the latest news articles from hundreds of news sources and blogs
-                    with our news API. Our news API lets you search and retrieve live articles. 
-                <div class="flex w-full justify-center">
+                    with our news API. Our news API lets you search and retrieve live articles.
+                <div class="flex w-full justify-center mt-1">
                     <button
                         class="rounded-md p-2 text-center w-36 outline-none bg-blue-400 text-white duration-200 ease-out hover:bg-opacity-80 delay-75 ease-in-out"
                         id="news-search-btn">
@@ -179,7 +180,7 @@
             </li>
             <li id="footer-items"
                 class="p-1 hover:opacity-15 duration-300 ease-out hover:bg-blue-300 bg-blue-400 rounded-md">
-                <a href="./index.html">Recipes</a>
+                <a href="#home">Recipes</a>
             </li>
             <li id="footer-items"
                 class="p-1 hover:opacity-15 duration-300 ease-out hover:bg-blue-300 bg-blue-400 rounded-md">
