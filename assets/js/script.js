@@ -24,7 +24,7 @@ var searchHistory = []
 // daniel from here
 
 var historyList = document.querySelector('#history-container')
-var userRecipeSearchInput = document.querySelector('#recipe-search-input').value
+var userRecipeSearchInput = document.querySelector('#recipe-search-input')
 var searchHistory
 var localHistory = localStorage.getItem(JSON.stringify('searched-recipes'))
 var searchHistoryArr;
@@ -48,29 +48,36 @@ document.addEventListener("submit",function(event){
 
 })
 
+// let historyData = userRecipeSearchInput.value
 // search history function
 function pushData(){
-	
-	searchHistoryArr.push(userRecipeSearchInput);
+	let historyData = userRecipeSearchInput.value
+	searchHistoryArr.push(historyData);
     localStorage.setItem("searched-recipes", JSON.stringify(searchHistoryArr));
+	console.log(historyData)
+	
 }
 
 function pullData() {
     historyList.innerHTML = "";
-	var userRecipeSearchInput = document.querySelector(
-		'#recipe-search-input'
-	).value
+	let historyData = userRecipeSearchInput.value
     for (var i = 0; i < searchHistoryArr.length; i++){
         var historyBtn = document.createElement("button");
-		historyBtn.setAttribute('value', userRecipeSearchInput)
+		historyBtn.setAttribute('value', historyData)
 		historyBtn.setAttribute(
 		'class',
 		'p-2 bg-blue-200 flex items-center rounded-md'
 		)
 		historyBtn.setAttribute('id', 'history-btn')
 		historyBtn.textContent = searchHistoryArr[i];
-        historyList.append(historyBtn);
         
+
+		historyBtn.addEventListener("click",function(){
+			fetchEdamam(historyBtn.value)
+			console.log(historyBtn.value)
+		})
+        
+		historyList.append(historyBtn);
         // Added close button to recent cities
         // var closeBtn = document.createElement("button");
         // closeBtn.setAttribute("class", "btn-close btn-close-white");
@@ -78,25 +85,25 @@ function pullData() {
     }
 }
 // click on the history btn will run the fetch again
-historyList.addEventListener("click", function(event) {
-    if (event.target.textContent === "") {
-        var recepieIndex = searchHistoryArr.indexOf(event.target.parentElement.textContent)
-        var newArr = searchHistoryArr.splice(recepieIndex, 1);
-        localStorage.setItem("searched-recipes", JSON.stringify(searchHistoryArr));
-        event.target.parentElement.remove();
-    } else {
-        userRecipeSearchInput = event.target.textContent;
-        var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
-        fetchData();
-    }
-})
+// historyList.addEventListener("click", function(event) {
+//     if (event.target.textContent === "") {
+//         var recepieIndex = searchHistoryArr.indexOf(event.target.parentElement.textContent)
+//         const newArr = searchHistoryArr.splice(recepieIndex, 1);
+//         localStorage.setItem("searched-recipes", JSON.stringify(searchHistoryArr));
+//         event.target.parentElement.remove();
+//     } else {
+//         userRecipeSearchInput = event.target.textContent;
+//         var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
+//         fetchEdamam();
+//     }
+// })
 
 // daniel to here
 
 
 // fetch Edamam API endpoint to get recipe details (10,000 calls/ month limit)
 function fetchEdamam(event) {
-	event.preventDefault()
+	// event.preventDefault()
 	// reset the data array to be empty on every fetch request
 	edamamDataStore.length = 0
 	var userRecipeSearchInput = document.querySelector(
