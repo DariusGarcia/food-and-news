@@ -5,7 +5,7 @@ const devURL = '../newsData.json'
 
 function fetchNews(event) {
 	event.preventDefault()
-	fetch(devURL)
+	fetch(newsURL)
 		.then((response) => response.json())
 		.then((data) => displayNewsData(data))
 }
