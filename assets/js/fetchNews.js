@@ -16,7 +16,8 @@ function displayNewsData(data) {
 	for (var i = 0; i < data.data.length; i++) {
 		let newsCardEl = document.createElement('article')
 		newsCardEl.setAttribute('id', 'news-card-article')
-
+		let newsImgContainer = document.createElement('div')
+		newsImgContainer.setAttribute('id', 'img-container')
 		let newsTitleEl = document.createElement('h2')
 		newsTitleEl.textContent = data.data[i].title
 		let newsDescriptionEl = document.createElement('a')
@@ -25,9 +26,22 @@ function displayNewsData(data) {
 		newsUrlEl.textContent = data.data[i].url
 		let newsImageEl = document.createElement('img')
 		newsImageEl.src = data.data[i].image
+		newsImgContainer.appendChild(newsImageEl)
+		let categoryTagsContainer = document.createElement('ul')
+		categoryTagsContainer.setAttribute('id', 'category-tags-container')
+		const tagIndex = data.data[i].categories
+
+		// looping through the category tags array and creating a new <li></li> tag for each item.
+		tagIndex.map((item) => {
+			var categoryTagItem = document.createElement('li')
+			categoryTagItem.setAttribute('id', 'category-tag-item')
+			categoryTagItem.textContent = item
+			categoryTagsContainer.appendChild(categoryTagItem)
+		})
+
 		let newsCategoriesEl = document.createElement('p')
 		newsCategoriesEl.textContent = data.data[i].categories
-
+		console.log(newsCategoriesEl)
 		newsTitleEl.setAttribute('id', 'news-title')
 		newsDescriptionEl.setAttribute('id', 'news-description')
 		newsDescriptionEl.setAttribute('href', data.data[i].url)
@@ -39,8 +53,8 @@ function displayNewsData(data) {
 
 		newsCardEl.appendChild(newsTitleEl)
 		newsCardEl.appendChild(newsDescriptionEl)
-		newsCardEl.appendChild(newsImageEl)
-		newsCardEl.appendChild(newsCategoriesEl)
+		newsCardEl.appendChild(newsImgContainer)
+		newsCardEl.appendChild(categoryTagsContainer)
 		newsContainerEl.appendChild(newsCardEl)
 	}
 }
