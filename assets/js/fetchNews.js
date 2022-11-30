@@ -9,20 +9,23 @@ function fetchNews(event) {
 		.then((response) => response.json())
 		.then((data) => displayNewsData(data))
 }
-var newsContainerEl = document.querySelector('#news-wrapper')
+const newsContainerEl = document.querySelector('#news-wrapper')
 
 // function to populate the news container section with individual news articles
 function displayNewsData(data) {
 	for (var i = 0; i < data.data.length; i++) {
-		const newsTitleEl = document.createElement('h2')
+		let newsCardEl = document.createElement('article')
+		newsCardEl.setAttribute('id', 'news-card-article')
+
+		let newsTitleEl = document.createElement('h2')
 		newsTitleEl.textContent = data.data[i].title
-		const newsDescriptionEl = document.createElement('a')
+		let newsDescriptionEl = document.createElement('a')
 		newsDescriptionEl.textContent = data.data[i].description
-		const newsUrlEl = document.createElement('a')
+		let newsUrlEl = document.createElement('a')
 		newsUrlEl.textContent = data.data[i].url
-		const newsImageEl = document.createElement('img')
+		let newsImageEl = document.createElement('img')
 		newsImageEl.src = data.data[i].image
-		const newsCategoriesEl = document.createElement('p')
+		let newsCategoriesEl = document.createElement('p')
 		newsCategoriesEl.textContent = data.data[i].categories
 
 		newsTitleEl.setAttribute('id', 'news-title')
@@ -34,12 +37,13 @@ function displayNewsData(data) {
 		newsImageEl.setAttribute('src', data.data[i].image_url)
 		newsCategoriesEl.setAttribute('id', 'news-categories')
 
-		newsContainerEl.appendChild(newsTitleEl)
-		newsContainerEl.appendChild(newsDescriptionEl)
-		// newsContainerEl.appendChild(newsImageEl)
-		newsContainerEl.appendChild(newsCategoriesEl)
+		newsCardEl.appendChild(newsTitleEl)
+		newsCardEl.appendChild(newsDescriptionEl)
+		newsCardEl.appendChild(newsImageEl)
+		newsCardEl.appendChild(newsCategoriesEl)
+		newsContainerEl.appendChild(newsCardEl)
 	}
 }
 
-const newsSearchBtn = document.querySelector('#news-search-btn')
+let newsSearchBtn = document.querySelector('#news-search-btn')
 newsSearchBtn.addEventListener('click', fetchNews)
