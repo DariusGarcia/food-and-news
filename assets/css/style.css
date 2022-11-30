@@ -194,14 +194,10 @@ li {
     align-items: flex-start;
 }
 
-#recipeCardWrapper {
-    background-color: red;
-}
-
 #recipeContentCardEl {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
 
 }
 
@@ -230,7 +226,12 @@ li {
     background-color: white;
     padding: 0.5rem 1rem;
     border-radius: 4px;
+}
+
+#recipeCardWrapper:hover {
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    /* transition-delay: 100ms; */
 }
 
 #recipe-search-btn {
@@ -255,7 +256,6 @@ li {
     max-width: 18rem;
     padding: 0.5rem;
     font-family: 'Patrick Hand', cursive;
-    letter-spacing: 1px;
     font-weight: 600;
 }
 
@@ -326,11 +326,14 @@ li {
     border-radius: 6px;
     font-family: 'Patrick Hand', cursive;
     letter-spacing: 1px;
-    line-height: 2.5rem;
+    line-height: 2rem;
 }
 
 #ingredientItem:hover {
     background-color: #f5f5f4;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 100%;
+    transition-delay: 50ms;
 }
 
 #dishType:before {
@@ -403,7 +406,6 @@ li {
 #news-wrapper {
     width: 100%;
     margin-top: 4rem;
-
 }
 
 #news-card-article {
@@ -420,6 +422,7 @@ li {
 #news-card-article:hover {
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     opacity: 100%;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 #news-wrapper img {
@@ -434,6 +437,10 @@ li {
     color: black;
 }
 
+#news-title:hover {
+    opacity: 75%;
+}
+
 #news-description {
     width: 95%;
     font-size: 1rem;
@@ -443,7 +450,7 @@ li {
 #news-description:hover {
     color: red;
     transition: smooth ease 0.5s;
-    text-shadow: #60a5fa 0px 0px 5px;
+    /* text-shadow: #60a5fa 0px 0px 5px; */
 }
 
 #img-container {
@@ -501,6 +508,7 @@ li {
 
     #recipeContentCardEl {
         padding: 0 1rem;
+        width: 50vw;
     }
 
     #recipeCardContainerLeft {
@@ -551,19 +559,17 @@ li {
         grid-template-columns: 1fr 1fr;
     }
 
-
     #news-wrapper {
-        width: 40%;
-
+        /* width: 40%; */
     }
 
     #news-wrapper img {
-        width: 50%;
+        width: 24rem;
+
     }
 }
 
 @media (min-width: 1180px) {
-
     #recipeCardWrapper {
         grid-template-columns: 1fr 1fr;
     }
@@ -573,10 +579,12 @@ li {
         width: 100%;
     }
 
+    #recipeContentCardEl {
+        width: 100%;
+    }
 
     #news-wrapper {
         width: 40%;
-
     }
 
 }

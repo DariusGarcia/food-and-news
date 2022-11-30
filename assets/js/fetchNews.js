@@ -18,7 +18,7 @@ function displayNewsData(data) {
 		newsCardEl.setAttribute('id', 'news-card-article')
 		let newsImgContainer = document.createElement('div')
 		newsImgContainer.setAttribute('id', 'img-container')
-		let newsTitleEl = document.createElement('h2')
+		let newsTitleEl = document.createElement('a')
 		newsTitleEl.textContent = data.data[i].title
 		let newsDescriptionEl = document.createElement('a')
 		newsDescriptionEl.textContent = data.data[i].description
@@ -43,6 +43,8 @@ function displayNewsData(data) {
 		newsCategoriesEl.textContent = data.data[i].categories
 		console.log(newsCategoriesEl)
 		newsTitleEl.setAttribute('id', 'news-title')
+		newsTitleEl.setAttribute('href', data.data[i].url)
+		newsTitleEl.setAttribute('target', '_blank')
 		newsDescriptionEl.setAttribute('id', 'news-description')
 		newsDescriptionEl.setAttribute('href', data.data[i].url)
 		newsDescriptionEl.setAttribute('target', '_blank')
