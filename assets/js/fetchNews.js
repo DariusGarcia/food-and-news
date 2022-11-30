@@ -5,7 +5,7 @@ const devURL = '../newsData.json'
 
 function fetchNews(event) {
 	event.preventDefault()
-	fetch(newsURL)
+	fetch(devURL)
 		.then((response) => response.json())
 		.then((data) => displayNewsData(data))
 }
@@ -14,15 +14,15 @@ var newsContainerEl = document.querySelector('#news-wrapper')
 // function to populate the news container section with individual news articles
 function displayNewsData(data) {
 	for (var i = 0; i < data.data.length; i++) {
-		var newsTitleEl = document.createElement('h2')
+		const newsTitleEl = document.createElement('h2')
 		newsTitleEl.textContent = data.data[i].title
-		var newsDescriptionEl = document.createElement('a')
+		const newsDescriptionEl = document.createElement('a')
 		newsDescriptionEl.textContent = data.data[i].description
-		var newsUrlEl = document.createElement('a')
+		const newsUrlEl = document.createElement('a')
 		newsUrlEl.textContent = data.data[i].url
-		var newsImageEl = document.createElement('img')
+		const newsImageEl = document.createElement('img')
 		newsImageEl.src = data.data[i].image
-		var newsCategoriesEl = document.createElement('p')
+		const newsCategoriesEl = document.createElement('p')
 		newsCategoriesEl.textContent = data.data[i].categories
 
 		newsTitleEl.setAttribute('id', 'news-title')
@@ -36,10 +36,10 @@ function displayNewsData(data) {
 
 		newsContainerEl.appendChild(newsTitleEl)
 		newsContainerEl.appendChild(newsDescriptionEl)
-		newsContainerEl.appendChild(newsImageEl)
+		// newsContainerEl.appendChild(newsImageEl)
 		newsContainerEl.appendChild(newsCategoriesEl)
 	}
 }
 
-var newsSearchBtn = document.querySelector('#news-search-btn')
+const newsSearchBtn = document.querySelector('#news-search-btn')
 newsSearchBtn.addEventListener('click', fetchNews)
