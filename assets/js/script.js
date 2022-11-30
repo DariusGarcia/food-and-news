@@ -288,3 +288,8 @@ function searchHistory() {
 
 // fetch recipe searched query when user clicks 'search for recipe button'
 recipeSearchBtn.addEventListener('click', fetchEdamam)
+
+
+function displayContainer(){
+	document.querySelector('#history-container').classList.remove("hide")
+}
