@@ -1,4 +1,4 @@
-# Recipe Handbook
+# Food and News
 
 [link to deployed app](https://dariusgarcia.github.io/food-and-news/)
 
