@@ -459,7 +459,6 @@ li {
 #news-description:hover {
     color: red;
     transition: smooth ease 0.5s;
-    /* text-shadow: #60a5fa 0px 0px 5px; */
 }
 
 #img-container {
@@ -488,7 +487,6 @@ li {
     border-radius: 0.375rem;
 }
 
-/* relative flex flex-col items-center justify-center w-full h-36 bg-blue-400 */
 #footer-items {
     padding: 1rem;
     display: flex;
@@ -500,7 +498,7 @@ li {
     color: white;
 }
 
-@media (min-width: 850px) {
+@media (min-width: 768px) {
     .navbar-mobile {
         display: none;
     }
@@ -508,7 +506,9 @@ li {
     #large-navbar {
         display: flex;
     }
+}
 
+@media (min-width: 850px) {
     #recipeCardWrapper {
         display: grid;
         grid-template-columns: 1fr;
@@ -521,13 +521,11 @@ li {
 
     #recipeCardContainerLeft {
         width: 18rem;
-        padding-bottom: 2rem;
     }
 
     #recipeCardContainerRight {
         justify-content: start;
-        align-items: center;
-        margin: 5rem 0;
+        align-items: start;
     }
 
     #recipe-image {
@@ -567,10 +565,6 @@ li {
         grid-template-columns: 1fr 1fr;
     }
 
-    #news-wrapper {
-        /* width: 50%; */
-    }
-
     #news-wrapper img {
         width: 18rem;
     }
@@ -579,6 +573,7 @@ li {
 @media (min-width: 1024px) {
     #news-wrapper {
         width: 40%;
+        align-items: center;
     }
 }
 
@@ -596,8 +591,13 @@ li {
         width: 100%;
     }
 
-    #news-wrapper {
-        /* width: 40%; */
+    #recipeCardContainerLeft {
+        padding-bottom: 2rem;
     }
 
+    #recipeCardContainerRight {
+        justify-content: start;
+        align-items: start;
+        margin-top: 1rem;
+    }
 }
