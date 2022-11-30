@@ -85,6 +85,7 @@ function displayRecipeDetails(arr) {
 		})
 		instructionsEl.textContent = arr[i].recipe
 		cardWrapper.setAttribute('id', 'recipeCardWrapper')
+		cardWrapper.setAttribute('class', 'md:w-screen lg:w-full')
 		cardContainerLeft.setAttribute('id', 'recipeCardContainerLeft')
 		cardContainerRight.setAttribute('id', 'recipeCardContainerRight')
 		cardContainerEnd.setAttribute('id', 'recipeCardContainerEnd')
@@ -100,7 +101,7 @@ function displayRecipeDetails(arr) {
 		recipeImageEl.setAttribute('alt', `${arr[i].recipe.label}`)
 		recipeImageEl.setAttribute('id', 'recipe-image')
 
-		// recipe diet labels tags
+		// recipe diet label tags
 		var dietTagsContainer = document.createElement('ul')
 		dietTagsContainer.setAttribute('id', 'dietTagsContainer')
 		var dietTagindex = arr[i].recipe.dietLabels
