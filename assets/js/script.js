@@ -43,6 +43,18 @@ recipeSearchBtn.addEventListener('click', (event) => {
 	document.querySelector('#recipe-search-form').reset()
 })
 
+// recipeSearchBtn.addEventListener('click', (event) => {
+// event.preventDefault()
+// var recipeInput= userRecipeSearchInput.value
+// if(!recipeInput){
+// return;
+// }
+// fetchEdamam(recipeInput)
+// pushData()
+// pullData()
+// document.querySelector('#recipe-search-form').reset()
+// })
+
 // function to fetch recipe API when clicking a specific search history tag
 function fetchSearchHistory(recipe) {
 	var searchHistoryBtnValue = `https://api.edamam.com/api/recipes/v2?type=public&q=${recipe}&app_id=${appID}&app_key=${appAPIKey}`
@@ -62,7 +74,7 @@ function pushData() {
 
 function pullData() {
 	historyList.innerHTML = ''
-	for (var i = 0; i < searchHistoryArr.length; i++) {
+for (var i = 0; i < searchHistoryArr.length; i++) {
 		var historyBtn = document.createElement('button')
 		historyBtn.setAttribute(
 			'class',
