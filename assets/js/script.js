@@ -35,7 +35,7 @@ if (localHistory !== null) {
 	searchHistoryArr = []
 }
 
-document.addEventListener('submit', (event) => {
+recipeSearchBtn.addEventListener('click', (event) => {
 	event.preventDefault()
 	fetchEdamam()
 	pushData()
@@ -43,24 +43,27 @@ document.addEventListener('submit', (event) => {
 	document.querySelector('#recipe-search-form').reset()
 })
 
-// search history function
+// function to fetch recipe API when clicking a specific search history tag
+function fetchSearchHistory(recipe) {
+	var searchHistoryBtnValue = `https://api.edamam.com/api/recipes/v2?type=public&q=${recipe}&app_id=${appID}&app_key=${appAPIKey}`
+	fetch(searchHistoryBtnValue)
+		.then((response) => response.json())
+		.then((recipeData) => {
+			const dataReceived = recipeData.hits
+			displayRecipeDetails(dataReceived)
+		})
+}
+
 function pushData() {
 	let historyData = { id: userRecipeSearchInput.value }
 	searchHistoryArr.push(historyData)
 	localStorage.setItem('searched-recipes1', JSON.stringify(searchHistoryArr))
-	console.log(historyData)
 }
 
 function pullData() {
 	historyList.innerHTML = ''
-	let historyData = userRecipeSearchInput.value
-	// searchHistoryArr.map((item) => {
-	// 	console.log(item.recipe[1].title)
-	// })
-	console.log(searchHistoryArr)
 	for (var i = 0; i < searchHistoryArr.length; i++) {
 		var historyBtn = document.createElement('button')
-		// historyBtn.setAttribute('value', historyData)
 		historyBtn.setAttribute(
 			'class',
 			'p-2 w-max px-4 mt-1 bg-gray-300 flex items-center rounded-md duration-200 ease-out text-black hover:bg-blue-400 delay-75 ease-in-out'
@@ -71,20 +74,10 @@ function pullData() {
 		let storageIndex = i
 
 		historyBtn.addEventListener('click', () => {
-			console.log(userRecipeSearchInput)
 			var localStorageData = JSON.parse(
 				localStorage.getItem('searched-recipes1')
 			)
-			console.log(
-				'🚀 ~ file: script.js:76 ~ historyBtn.addEventListener ~ localStorageData',
-				localStorageData[storageIndex]
-			)
-
 			fetchSearchHistory(localStorageData[storageIndex].id)
-			// console.log(historyBtn.value)
-			// console.log(typeof localStorageData)
-			// console.log(localStorageData)
-			// displayRecipeDetails(localStorageData)
 		})
 
 		historyList.appendChild(historyBtn)
@@ -105,14 +98,11 @@ function fetchEdamam() {
 			const dataReceived = data.hits
 			// push the JSON data into the edamam data store array
 			edamamDataStore.push(JSON.stringify(dataReceived))
-			// console.log('store:' + edamamDataStore)
 			// pass the response JSON data into the handler function to populate the recipe card with the details
 			displayRecipeDetails(dataReceived)
 			console.log(typeof dataReceived)
 			// sets the searched recipe results to local storage
 			localStorage.setItem(userRecipeSearchInput, JSON.stringify(data.hits))
-
-			// console.log(`local storage data: ${localStorageData}`)
 		})
 
 	// reset the input fields and recipe list to empty after fetching searched recipe.
@@ -130,17 +120,13 @@ function fetchHistory(recipe) {
 			const dataReceived = data.hits
 			// push the JSON data into the edamam data store array
 			edamamDataStore.push(JSON.stringify(dataReceived))
-			// console.log('store:' + edamamDataStore)
 			// pass the response JSON data into the handler function to populate the recipe card with the details
 			displayRecipeDetails(dataReceived)
-
 			// sets the searched recipe results to local storage
 			localStorage.setItem('searched-recipes', JSON.stringify(data.hits))
 			var localStorageData = JSON.parse(
 				localStorage.getItem('searched-recipes')
 			)
-
-			console.log(`local storage data: ${localStorageData}`)
 		})
 
 	// reset the input fields and recipe list to empty after fetching searched recipe.
@@ -278,19 +264,16 @@ function displayRecipeDetails(arr) {
 	return recipeContentCardEl
 }
 
-// darius function to fetch history tag
-
-function fetchSearchHistory(recipe) {
-	var searchQuery = `https://api.edamam.com/api/recipes/v2?type=public&q=${recipe}&app_id=${appID}&app_key=${appAPIKey}`
-	fetch(searchQuery)
-		.then((response) => response.json())
-		.then((data) => {
-			const dataReceived = data.hits
-			console.log(data.hit)
-			displayRecipeDetails(dataReceived)
-		})
+// function to clear the search history list
+var searchHistoryBtn = document.querySelector('#search-history-btn')
+if (localStorage == null) {
+	searchHistoryBtn.innerHTML = ''
+} else {
+	searchHistoryBtn.addEventListener('click', () => clearSearchHistory)
 }
-
+function clearSearchHistory() {
+	localStorage.clear()
+}
 function displayContainer() {
 	document.querySelector('#history-container').classList.remove('hide')
 }

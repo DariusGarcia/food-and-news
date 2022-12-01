@@ -52,13 +52,13 @@
             </li>
         </ul>
     </nav>
-    <header id='header' class="relative overflow-hidden bg-white pt-16 pb-32">
+    <header id="header" class="relative overflow-hidden bg-white pt-16 pb-32">
         <div class="relative">
             <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
-                <div class="mx-auto  lg:max-w-none lg:py-16 lg:px-0 max-w-xl px-6 lg:mx-0 ">
+                <div class="mx-auto lg:max-w-none lg:py-16 lg:px-0 max-w-xl px-6 lg:mx-0">
                     <div>
                         <div>
-                            <span class="flex  rounded-xl bg-blue-400 h-12 w-full items-center justify-center">
+                            <span class="flex rounded-xl bg-blue-400 h-12 w-full items-center justify-center">
                                 <h1 class="font-bold text-2xl md:text-3xl text-center md:text-center">
                                     Food & News
                                 </h1>
@@ -81,8 +81,8 @@
                             </p>
                             <div class="mt-6">
                                 <a href="#home"
-                                    class="inline-flex py-1.5 px-4 leading-7 rounded-lg font-semibold text-white shadow-sm  hover:bg-opacity-80 delay-75 ease-in-out bg-blue-400 text-base">Find
-                                    recipes
+                                    class="inline-flex py-1.5 px-4 leading-7 rounded-lg font-semibold text-white shadow-sm hover:bg-opacity-80 duration-200 ease-in-out bg-blue-400 text-base hover:scale-95 ">Start
+                                    browsing
                                 </a>
                             </div>
                         </div>
@@ -103,9 +103,9 @@
                         </blockquote>
                     </div>
                 </div>
-                <div class="sm:mt-16 mt-12  lg:mt-0">
-                    <div class="-mr-48  lg:relative lg:m-0 lg:h-full pl-4 sm:pl-6 md:-mr-16  lg:px-0">
-                        <img class="w-full rounded-xl  ring-opacity-5 lg:absolute lg:left-0 lg:h-full shadow-2xl ring-1 ring-black lg:w-auto lg:max-w-none"
+                <div class="sm:mt-16 mt-12 lg:mt-0">
+                    <div class="-mr-48 lg:relative lg:m-0 lg:h-full pl-4 sm:pl-6 md:-mr-16 lg:px-0">
+                        <img class="w-full rounded-xl ring-opacity-5 lg:absolute lg:left-0 lg:h-full shadow-2xl ring-1 ring-black lg:w-auto lg:max-w-none"
                             src="./assets/images/food-md.jpg" alt="Inbox user interface" />
                     </div>
                 </div>
@@ -118,33 +118,33 @@
             class="relative flex flex-col items-start w-full lg:w-2/3 mx-2 md:mx-0 pt-4 h-full px-4 md:px-0 rounded-md bg-neutral-100"
             id="home">
             <!-- User search input for specific recipe -->
-            <form action='submit' class="relative flex flex-col items-center gap-2 py-2 h-full" id="recipe-search-form">
+            <form class="relative w-full flex flex-col items-center gap-2 py-2 h-full" id="recipe-search-form">
                 <label for="Recipe search"
-                    class=" flex w-max self-center border-b-2 border-blue-400 justify-center font-semibold tracking-wide">Search
+                    class="flex w-max self-center border-b-2 border-blue-400 justify-center font-semibold tracking-wide">Search
                     for a recipe</label>
                 <div id="search-wrapper" class="w-full flex justify-center">
                     <input autocomplete="off" autofocus
-                        class="w-96 mt-2  self-start p-2 rounded-md border-2 border-gray-400" id="recipe-search-input"
+                        class="w-96 mt-2 self-start p-2 rounded-md border-2 border-gray-400" id="recipe-search-input"
                         type="text" placeholder="ex. Parmesan Crusted Chicken" />
                 </div>
                 <button
-                    class="flex justify-center w-96 self-center  p-2 duration-200 ease-out rounded-md text-white hover:bg-opacity-80 delay-75 ease-in-out bg-blue-400"
+                    class="flex justify-center w-96 self-center p-2 hover:scale-95 duration-200 ease-out rounded-md text-white hover:bg-opacity-80 delay-75 ease-in-out bg-blue-400"
                     id="recipe-search-btn">
                     Search for recipe
                 </button>
-                <button
-                    class="w-96 items-center justify-center self-center p-2 duration-200 ease-out rounded-md text-white hover:bg-opacity-80 delay-75 ease-in-out bg-blue-400"
-                    id="search-history-btn" onclick="displayContainer()">
-                    Search History
-                </button>
+                <div class="w-full flex justify-start">
+                    <button
+                        class="w-max ml-4 items-start justify-start self-center p-2 duration-200 hover:scale-95 ease-out rounded-md text-black opacity-60 hover:opacity-100 hover:bg-opacity-100 hover:bg-blue-400 hover:text-white delay-75 ease-in-out bg-gray-300"
+                        id="search-history-btn">
+                        Clear history
+                    </button>
+                </div>
             </form>
-            <section id="history-container" class="pl-4 w-full h-12 flex row justify-start gap-2 hide">
-            </section>
+            <section id="history-container" class="pl-4 w-full h-12 flex row justify-start gap-2 hide"></section>
             <!-- this section below is where the individual recipe cards are populated with the fetched data.  -->
             <section name="fetched-api-data"
                 class="relative mt-4 flex-end self-start lg:min-h-[700px] max-h-96 w-full shadow-xl rounded-md overflow-auto"
                 id="recipe-content-card"></section>
-
         </section>
 
         <!-- news section container -->
@@ -154,18 +154,18 @@
             <h2 class="font-bold text-2xl md:text-3xl text-center items-center w-full md:text-center">
                 News
             </h2>
-            <div class="flex flex-col  w-full  gap-2 items-center mb-4">
+            <div class="flex flex-col w-full gap-2 items-center mb-4">
                 <p class="text-center border-b-2 border-blue-400 font-semibold w-max">
                     Read the latest news here.
                 </p>
                 <p class="w-5/6 text-center mt-0 text-md text-gray-500">
-                    Search for the latest news articles from 40,000 news sources and blogs
-                    with our news API. Our news API lets you search and retrieve live articles.
-                    Over 1 million new articles are indexed weekly.
+                    Search for the latest news articles from 40,000 news sources and
+                    blogs with our news API. Our news API lets you search and retrieve
+                    live articles. Over 1 million new articles are indexed weekly.
                 </p>
                 <div class="flex w-full justify-center mt-1">
                     <button
-                        class="rounded-md p-2 text-center w-36 outline-none bg-blue-400 text-white duration-200 ease-out hover:bg-opacity-80 delay-75 ease-in-out"
+                        class="rounded-md p-2 text-center w-36 outline-none bg-blue-400 text-white duration-200 ease-out hover:bg-opacity-80 delay-75 ease-in-out hover:scale-95"
                         id="news-search-btn">
                         Search News
                     </button>
