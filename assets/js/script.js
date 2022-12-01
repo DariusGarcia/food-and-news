@@ -67,15 +67,16 @@ function pullData() {
 		)
 		historyBtn.setAttribute('id', 'history-btn')
 		historyBtn.textContent = searchHistoryArr[i]
-
+		
 		historyBtn.addEventListener('click', () => {
 			// userRecipeSearchInput = this
 			console.log(userRecipeSearchInput)
 			var localStorageData = JSON.parse(
 				localStorage.getItem(historyBtn.value)
 			)
+			console.log(historyBtn.value)
 			console.log(typeof(localStorageData))
-			
+			console.log(localStorageData)
 			displayRecipeDetails(localStorageData)
 		})
 
