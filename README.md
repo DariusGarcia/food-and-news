@@ -7,9 +7,9 @@
 
 ## Description
 
-This web app lets users browse a selection of delicious recipes where they can view different nutritional facts and details about each recipe. 
+This web app lets users browse a selection of delicious recipes where they can view different nutritional facts and details about each recipe.
 
-Users are also able to view the latest top stories news articles around the globe. 
+Users are also able to view the latest top stories news articles around the globe.
 
 ## User Stories
 
@@ -47,17 +47,16 @@ Click the search new button to get a list of current top stories around the worl
 
 [Daniel Yang](https://github.com/danielshang11)
 
-
-
-
 ## Installation
 
 ```
 clone the repo to local machine
 ```
+
 ```
 cd into './food-and-news'
 ```
+
 ```
 open live server on index.html
 ```

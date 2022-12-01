@@ -49,7 +49,7 @@ document.addEventListener('submit', (event) => {
 
 // search history function
 function pushData() {
-	let historyData = userRecipeSearchInput.value
+	let historyData = { id: userRecipeSearchInput.value }
 	searchHistoryArr.push(historyData)
 	localStorage.setItem('searched-recipes1', JSON.stringify(searchHistoryArr))
 	console.log(historyData)
@@ -65,10 +65,12 @@ function pullData() {
 		// historyBtn.setAttribute('value', historyData)
 		historyBtn.setAttribute(
 			'class',
-			'p-2 bg-blue-200 flex items-center rounded-md'
+			'p-2 w-max px-4 mt-1 bg-gray-300 flex items-center rounded-md duration-200 ease-out text-black hover:bg-blue-400 delay-75 ease-in-out'
 		)
 		historyBtn.setAttribute('id', 'history-btn')
-		historyBtn.textContent = searchHistoryArr[i]
+		historyBtn.textContent = searchHistoryArr[i].id
+
+		let storageIndex = i
 
 		historyBtn.addEventListener('click', (event) => {
 			console.log(event.target.innerHTML)
@@ -78,6 +80,7 @@ function pullData() {
 			console.log(typeof localStorageData)
 			console.log(localStorageData)
 			displayRecipeDetails(localStorageData)
+
 		})
 
 		historyList.appendChild(historyBtn)
@@ -226,16 +229,16 @@ function displayRecipeDetails(arr) {
 		recipeCuisineType.textContent = arr[i].recipe.cuisineType
 
 		// append children to containers
-		cardContainerRight.appendChild(ingredientListEl)
 		cardContainerLeft.appendChild(recipeLabelEl)
 		cardContainerLeft.appendChild(recipeCuisineType)
 		cardContainerLeft.appendChild(recipeImageEl)
 		cardContainerLeft.appendChild(nutritionalFactsContainer)
 		cardContainerLeft.appendChild(dietTagsContainer)
 		cardContainerLeft.appendChild(instructionsEl)
-		cardContainerLeft.appendChild(dishTypeEl)
-		cardContainerLeft.appendChild(recipeCaloriesEl)
-		cardContainerLeft.appendChild(servingsAmountEl)
+		cardContainerRight.appendChild(dishTypeEl)
+		cardContainerRight.appendChild(recipeCaloriesEl)
+		cardContainerRight.appendChild(servingsAmountEl)
+		cardContainerRight.appendChild(ingredientListEl)
 		cardWrapper.appendChild(cardContainerLeft)
 		cardWrapper.appendChild(cardContainerRight)
 		recipeContentCardEl.appendChild(cardWrapper)
@@ -243,6 +246,19 @@ function displayRecipeDetails(arr) {
 		recipeContentCardEl.setAttribute('id', 'recipeContentCardEl')
 	}
 	return recipeContentCardEl
+}
+
+// darius function to fetch history tag
+
+function fetchSearchHistory(recipe) {
+	var searchQuery = `https://api.edamam.com/api/recipes/v2?type=public&q=${recipe}&app_id=${appID}&app_key=${appAPIKey}`
+	fetch(searchQuery)
+		.then((response) => response.json())
+		.then((data) => {
+			const dataReceived = data.hits
+			console.log(data.hit)
+			displayRecipeDetails(dataReceived)
+		})
 }
 
 function displayContainer() {
