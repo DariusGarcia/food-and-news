@@ -119,35 +119,32 @@
             id="home">
             <!-- User search input for specific recipe -->
 
-            <form action='submit' class="sticky top-0 flex flex-col items-center gap-2 py-2 h-full"
-                id="recipe-search-form">
+            <form action='submit' class="relative flex flex-col items-center gap-2 py-2 h-full" id="recipe-search-form">
                 <label for="Recipe search"
-                    class="md:ml-4 flex w-max self-center border-b-2 border-blue-400 justify-center font-bold tracking-wide">Search
+                    class=" flex w-max self-center border-b-2 border-blue-400 justify-center font-bold tracking-wide">Search
                     for a recipe</label>
                 <div id="search-wrapper" class="w-full flex justify-center">
                     <input autocomplete="off" autofocus
-                        class="w-96 mt-2 md:ml-4 self-start p-2 rounded-md border-2 border-gray-400"
-                        id="recipe-search-input" type="text" placeholder="ex. Parmesan Crusted Chicken" />
+                        class="w-96 mt-2  self-start p-2 rounded-md border-2 border-gray-400" id="recipe-search-input"
+                        type="text" placeholder="ex. Parmesan Crusted Chicken" />
                 </div>
                 <button
-                    class="flex justify-center w-96 self-center md:ml-4 p-2 duration-200 ease-out rounded-md text-white hover:bg-opacity-80 delay-75 ease-in-out bg-blue-400"
+                    class="flex justify-center w-96 self-center  p-2 duration-200 ease-out rounded-md text-white hover:bg-opacity-80 delay-75 ease-in-out bg-blue-400"
                     id="recipe-search-btn">
                     Search for recipe
-                </button>               
-            </form>
-            <div class="w-full flex justify-center">
+                </button>
                 <button
                     class="w-96 items-center justify-center self-center p-2 duration-200 ease-out rounded-md text-white hover:bg-opacity-80 delay-75 ease-in-out bg-blue-400"
                     id="search-history-btn" onclick="displayContainer()">
                     Search History
                 </button>
-            </div>
-            <section id="history-container" class="lg:ml-4 w-full h-12 flex row justify-start gap-2 hide">
+            </form>
+            <section id="history-container" class="pl-4 w-full h-12 flex row justify-start gap-2 hide">
             </section>
             <!-- this section below is where the individual recipe cards are populated with the fetched data.  -->
             <section name="fetched-api-data"
-            class="relative mt-4 flex-end self-start lg:min-h-[700px] max-h-96 w-full rounded-md overflow-auto"
-            id="recipe-content-card"></section>
+                class="relative mt-4 flex-end self-start lg:min-h-[700px] max-h-96 w-full rounded-md overflow-auto"
+                id="recipe-content-card"></section>
 
         </section>
 

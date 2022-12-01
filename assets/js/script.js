@@ -67,15 +67,13 @@ function pullData() {
 		)
 		historyBtn.setAttribute('id', 'history-btn')
 		historyBtn.textContent = searchHistoryArr[i]
-		
+
 		historyBtn.addEventListener('click', () => {
 			// userRecipeSearchInput = this
 			console.log(userRecipeSearchInput)
-			var localStorageData = JSON.parse(
-				localStorage.getItem(historyBtn.value)
-			)
+			var localStorageData = JSON.parse(localStorage.getItem(historyBtn.value))
 			console.log(historyBtn.value)
-			console.log(typeof(localStorageData))
+			console.log(typeof localStorageData)
 			console.log(localStorageData)
 			displayRecipeDetails(localStorageData)
 		})
@@ -122,12 +120,39 @@ function fetchEdamam() {
 			// console.log('store:' + edamamDataStore)
 			// pass the response JSON data into the handler function to populate the recipe card with the details
 			displayRecipeDetails(dataReceived)
-			console.log(typeof(dataReceived))
+			console.log(typeof dataReceived)
 			// sets the searched recipe results to local storage
 			localStorage.setItem(userRecipeSearchInput, JSON.stringify(data.hits))
-			
 
 			// console.log(`local storage data: ${localStorageData}`)
+		})
+
+	// reset the input fields and recipe list to empty after fetching searched recipe.
+	userRecipeSearchInput = ''
+	userRecipeSearchInput.textContent = ''
+}
+function fetchHistory(recipe) {
+	// reset the data array to be empty on every fetch request
+	edamamDataStore.length = 0
+
+	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${recipe}&app_id=${appID}&app_key=${appAPIKey}`
+	fetch(edamamURL)
+		.then((response) => response.json())
+		.then((data) => {
+			const dataReceived = data.hits
+			// push the JSON data into the edamam data store array
+			edamamDataStore.push(JSON.stringify(dataReceived))
+			// console.log('store:' + edamamDataStore)
+			// pass the response JSON data into the handler function to populate the recipe card with the details
+			displayRecipeDetails(dataReceived)
+
+			// sets the searched recipe results to local storage
+			localStorage.setItem('searched-recipes', JSON.stringify(data.hits))
+			var localStorageData = JSON.parse(
+				localStorage.getItem('searched-recipes')
+			)
+
+			console.log(`local storage data: ${localStorageData}`)
 		})
 
 	// reset the input fields and recipe list to empty after fetching searched recipe.
@@ -295,7 +320,6 @@ function displayRecipeDetails(arr) {
 // fetch recipe searched query when user clicks 'search for recipe button'
 // recipeSearchBtn.addEventListener('click', fetchEdamam)
 
-
-function displayContainer(){
-	document.querySelector('#history-container').classList.remove("hide")
+function displayContainer() {
+	document.querySelector('#history-container').classList.remove('hide')
 }
