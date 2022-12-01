@@ -63,7 +63,7 @@ function pullData() {
 		// historyBtn.setAttribute('value', historyData)
 		historyBtn.setAttribute(
 			'class',
-			'p-2 bg-blue-200 flex items-center rounded-md'
+			'p-2 w-max px-4 mt-1 bg-gray-300 flex items-center rounded-md duration-200 ease-out text-black hover:bg-blue-400 delay-75 ease-in-out'
 		)
 		historyBtn.setAttribute('id', 'history-btn')
 		historyBtn.textContent = searchHistoryArr[i]
