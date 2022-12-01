@@ -45,7 +45,7 @@ document.addEventListener('submit', (event) => {
 
 // search history function
 function pushData() {
-	let historyData = userRecipeSearchInput.value
+	let historyData = { id: userRecipeSearchInput.value }
 	searchHistoryArr.push(historyData)
 	localStorage.setItem('searched-recipes1', JSON.stringify(searchHistoryArr))
 	console.log(historyData)
@@ -66,15 +66,25 @@ function pullData() {
 			'p-2 w-max px-4 mt-1 bg-gray-300 flex items-center rounded-md duration-200 ease-out text-black hover:bg-blue-400 delay-75 ease-in-out'
 		)
 		historyBtn.setAttribute('id', 'history-btn')
-		historyBtn.textContent = searchHistoryArr[i]
+		historyBtn.textContent = searchHistoryArr[i].id
+
+		let storageIndex = i
 
 		historyBtn.addEventListener('click', () => {
 			console.log(userRecipeSearchInput)
-			var localStorageData = JSON.parse(localStorage.getItem(historyBtn.value))
-			console.log(historyBtn.value)
-			console.log(typeof localStorageData)
-			console.log(localStorageData)
-			displayRecipeDetails(localStorageData)
+			var localStorageData = JSON.parse(
+				localStorage.getItem('searched-recipes1')
+			)
+			console.log(
+				'🚀 ~ file: script.js:76 ~ historyBtn.addEventListener ~ localStorageData',
+				localStorageData[storageIndex]
+			)
+
+			fetchSearchHistory(localStorageData[storageIndex].id)
+			// console.log(historyBtn.value)
+			// console.log(typeof localStorageData)
+			// console.log(localStorageData)
+			// displayRecipeDetails(localStorageData)
 		})
 
 		historyList.appendChild(historyBtn)
@@ -266,6 +276,19 @@ function displayRecipeDetails(arr) {
 		recipeContentCardEl.setAttribute('id', 'recipeContentCardEl')
 	}
 	return recipeContentCardEl
+}
+
+// darius function to fetch history tag
+
+function fetchSearchHistory(recipe) {
+	var searchQuery = `https://api.edamam.com/api/recipes/v2?type=public&q=${recipe}&app_id=${appID}&app_key=${appAPIKey}`
+	fetch(searchQuery)
+		.then((response) => response.json())
+		.then((data) => {
+			const dataReceived = data.hits
+			console.log(data.hit)
+			displayRecipeDetails(dataReceived)
+		})
 }
 
 function displayContainer() {
