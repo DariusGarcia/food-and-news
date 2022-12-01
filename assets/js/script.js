@@ -37,7 +37,11 @@ if (localHistory !== null) {
 
 document.addEventListener('submit', (event) => {
 	event.preventDefault()
-	fetchEdamam()
+	var recipeInput= userRecipeSearchInput.value
+	if(!recipeInput){
+		return;
+	}
+	fetchEdamam(recipeInput)
 	pushData()
 	pullData()
 	document.querySelector('#recipe-search-form').reset()
@@ -54,9 +58,7 @@ function pushData() {
 function pullData() {
 	historyList.innerHTML = ''
 	let historyData = userRecipeSearchInput.value
-	// searchHistoryArr.map((item) => {
-	// 	console.log(item.recipe[1].title)
-	// })
+	
 	console.log(searchHistoryArr)
 	for (var i = 0; i < searchHistoryArr.length; i++) {
 		var historyBtn = document.createElement('button')
@@ -68,10 +70,11 @@ function pullData() {
 		historyBtn.setAttribute('id', 'history-btn')
 		historyBtn.textContent = searchHistoryArr[i]
 
-		historyBtn.addEventListener('click', () => {
+		historyBtn.addEventListener('click', (event) => {
+			console.log(event.target.innerHTML)
 			console.log(userRecipeSearchInput)
-			var localStorageData = JSON.parse(localStorage.getItem(historyBtn.value))
-			console.log(historyBtn.value)
+			var localStorageData = JSON.parse(localStorage.getItem(event.target.innerHTML))
+			console.log(historyBtn.innerHTML)
 			console.log(typeof localStorageData)
 			console.log(localStorageData)
 			displayRecipeDetails(localStorageData)
@@ -82,60 +85,34 @@ function pullData() {
 }
 
 // fetch Edamam API endpoint to get recipe details (10,000 calls/ month limit)
-function fetchEdamam() {
+function fetchEdamam(recipeInput) {
 	// reset the data array to be empty on every fetch request
 	edamamDataStore.length = 0
-	var userRecipeSearchInput = document.querySelector(
+	var RecipeSearchInput = document.querySelector(
 		'#recipe-search-input'
 	).value
-	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
+	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${RecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
 	fetch(edamamURL)
 		.then((response) => response.json())
 		.then((data) => {
 			const dataReceived = data.hits
 			// push the JSON data into the edamam data store array
 			edamamDataStore.push(JSON.stringify(dataReceived))
-			// console.log('store:' + edamamDataStore)
+			
 			// pass the response JSON data into the handler function to populate the recipe card with the details
 			displayRecipeDetails(dataReceived)
-			console.log(typeof dataReceived)
+			
 			// sets the searched recipe results to local storage
-			localStorage.setItem(userRecipeSearchInput, JSON.stringify(data.hits))
-
-			// console.log(`local storage data: ${localStorageData}`)
+			// localStorage.setItem(JSON.stringify(dataReceived), JSON.stringify(data.hits))
+			
+			localStorage.setItem(recipeInput , JSON.stringify(data.hits))
+			
+			
 		})
 
 	// reset the input fields and recipe list to empty after fetching searched recipe.
-	userRecipeSearchInput = ''
-	userRecipeSearchInput.textContent = ''
-}
-function fetchHistory(recipe) {
-	// reset the data array to be empty on every fetch request
-	edamamDataStore.length = 0
-
-	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${recipe}&app_id=${appID}&app_key=${appAPIKey}`
-	fetch(edamamURL)
-		.then((response) => response.json())
-		.then((data) => {
-			const dataReceived = data.hits
-			// push the JSON data into the edamam data store array
-			edamamDataStore.push(JSON.stringify(dataReceived))
-			// console.log('store:' + edamamDataStore)
-			// pass the response JSON data into the handler function to populate the recipe card with the details
-			displayRecipeDetails(dataReceived)
-
-			// sets the searched recipe results to local storage
-			localStorage.setItem('searched-recipes', JSON.stringify(data.hits))
-			var localStorageData = JSON.parse(
-				localStorage.getItem('searched-recipes')
-			)
-
-			console.log(`local storage data: ${localStorageData}`)
-		})
-
-	// reset the input fields and recipe list to empty after fetching searched recipe.
-	userRecipeSearchInput = ''
-	userRecipeSearchInput.textContent = ''
+	RecipeSearchInput = ''
+	RecipeSearchInput.textContent = ''
 }
 
 // data handler function to populate the recipe section list with each recipe details.
