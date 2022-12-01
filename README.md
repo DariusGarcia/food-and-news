@@ -41,11 +41,13 @@ Click the search new button to get a list of current top stories around the worl
 
 [Darius Garcia](https://github.com/dariusgarcia/)
 
+[Japbir Chhina](https://github.com/japchhina)
+
 [Griffin Hobbs](https://github.com/ffirgin)
 
 [Daniel Yang](https://github.com/danielshang11)
 
-[Japbir Chhina](https://github.com/japchhina)
+
 
 
 ## Installation
