@@ -249,16 +249,16 @@ function displayRecipeDetails(arr) {
 		recipeCuisineType.textContent = arr[i].recipe.cuisineType
 
 		// append children to containers
-		cardContainerRight.appendChild(ingredientListEl)
 		cardContainerLeft.appendChild(recipeLabelEl)
 		cardContainerLeft.appendChild(recipeCuisineType)
 		cardContainerLeft.appendChild(recipeImageEl)
 		cardContainerLeft.appendChild(nutritionalFactsContainer)
 		cardContainerLeft.appendChild(dietTagsContainer)
 		cardContainerLeft.appendChild(instructionsEl)
-		cardContainerLeft.appendChild(dishTypeEl)
-		cardContainerLeft.appendChild(recipeCaloriesEl)
-		cardContainerLeft.appendChild(servingsAmountEl)
+		cardContainerRight.appendChild(dishTypeEl)
+		cardContainerRight.appendChild(recipeCaloriesEl)
+		cardContainerRight.appendChild(servingsAmountEl)
+		cardContainerRight.appendChild(ingredientListEl)
 		cardWrapper.appendChild(cardContainerLeft)
 		cardWrapper.appendChild(cardContainerRight)
 		recipeContentCardEl.appendChild(cardWrapper)
