@@ -46,6 +46,12 @@ document.addEventListener('submit', (event) => {
 function pushData() {
 	let historyData = userRecipeSearchInput.value
 	searchHistoryArr.push(historyData)
+
+	var localStorageData = JSON.parse(localStorage.getItem('search-recipes1'))
+	if (localStorageData.includes(historyData)) {
+		console.log('')
+		return
+	}
 	localStorage.setItem('searched-recipes1', JSON.stringify(searchHistoryArr))
 	console.log(historyData)
 }
@@ -53,9 +59,7 @@ function pushData() {
 function pullData() {
 	historyList.innerHTML = ''
 	let historyData = userRecipeSearchInput.value
-	searchHistoryArr.map((item) => {
-		console.log(item.recipe[1].title)
-	})
+
 	for (var i = 0; i < searchHistoryArr.length; i++) {
 		var historyBtn = document.createElement('button')
 		historyBtn.setAttribute('value', historyData)
@@ -67,18 +71,12 @@ function pullData() {
 		historyBtn.textContent = searchHistoryArr[i]
 
 		historyBtn.addEventListener('click', () => {
-			// userRecipeSearchInput = this
+			fetchHistory(this.value)
 			console.log(userRecipeSearchInput)
-			// fetchEdamam()
 		})
 
-		historyList.appendChild(historyBtn)
+		historyList.append(historyBtn)
 		searchTagsContainerEl.appendChild(historyList)
-
-		// Added close button to recent cities
-		// var closeBtn = document.createElement("button");
-		// closeBtn.setAttribute("class", "btn-close btn-close-white");
-		// historyBtn.append(closeBtn);
 	}
 }
 // click on the history btn will run the fetch again
@@ -105,6 +103,34 @@ function fetchEdamam() {
 		'#recipe-search-input'
 	).value
 	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
+	fetch(edamamURL)
+		.then((response) => response.json())
+		.then((data) => {
+			const dataReceived = data.hits
+			// push the JSON data into the edamam data store array
+			edamamDataStore.push(JSON.stringify(dataReceived))
+			// console.log('store:' + edamamDataStore)
+			// pass the response JSON data into the handler function to populate the recipe card with the details
+			displayRecipeDetails(dataReceived)
+
+			// sets the searched recipe results to local storage
+			localStorage.setItem('searched-recipes', JSON.stringify(data.hits))
+			var localStorageData = JSON.parse(
+				localStorage.getItem('searched-recipes')
+			)
+
+			console.log(`local storage data: ${localStorageData}`)
+		})
+
+	// reset the input fields and recipe list to empty after fetching searched recipe.
+	userRecipeSearchInput = ''
+	userRecipeSearchInput.textContent = ''
+}
+function fetchHistory(recipe) {
+	// reset the data array to be empty on every fetch request
+	edamamDataStore.length = 0
+
+	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${recipe}&app_id=${appID}&app_key=${appAPIKey}`
 	fetch(edamamURL)
 		.then((response) => response.json())
 		.then((data) => {
