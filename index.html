@@ -133,23 +133,21 @@
                     class="flex justify-center w-96 self-center md:ml-4 p-2 duration-200 ease-out rounded-md text-white hover:bg-opacity-80 delay-75 ease-in-out bg-blue-400"
                     id="recipe-search-btn">
                     Search for recipe
-                </button>
-                <div class="w-full flex justify-center">
-                    <button
-                        class="w-96 items-center justify-center self-center p-2 duration-200 ease-out rounded-md text-white hover:bg-opacity-80 delay-75 ease-in-out bg-blue-400"
-                        id="search-history-btn" onclick="displayContainer()">
-                        Search History
-                    </button>
-                </div>
-                <section id="history-container" class="lg:ml-4 w-full h-12 flex row justify-start gap-2 ">
-                </section>
-
-                <!-- this section below is where the individual recipe cards are populated with the fetched data.  -->
-                <section name="fetched-api-data"
-                    class="relative mt-4 flex-end self-start lg:min-h-[700px] max-h-96 w-full rounded-md overflow-auto"
-                    id="recipe-content-card"></section>
+                </button>               
             </form>
-            
+            <div class="w-full flex justify-center">
+                <button
+                    class="w-96 items-center justify-center self-center p-2 duration-200 ease-out rounded-md text-white hover:bg-opacity-80 delay-75 ease-in-out bg-blue-400"
+                    id="search-history-btn" onclick="displayContainer()">
+                    Search History
+                </button>
+            </div>
+            <section id="history-container" class="lg:ml-4 w-full h-12 flex row justify-start gap-2 ">
+            </section>
+            <!-- this section below is where the individual recipe cards are populated with the fetched data.  -->
+            <section name="fetched-api-data"
+            class="relative mt-4 flex-end self-start lg:min-h-[700px] max-h-96 w-full rounded-md overflow-auto"
+            id="recipe-content-card"></section>
 
         </section>
 
