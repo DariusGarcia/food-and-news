@@ -69,7 +69,6 @@ function pullData() {
 		historyBtn.textContent = searchHistoryArr[i]
 
 		historyBtn.addEventListener('click', () => {
-			// userRecipeSearchInput = this
 			console.log(userRecipeSearchInput)
 			var localStorageData = JSON.parse(localStorage.getItem(historyBtn.value))
 			console.log(historyBtn.value)
@@ -79,29 +78,8 @@ function pullData() {
 		})
 
 		historyList.appendChild(historyBtn)
-		// searchTagsContainerEl.appendChild(historyList)
-
-		// Added close button to recent cities
-		// var closeBtn = document.createElement("button");
-		// closeBtn.setAttribute("class", "btn-close btn-close-white");
-		// historyBtn.append(closeBtn);
 	}
 }
-// click on the history btn will run the fetch again
-// historyList.addEventListener("click", function(event) {
-//     if (event.target.textContent === "") {
-//         var recepieIndex = searchHistoryArr.indexOf(event.target.parentElement.textContent)
-//         const newArr = searchHistoryArr.splice(recepieIndex, 1);
-//         localStorage.setItem("searched-recipes", JSON.stringify(searchHistoryArr));
-//         event.target.parentElement.remove();
-//     } else {
-//         userRecipeSearchInput = event.target.textContent;
-//         var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
-//         fetchEdamam();
-//     }
-// })
-
-// daniel to here
 
 // fetch Edamam API endpoint to get recipe details (10,000 calls/ month limit)
 function fetchEdamam() {
@@ -289,36 +267,6 @@ function displayRecipeDetails(arr) {
 	}
 	return recipeContentCardEl
 }
-
-// function to display search history
-// var userSearchHistory = []
-
-// function searchHistory() {
-// 	let searchTagsContainer = document.createElement('article')
-// 	var userSearchInput = document.querySelector('#recipe-search-input').value
-// 	if (!userSearchInput) {
-// 		console.log('Empty search input')
-// 		return
-// 	}
-// 	userSearchHistory.push(userSearchInput)
-// 	var historyBtn = document.createElement('button')
-// 	historyBtn.textContent = userSearchInput
-// 	historyBtn.setAttribute('value', userRecipeSearchInput)
-// 	historyBtn.setAttribute(
-// 		'class',
-// 		'p-2 bg-blue-200 flex items-center rounded-md'
-// 	)
-// 	historyBtn.setAttribute('id', 'history-btn')
-// 	historyBtn.addEventListener('click', () => {
-// 		userRecipeSearchInput = historyBtn.textContent
-// 	})
-
-// 	searchTagsContainer.appendChild(historyBtn)
-// 	return searchTagsContainer
-// }
-
-// fetch recipe searched query when user clicks 'search for recipe button'
-// recipeSearchBtn.addEventListener('click', fetchEdamam)
 
 function displayContainer() {
 	document.querySelector('#history-container').classList.remove('hide')
