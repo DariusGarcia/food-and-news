@@ -1,13 +1,15 @@
+import { $ } from './modules/dom.js'
+
 // edamam api
 // new API endpoint because the old API hit the monthly 500 limit
 var appID = '8909c56f'
 var appAPIKey = '77ee9383a58d5bfa72e049c92b170546'
 
 // query select elements
-var recipeContainerEl = document.querySelector('#recipeContainer')
-var buttonEl = document.querySelector('#searchBtn')
-var recipeSearchBtn = document.querySelector('#recipe-search-btn')
-var recipeContentCardEl = document.querySelector('#recipe-content-card')
+var recipeContainerEl = $('#recipeContainer')
+var buttonEl = $('#searchBtn')
+var recipeSearchBtn = $('#recipe-search-btn')
+var recipeContentCardEl = $('#recipe-content-card')
 var recipeDescriptionContainerEl = document.querySelector(
 	'#recipe-description-container'
 )
@@ -74,7 +76,7 @@ function pushData() {
 
 function pullData() {
 	historyList.innerHTML = ''
-for (var i = 0; i < searchHistoryArr.length; i++) {
+	for (var i = 0; i < searchHistoryArr.length; i++) {
 		var historyBtn = document.createElement('button')
 		historyBtn.setAttribute(
 			'class',
@@ -119,7 +121,6 @@ function fetchEdamam() {
 
 	// reset the input fields and recipe list to empty after fetching searched recipe.
 	userRecipeSearchInput = ''
-	userRecipeSearchInput.textContent = ''
 }
 function fetchHistory(recipe) {
 	// reset the data array to be empty on every fetch request
@@ -289,3 +290,14 @@ function clearSearchHistory() {
 function displayContainer() {
 	document.querySelector('#history-container').classList.remove('hide')
 }
+
+// function changeURL() {
+// 	history.replaceState(
+// 		'',
+// 		document.title,
+// 		window.location.origin + window.location.pathname + window.location.search
+// 	)
+// }
+
+// var browseBtn = document.querySelector('#browsing-btn')
+// browseBtn.addEventListener('click', inter)
