@@ -2,6 +2,13 @@
 
 [link to deployed app](https://dariusgarcia.github.io/food-and-news/)
 
+
+| Name | Status | Preview | Updated |
+| :--- | :----- | :------ | :------ |
+| **Food & News** | ✅ Ready ([Inspect](https://vercel.com/dariusg/food-and-news/9pVTLSBUM13BD4xn7L9urECU67sT)) | [Visit Preview](https://food-and-news-git-darius-dariusg.vercel.app) | Dec 3, 2022 at 7:05AM (UTC) |
+
+
+
 ![Screenshot of web app](./assets/images/homepage.png)
 ![Screenshot of web app](./assets/images/dashboard.png)
 
