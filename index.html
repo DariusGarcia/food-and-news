@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Food & News</title>
-    <meta name="description" content="Web app to find different recipes and store locations." />
+    <meta name="description" content="Web app to find different recipes and latest news articles." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="reset" href="./assets/css/reset.css" />
     <link href="https://unpkg.com/tailwindcss@%5E1.0/dist/tailwind.min.css" rel="stylesheet" />
@@ -80,7 +80,7 @@
                                 major diets.
                             </p>
                             <div class="mt-6">
-                                <a href=""
+                                <a href="" id="browsing-btn"
                                     class="inline-flex py-1.5 px-4 leading-7 rounded-lg font-semibold text-white shadow-sm hover:bg-opacity-80 duration-200 ease-in-out bg-blue-400 text-base hover:scale-95 ">Start
                                     browsing
                                 </a>
@@ -193,8 +193,9 @@
             </li>
         </ul>
     </footer>
-    <script src="./assets/js/fetchNews.js" async defer></script>
-    <script src="./assets/js/script.js" async defer></script>
+    <script src="./assets/js/modules/dom.js" type='module' async defer></script>
+    <script src="./assets/js/fetchNews.js" type="module" async defer></script>
+    <script src="./assets/js/script.js" type='module' async defer></script>
 </body>
 
 </html>

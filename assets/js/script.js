@@ -10,13 +10,10 @@ var recipeContentCardEl = $('#recipe-content-card')
 
 // array to store the fetched recipe data information
 var edamamDataStore = []
-var searchHistory = []
 
 // daniel from here
-var searchTagsContainerEl = $('#history-container')
 var historyList = $('#history-container')
 var userRecipeSearchInput = $('#recipe-search-input')
-var searchHistory
 var localHistory = localStorage.getItem(JSON.stringify('searched-recipes'))
 
 var searchHistoryArr = []
@@ -102,37 +99,12 @@ function fetchEdamam() {
 			edamamDataStore.push(JSON.stringify(dataReceived))
 			// pass the response JSON data into the handler function to populate the recipe card with the details
 			displayRecipeDetails(dataReceived)
-			console.log(typeof dataReceived)
 			// sets the searched recipe results to local storage
 			localStorage.setItem(userRecipeSearchInput, JSON.stringify(data.hits))
 		})
 
 	// reset the input fields and recipe list to empty after fetching searched recipe.
 	userRecipeSearchInput = ''
-}
-function fetchHistory(recipe) {
-	// reset the data array to be empty on every fetch request
-	edamamDataStore.length = 0
-
-	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${recipe}&app_id=${appID}&app_key=${appAPIKey}`
-	fetch(edamamURL)
-		.then((response) => response.json())
-		.then((data) => {
-			const dataReceived = data.hits
-			// push the JSON data into the edamam data store array
-			edamamDataStore.push(JSON.stringify(dataReceived))
-			// pass the response JSON data into the handler function to populate the recipe card with the details
-			displayRecipeDetails(dataReceived)
-			// sets the searched recipe results to local storage
-			localStorage.setItem('searched-recipes', JSON.stringify(data.hits))
-			var localStorageData = JSON.parse(
-				localStorage.getItem('searched-recipes')
-			)
-		})
-
-	// reset the input fields and recipe list to empty after fetching searched recipe.
-	userRecipeSearchInput = ''
-	userRecipeSearchInput.textContent = ''
 }
 
 // data handler function to populate the recipe section list with each recipe details.
@@ -144,38 +116,36 @@ function displayRecipeDetails(arr) {
 		// cardContainerRight holds recipe diet label tags, dish type, cals, servings, instructions and ingredients.
 		var cardContainerLeft = document.createElement('article')
 		var cardContainerRight = document.createElement('article')
-		// containerEnd holds the ingredients on large viewports widths.
 		var cardContainerEnd = document.createElement('article')
-		// card wrapper holds all three cardContainers so that a grid layout can be applied on large viewports and flex layout on mobile viewports.
 		var cardWrapper = document.createElement('div')
 		var cardWrapperRight = document.createElement('div')
-
-		// instructions and ingredients elements
-		var instructionsEl = document.createElement('article')
-		instructionsEl.setAttribute('id', 'instructions')
-
-		// ingredients list
-		var ingredientListEl = document.createElement('ol')
-		ingredientListEl.setAttribute('id', 'ingredientsContainer')
-		const ingredientsObj = arr[i].recipe.ingredientLines
-		// looping through the array of ingredient strings and putting them in their own <li> tag.
-		ingredientsObj.map((item) => {
-			var ingredientItem = document.createElement('li')
-			ingredientItem.setAttribute('id', 'ingredientItem')
-			ingredientItem.textContent = item
-			ingredientListEl.appendChild(ingredientItem)
-		})
-		instructionsEl.textContent = arr[i].recipe
 		cardWrapper.setAttribute('id', 'recipeCardWrapper')
 		cardWrapper.setAttribute('class', 'md:w-screen lg:w-full')
 		cardContainerLeft.setAttribute('id', 'recipeCardContainerLeft')
 		cardContainerRight.setAttribute('id', 'recipeCardContainerRight')
 		cardContainerEnd.setAttribute('id', 'recipeCardContainerEnd')
 
-		// recipe name label element
+		// ingredients list elements
+		var ingredientListEl = document.createElement('ol')
+		ingredientListEl.setAttribute('id', 'ingredientsContainer')
+		const ingredientsObj = arr[i].recipe.ingredientLines
+		// create <li> tags for each ingredient string.
+		ingredientsObj.map((item) => {
+			var ingredientItem = document.createElement('li')
+			ingredientItem.setAttribute('id', 'ingredientItem')
+			ingredientItem.textContent = item
+			ingredientListEl.appendChild(ingredientItem)
+		})
+
+		// recipe label element
 		var recipeLabelEl = document.createElement('h3')
 		recipeLabelEl.setAttribute('id', 'recipeLabel')
 		recipeLabelEl.textContent = arr[i].recipe.label
+
+		//recipe cuisine type (e.g. mexican/american)
+		var recipeCuisineType = document.createElement('p')
+		recipeCuisineType.setAttribute('id', 'cuisineType')
+		recipeCuisineType.textContent = arr[i].recipe.cuisineType
 
 		// recipe image element
 		var recipeImageEl = document.createElement('img')
@@ -187,7 +157,8 @@ function displayRecipeDetails(arr) {
 		var dietTagsContainer = document.createElement('ul')
 		dietTagsContainer.setAttribute('id', 'dietTagsContainer')
 		var dietTagindex = arr[i].recipe.dietLabels
-		// looping through the diet labels array and creating a new <li> tag for each diet label.
+
+		// create a new <li> tag for each diet label.
 		dietTagindex.map((item) => {
 			var dietTagItem = document.createElement('li')
 			dietTagItem.setAttribute('id', 'diet-tag-item')
@@ -201,15 +172,15 @@ function displayRecipeDetails(arr) {
 		instructionsEl.setAttribute('href', arr[i].recipe.url)
 		instructionsEl.setAttribute('target', '__blank')
 
-		// recipe calories element
-		var recipeCaloriesEl = document.createElement('p')
-		recipeCaloriesEl.setAttribute('id', 'recipeCaloriesEl')
-		recipeCaloriesEl.textContent = `${arr[i].recipe.calories.toFixed(0)}cal`
-
 		// recipe dish type
 		var dishTypeEl = document.createElement('p')
 		dishTypeEl.setAttribute('id', 'dishType')
 		dishTypeEl.textContent = arr[i].recipe.dishType[0]
+
+		// recipe calories element
+		var recipeCaloriesEl = document.createElement('p')
+		recipeCaloriesEl.setAttribute('id', 'recipeCaloriesEl')
+		recipeCaloriesEl.textContent = `${arr[i].recipe.calories.toFixed(0)}cal`
 
 		// recipe servings
 		var servingsAmountEl = document.createElement('p')
@@ -239,11 +210,6 @@ function displayRecipeDetails(arr) {
 		nutritionalFactsContainer.appendChild(carbsAmount)
 		nutritionalFactsContainer.appendChild(proteinAmount)
 		nutritionalFactsContainer.appendChild(sodiumAmount)
-
-		//recipe cuisine type (e.g. mexican/american)
-		var recipeCuisineType = document.createElement('p')
-		recipeCuisineType.setAttribute('id', 'cuisineType')
-		recipeCuisineType.textContent = arr[i].recipe.cuisineType
 
 		// append children to containers
 		cardContainerLeft.appendChild(recipeLabelEl)
@@ -275,17 +241,6 @@ if (localStorage == null) {
 function clearSearchHistory() {
 	localStorage.clear()
 }
-function displayContainer() {
-	$('#history-container').classList.remove('hide')
-}
-
-// function changeURL() {
-// 	history.replaceState(
-// 		'',
-// 		document.title,
-// 		window.location.origin + window.location.pathname + window.location.search
-// 	)
+// function displayContainer() {
+// 	$('#history-container').classList.remove('hide')
 // }
-
-// var browseBtn = $('#browsing-btn')
-// browseBtn.addEventListener('click', inter)
