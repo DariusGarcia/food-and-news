@@ -1,3 +1,5 @@
+import { $ } from './modules/dom.js'
+
 const newsAPIKey = 'cs7wlC4fGcduhcWkevNeksL97S7VQIgfW4W2Cynp'
 const limit = 5
 const newsURL = `https://api.thenewsapi.com/v1/news/top?api_token=${newsAPIKey}&locale=us&limit=${limit}`
@@ -10,7 +12,7 @@ function fetchNews(event) {
 		.then((data) => displayNewsData(data))
 }
 
-const newsContainerEl = document.querySelector('#news-wrapper')
+const newsContainerEl = $('#news-wrapper')
 
 // function to populate the news container section with individual news articles
 function displayNewsData(data) {
@@ -43,7 +45,6 @@ function displayNewsData(data) {
 
 		let newsCategoriesEl = document.createElement('p')
 		newsCategoriesEl.textContent = data.data[i].categories
-		console.log(newsCategoriesEl)
 		newsTitleEl.setAttribute('id', 'news-title')
 		newsTitleEl.setAttribute('href', data.data[i].url)
 		newsTitleEl.setAttribute('target', '_blank')
@@ -54,7 +55,6 @@ function displayNewsData(data) {
 		newsImageEl.setAttribute('id', 'news-image')
 		newsImageEl.setAttribute('src', data.data[i].image_url)
 		newsCategoriesEl.setAttribute('id', 'news-categories')
-
 		newsCardEl.appendChild(newsTitleEl)
 		newsCardEl.appendChild(newsDescriptionEl)
 		newsCardEl.appendChild(newsImgContainer)
@@ -63,5 +63,5 @@ function displayNewsData(data) {
 	}
 }
 
-let newsSearchBtn = document.querySelector('#news-search-btn')
+let newsSearchBtn = $('#news-search-btn')
 newsSearchBtn.addEventListener('click', fetchNews)
