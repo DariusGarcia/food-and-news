@@ -1,31 +1,21 @@
 import { $ } from './modules/dom.js'
 
 // edamam api
-// new API endpoint because the old API hit the monthly 500 limit
 var appID = '8909c56f'
 var appAPIKey = '77ee9383a58d5bfa72e049c92b170546'
 
 // query select elements
-var recipeContainerEl = $('#recipeContainer')
-var buttonEl = $('#searchBtn')
 var recipeSearchBtn = $('#recipe-search-btn')
 var recipeContentCardEl = $('#recipe-content-card')
-var recipeDescriptionContainerEl = document.querySelector(
-	'#recipe-description-container'
-)
-
-var recipeDetailsContainerEl = document.querySelector(
-	'#recipe-details-container'
-)
 
 // array to store the fetched recipe data information
 var edamamDataStore = []
 var searchHistory = []
 
 // daniel from here
-var searchTagsContainerEl = document.querySelector('#history-container')
-var historyList = document.querySelector('#history-container')
-var userRecipeSearchInput = document.querySelector('#recipe-search-input')
+var searchTagsContainerEl = $('#history-container')
+var historyList = $('#history-container')
+var userRecipeSearchInput = $('#recipe-search-input')
 var searchHistory
 var localHistory = localStorage.getItem(JSON.stringify('searched-recipes'))
 
@@ -42,7 +32,7 @@ recipeSearchBtn.addEventListener('click', (event) => {
 	fetchEdamam()
 	pushData()
 	pullData()
-	document.querySelector('#recipe-search-form').reset()
+	$('#recipe-search-form').reset()
 })
 
 // recipeSearchBtn.addEventListener('click', (event) => {
@@ -54,7 +44,7 @@ recipeSearchBtn.addEventListener('click', (event) => {
 // fetchEdamam(recipeInput)
 // pushData()
 // pullData()
-// document.querySelector('#recipe-search-form').reset()
+// $('#recipe-search-form').reset()
 // })
 
 // function to fetch recipe API when clicking a specific search history tag
@@ -102,9 +92,7 @@ function pullData() {
 function fetchEdamam() {
 	// reset the data array to be empty on every fetch request
 	edamamDataStore.length = 0
-	var userRecipeSearchInput = document.querySelector(
-		'#recipe-search-input'
-	).value
+	var userRecipeSearchInput = $('#recipe-search-input').value
 	var edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${userRecipeSearchInput}&app_id=${appID}&app_key=${appAPIKey}`
 	fetch(edamamURL)
 		.then((response) => response.json())
@@ -278,7 +266,7 @@ function displayRecipeDetails(arr) {
 }
 
 // function to clear the search history list
-var searchHistoryBtn = document.querySelector('#search-history-btn')
+var searchHistoryBtn = $('#search-history-btn')
 if (localStorage == null) {
 	searchHistoryBtn.innerHTML = ''
 } else {
@@ -288,7 +276,7 @@ function clearSearchHistory() {
 	localStorage.clear()
 }
 function displayContainer() {
-	document.querySelector('#history-container').classList.remove('hide')
+	$('#history-container').classList.remove('hide')
 }
 
 // function changeURL() {
@@ -299,5 +287,5 @@ function displayContainer() {
 // 	)
 // }
 
-// var browseBtn = document.querySelector('#browsing-btn')
+// var browseBtn = $('#browsing-btn')
 // browseBtn.addEventListener('click', inter)
