@@ -61,7 +61,7 @@ clone the repo to local machine
 ```
 
 ```
-cd into './food-and-news'
+cd food-and-news/
 ```
 
 ```
